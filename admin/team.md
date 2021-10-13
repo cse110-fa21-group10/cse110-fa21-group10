@@ -16,5 +16,5 @@ Team Members:
 - [Yunha](https://github.com/ynhch) - Comp sci - Design & Backend
 - Vincent/Dongyang - Computer Science - QA & Backend
 - Sarayu - Bioinformatics - Design & Frontend
-- Luke - Computer Engineering - Algo & Backend
+- [Luke](https://github.com/LJMNZS) - Computer Engineering - Algo & Backend
 
