@@ -12,7 +12,7 @@ Team Members:
 - [Chris](https://rinsworth.github.io/) - Computer Science - PM & Algo
 - Jimmy - Computer Science - QA & Backend
 - Arnav - computer science - PM & Frontend
-- Yixin/Esther - Computer Science - Design & Frontend
+- [Yixin/Esther](https://github.com/yij011) - Computer Science - Design & Frontend
 - [Yunha](https://github.com/ynhch) - Comp sci - Design & Backend
 - Vincent/Dongyang - Computer Science - QA & Backend
 - Sarayu - Bioinformatics - Design & Frontend
