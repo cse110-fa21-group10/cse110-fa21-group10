@@ -1,0 +1,20 @@
+#Team Page
+
+Team Pixie
+
+Brand: Chris' cat
+
+Values: Humility
+
+
+Team Members:
+- Mihir - Computer Engineering - QA/Doc & Algo
+- [Chris](https://rinsworth.github.io/) - Computer Science - PM & Algo
+- Jimmy - Computer Science - QA & Backend
+- Arnav - computer science - PM & Frontend
+- Yixin/Esther - Computer Science - Design & Frontend
+- Yunha - Comp sci - Design & Backend
+- Vincent/Dongyang - Computer Science - QA & Backend
+- Sarayu - Bioinformatics - Design & Frontend
+- Luke - Computer Engineering - Algo & Backend
+
