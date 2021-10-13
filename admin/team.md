@@ -1,4 +1,4 @@
-#Team Page
+# Team Page
 
 Team Pixie
 
@@ -8,7 +8,7 @@ Values: Humility
 
 
 Team Members:
-- Mihir - Computer Engineering - QA/Doc & Algo
+- [Mihir](https://github.com/MKekkar) - Computer Engineering - QA/Doc & Algo
 - [Chris](https://rinsworth.github.io/) - Computer Science - PM & Algo
 - Jimmy - Computer Science - QA & Backend
 - Arnav - computer science - PM & Frontend
