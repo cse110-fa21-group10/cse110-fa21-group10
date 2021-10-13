@@ -13,7 +13,7 @@ Team Members:
 - Jimmy - Computer Science - QA & Backend
 - Arnav - computer science - PM & Frontend
 - Yixin/Esther - Computer Science - Design & Frontend
-- Yunha - Comp sci - Design & Backend
+- [Mihir](https://github.com/MKekkar) - Comp sci - Design & Backend
 - Vincent/Dongyang - Computer Science - QA & Backend
 - Sarayu - Bioinformatics - Design & Frontend
 - Luke - Computer Engineering - Algo & Backend
