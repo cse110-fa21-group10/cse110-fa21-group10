@@ -1,1 +1,1 @@
-### [Video Link](youtube.com/watch?v=Nua6W-ebkrM)
+### [Video Link](https://www.youtube.com/watch?v=Nua6W-ebkrM)
