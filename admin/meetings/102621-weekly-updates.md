@@ -33,4 +33,4 @@ Luke, Mihir, Jimmy, Vincent, Yunha, Yixin
 	- primary focus on deciding our domain
 	- work towards creating wireframing and tentative tech stack
 	- work on project pitch
-	- meet again some time
+	- meet again some time this week/weekend
