@@ -7,7 +7,7 @@ Add profiles
 	- is crud
 	- can create, read, update, and delete profiles
 	
-- apetite
+- appetite
 	- add milestones
 	- "in two weeks, we want to"
 
