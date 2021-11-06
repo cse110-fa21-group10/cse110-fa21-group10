@@ -1,4 +1,4 @@
-#110221 General Meeting
+# 110221 General Meeting
 
 Artefacts like Mindmaps/Event-modelling diagrams/Interface diagrams for features (any 1 artefact for clarity on features) (can refer doc I sent last week)
 Low fidelity diagrams for UI (Document on Miro)
