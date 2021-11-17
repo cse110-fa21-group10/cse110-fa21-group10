@@ -14,7 +14,7 @@
 		- What applications we're going to use
 		- Finalization and implementation of tests
 	- Style guides (eslint) (being worked on!)
-![cicd](/media/sprint1-cicd.png)
+![cicd](/admin/meetings/media/sprint1-cicd.png)
 	
 ## Backend - Mihir, Luke
 	- Decided on API (spoonacular)
@@ -23,6 +23,6 @@
 	- Integration
 		- Sample query generated (will be used for card generation, etc)
 	- Looked a little bit into local storage (set aside for now)
-![query1](/media/sprint1-query1.png)
-![query2](/media/sprint1-query2.png)
+![query1](/admin/meetings/media/sprint1-query1.png)
+![query2](/admin/meetings/media/sprint1-query2.png)
 	
