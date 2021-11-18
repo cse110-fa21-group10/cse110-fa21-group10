@@ -1,0 +1,24 @@
+{
+  "name": "cse110-fa21-group10",
+  "version": "1.0.0",
+  "description": "We will be creating a CRUD website that will be hosting recipes.",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^8.2.0",
+    "eslint-config-google": "^0.14.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cse110-fa21-group10/cse110-fa21-group10.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cse110-fa21-group10/cse110-fa21-group10/issues"
+  },
+  "homepage": "https://github.com/cse110-fa21-group10/cse110-fa21-group10#readme"
+}
