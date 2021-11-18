@@ -26,6 +26,13 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - name: Test & publish code coverage
+      uses: paambaati/codeclimate-action@v3.0.0
+      env:
+        CC_TEST_REPORTER_ID: <code_climate_reporter_id>
+      with:
+        coverageCommand: npm run coverage
+        debug: true
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
