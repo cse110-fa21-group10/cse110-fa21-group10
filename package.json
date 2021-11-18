@@ -10,8 +10,7 @@
     "jsdoc": "^3.6.7"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "eslint:github-action": "eslint src/"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
