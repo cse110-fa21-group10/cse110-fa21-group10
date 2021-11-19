@@ -5,12 +5,14 @@
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
     "eslint": "^8.2.0",
     "eslint-config-google": "^0.14.0",
     "jsdoc": "^3.6.7"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint ."
   },
   "jest": {
     "preset": "jest-puppeteer",
