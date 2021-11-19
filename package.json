@@ -5,10 +5,16 @@
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
     "babel-eslint": "^10.1.0",
+    "babel-jest": "^27.3.1",
     "eslint": "^8.2.0",
     "eslint-config-google": "^0.14.0",
-    "jsdoc": "^3.6.7"
+    "jest": "^27.3.1",
+    "jest-puppeteer": "^6.0.0",
+    "jsdoc": "^3.6.7",
+    "puppeteer": "^11.0.0"
   },
   "scripts": {
     "test": "jest",
