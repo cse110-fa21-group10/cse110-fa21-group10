@@ -2,3 +2,5 @@
 .DS_Store
 node_modules/
 node_modules
+codeclimate-master/
+codeclimate-master
