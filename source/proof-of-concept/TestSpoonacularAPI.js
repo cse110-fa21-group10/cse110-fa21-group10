@@ -16,6 +16,10 @@ const initialQueryStr = `${initialQueryURI}?apiKey=${key}&query=${initialQueryTe
                         + `&includeIngredients=${includeIngredients}`;
 const data = [];
 
+/**
+ * This function is not cool
+ * @param {} this function also has no parameters
+ */
 async function init() {
   // fetch a list of possible matches
   let fetchSuccessful = await fetchQuery(processInitialQuery, initialQueryStr)
