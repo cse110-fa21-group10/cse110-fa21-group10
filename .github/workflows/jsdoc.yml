@@ -1,6 +1,6 @@
 name: jsdoc
 
-on: [push]
+on: [pull_request]
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -15,3 +15,8 @@ jobs:
     - run: npm ci
     - run: npm install --save-dev jsdoc
     - run: npx jsdoc -r source
+    - name: Deploy 🚀
+      uses: JamesIves/github-pages-deploy-action@4.1.6
+      with:
+        branch: gh-pages # The branch the action should deploy to.
+        folder: ./out # The folder the action should deploy.
