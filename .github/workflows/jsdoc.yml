@@ -42,12 +42,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-
     - name: Build
-      uses: codevise/documentation-js-action@v1
-      # with:
-      #   input: ./src
-      #   output: ./docs
     - run: npm ci
     - run: npm install --save-dev jsdoc
     - run: jsdoc --ext .js './source/*'
