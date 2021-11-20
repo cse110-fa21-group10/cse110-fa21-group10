@@ -242,3 +242,29 @@ h6 {
   border-radius: 5px;
   cursor: pointer;
 }
+
+/* recipe recommendation page */
+.New-Recipes-box,
+.New-American-box,
+.Best-Meat-box,
+.Top-Picks-box {
+  height: 100%;
+  width: 100%;
+  margin: 30px;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+
+.recipe-card {
+  width: 40%;
+  display: inline-block;
+  margin-left: 5px;
+  flex-shrink: 0;
+  border: 1px solid black;
+}
+
+.recipe-card > img {
+  height: 200px;
+  width: 200px;
+}
