@@ -31,6 +31,7 @@ jobs:
     #     debug: true
     - run: npm ci
     - run: npm install eslint --save-dev
+    - run: npm install eslint-plugin-only-warn --save-dev
     - run: npx eslint . --ext .js
     - run: npm run build --if-present
     - run: npm test
