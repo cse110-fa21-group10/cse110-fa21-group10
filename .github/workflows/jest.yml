@@ -1,16 +1,16 @@
-name: Tests
+# name: Tests
 
-on: 
+# on: 
 
-jobs:
-  build:
+# jobs:
+#   build:
 
-    runs-on: ubuntu-latest
+#     runs-on: ubuntu-latest
 
-    steps:
-    - uses: actions/checkout@v1
-    - name: Run Jest
-      uses: stefanoeb/jest-action@1.0.3
+#     steps:
+#     - uses: actions/checkout@v1
+#     - name: Run Jest
+#       uses: stefanoeb/jest-action@1.0.3
 
 # name: Tests
 
