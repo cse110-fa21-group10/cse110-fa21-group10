@@ -6,35 +6,18 @@ jobs:
   eslint:
     name: runner / eslint
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [10.x]
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+      - uses: mrdivyansh/eslint-action@1.0.7
+        # GITHUB_TOKEN in forked repositories is read-only
+        # https://help.github.com/en/actions/reference/events-that-trigger-workflows#pull-request-event-pull_request
+        if: ${{ github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository }} 
         with:
-          fetch-depth: 1
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: npm login
-        run:
-          npm config set //registry.npmjs.org/:_authToken=$NPM_READONLY_AUTH_TOKEN
-        env:
-          NPM_READONLY_AUTH_TOKEN: ${{ secrets.NPM_READONLY_AUTH_TOKEN }}
-
-      - name: npm install
-        working-directory: ./source
-        run: npm i --ignore-scripts
-
-      - name: Run ESLint
-        uses: ninosaurus/eslint-check@v5
-        with:
-          eslint-config-path: "./.eslintrc.js"
           repo-token: ${{secrets.GITHUB_TOKEN}}
+          eslint-rc: .eslintrc.js
+          execute-on-files:
+            - ./source
 
     # runs-on: ubuntu-latest
     # steps:
