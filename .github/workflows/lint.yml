@@ -16,8 +16,7 @@ jobs:
         with:
           repo-token: ${{secrets.GITHUB_TOKEN}}
           eslint-rc: .eslintrc.js
-          execute-on-files:
-            - ./source
+          execute-on-files: ./source
 
     # runs-on: ubuntu-latest
     # steps:
