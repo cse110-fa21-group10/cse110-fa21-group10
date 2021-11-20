@@ -34,7 +34,7 @@ jobs:
     - run: npm install eslint-plugin-only-warn --save-dev
     - run: npx eslint . --ext .js
   coverage:
-    needs: [ test ]
+    needs: [ build ]
     name: coverage
     runs-on: ubuntu-latest
     steps:
