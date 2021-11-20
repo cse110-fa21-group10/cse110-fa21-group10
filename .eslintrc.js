@@ -1,4 +1,7 @@
 module.exports = {
+    "env": {
+        "browser": true
+    },
     "extends": "google",
     "ignorePatterns": [".eslintrc.js"],
     "parserOptions": {
