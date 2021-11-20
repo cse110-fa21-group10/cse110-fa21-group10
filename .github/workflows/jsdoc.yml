@@ -1,3 +1,38 @@
+# name: jsdoc-radgrad
+ 
+# on: [push, pull_request]
+ 
+# defaults:
+#   run:
+#     working-directory: ./app
+ 
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+ 
+#       - name: Cache node modules
+#         uses: actions/cache@v2
+#         env:
+#           cache-name: cache-node-modules
+#         with:
+#           path: ~/.npm
+#           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+ 
+#       - uses: actions/setup-node@v1
+#         with:
+#           node-version: '12.x'
+ 
+#       - run: npm ci
+ 
+#       - run: npm run generate-docs
+ 
+#       # - run: git config --global user.email "johnson@hawaii.edu"
+#       # - run: git config --global user.name "Philip Johnson"
+#       # - run: git remote set-url origin https://radgrad:${{ secrets.GITHUB_TOKEN }}@github.com/radgrad/radgrad2.git
+#       - run: npm run gh-pages
+
 name: jsdoc
 
 on: [push, pull_request]
@@ -10,9 +45,14 @@ jobs:
 
     - name: Build
       uses: codevise/documentation-js-action@v1
-      with:
-        input: ./src
-        output: ./docs
+      # with:
+      #   input: ./src
+      #   output: ./docs
+    - run: npm ci
+    - run: npm install --save-dev jsdoc
+    - run: jsdoc --ext .js './source/*'
+
+
 # jobs:
 #   publish:
 #     runs-on: ubuntu-latest
