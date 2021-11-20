@@ -1,6 +1,6 @@
 name: jsdoc
 
-on: [push]
+on: [pull request]
 jobs:
   publish:
     runs-on: ubuntu-latest
