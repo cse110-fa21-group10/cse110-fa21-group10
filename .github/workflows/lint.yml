@@ -13,7 +13,7 @@ jobs:
           node-version: 16
       - run: npm ci # or yarn install
       - run: npm install eslint --save-dev
-      - run: npx eslint . --ext .js
+      - run: npx eslint source/**/*.js
       # - uses: sibiraj-s/action-eslint@v2
       #   with:
       #     eslint-args: '--ignore-path=.gitignore --quiet'
