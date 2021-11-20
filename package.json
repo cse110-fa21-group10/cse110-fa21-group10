@@ -21,7 +21,8 @@
   },
   "scripts": {
     "test": "jest",
-    "lint": "eslint . & eslint --max-warnings=0 ..."
+    "lint": "eslint . & eslint --max-warnings=0 ...",
+    "coverage": "jest --coverage"
   },
   "jest": {
     "preset": "jest-puppeteer",
