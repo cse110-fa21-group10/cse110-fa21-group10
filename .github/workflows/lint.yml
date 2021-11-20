@@ -34,7 +34,6 @@ jobs:
         uses: ninosaurus/eslint-check@v5
         with:
           eslint-config-path: "./.eslintrc.js"
-          custom-directory: "./source"
           repo-token: ${{secrets.GITHUB_TOKEN}}
 
     # runs-on: ubuntu-latest
