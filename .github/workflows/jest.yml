@@ -12,7 +12,7 @@ jobs:
     - name: Run Jest
       uses: stefanoeb/jest-action@1.0.3
       with:
-          files: source/
+          files: ./source
 
 # name: Tests
 
