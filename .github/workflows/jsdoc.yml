@@ -1,3 +1,17 @@
+name: jsdoc
+
+on: [push]
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build
+    - run: npm ci
+    - run: npm install --save-dev jsdoc
+    - run: jsdoc --ext .js './source/*'
+
 # name: jsdoc-radgrad
  
 # on: [push, pull_request]
@@ -32,21 +46,6 @@
 #       # - run: git config --global user.name "Philip Johnson"
 #       # - run: git remote set-url origin https://radgrad:${{ secrets.GITHUB_TOKEN }}@github.com/radgrad/radgrad2.git
 #       - run: npm run gh-pages
-
-name: jsdoc
-
-on: [push, pull_request]
-jobs:
-  publish:
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v1
-    - name: Build
-    - run: npm ci
-    - run: npm install --save-dev jsdoc
-    - run: jsdoc --ext .js './source/*'
-
 
 # jobs:
 #   publish:
