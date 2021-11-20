@@ -6,7 +6,7 @@ module.exports = {
     "extends": "google",
     "ignorePatterns": [".eslintrc.js"],
     "parserOptions": {
-        "ecmaVersion": 2015,
+        "ecmaVersion": 2018,
         "sourceType": "module"
     }
 };
