@@ -14,4 +14,4 @@ jobs:
       with:
         source_dir: ./source
         recurse: true
-        output_dir: ./document
+        output_dir: ./jsdoc
