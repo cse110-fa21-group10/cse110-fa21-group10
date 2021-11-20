@@ -33,6 +33,18 @@ jobs:
     - run: npm install eslint --save-dev
     - run: npm install eslint-plugin-only-warn --save-dev
     - run: npx eslint . --ext .js
+  coverage:
+    needs: [ test ]
+    name: coverage
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - uses: actions/setup-node@master
+      with:
+        node-version: '12'
+    - run: npm install -g yarn
+    - run: yarn install
+    - run: yarn build
     - uses: paambaati/codeclimate-action@v3.0.0
       env:
         CC_TEST_REPORTER_ID: 3746b129ff15217845a5a0646ba5168ba35b84682b2edb34d65297554161acc2
