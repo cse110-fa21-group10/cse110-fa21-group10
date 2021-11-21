@@ -22,8 +22,7 @@
   "scripts": {
     "build": "tsc",
     "test": "jest",
-    "lint": "eslint . & eslint --max-warnings=0 ...",
-    "coverage": "jest --coverage"
+    "lint": "eslint . & eslint --max-warnings=0 ..."
   },
   "jest": {
     "preset": "jest-puppeteer",
