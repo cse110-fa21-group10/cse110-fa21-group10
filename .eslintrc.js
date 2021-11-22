@@ -1,15 +1,14 @@
+/* @ignore */
+
 module.exports = {
-  'env': {
-    'browser': true,
-    'commonjs': true,
-    'es2021': true,
-  },
-  'extends': [
-    'google',
-  ],
-  'parserOptions': {
-    'ecmaVersion': 13,
-  },
-  'rules': {
-  },
+    "env": {
+        "browser": true
+    },
+    "plugins": ["only-warn"],
+    "extends": "google",
+    "ignorePatterns": [".eslintrc.js"],
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    }
 };

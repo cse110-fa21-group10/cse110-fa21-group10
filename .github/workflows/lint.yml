@@ -1,12 +1,39 @@
-name: Lint
+# name: Lint
 
-on: [push, pull_request]
+# on: [pull_request]
 
-jobs:
-  eslint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: stefanoeb/eslint-action@1.0.2
-        with:
-          files: source/
+# jobs:
+#   eslint:
+#     name: runner / eslint
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+#       - uses: actions/setup-node@v2
+#         with:
+#           node-version: 16
+#       - run: npm ci # or yarn install
+#       - run: npm install eslint --save-dev
+#       - run: npx eslint . --ext .js 'source/*'
+      # - uses: sibiraj-s/action-eslint@v2
+      #   with:
+      #     eslint-args: '--ignore-path=.gitignore --quiet'
+      #     extensions: 'js,jsx,ts,tsx'
+      #     annotations: true
+      #     files: source/
+
+    # runs-on: ubuntu-latest
+    # steps:
+    #   - uses: actions/checkout@v2
+      # - uses: reviewdog/action-eslint@v1
+      #   with:
+      #     reporter: github-pr-review # Change reporter.
+      #     eslint_flags: './source'
+
+# jobs:
+#   eslint:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v1
+#       - uses: stefanoeb/eslint-action@1.0.2
+#         with:
+#           files: source/
