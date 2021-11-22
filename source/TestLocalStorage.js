@@ -1,108 +1,138 @@
 window.addEventListener('DOMContentLoaded', init);
 
-const displayBox = document.querySelector('#pref-display');
+let prefsList;
 
 function init() {
-    const addButton = document.querySelector('.add-ingredient-button');
-    addButton.addEventListener('click', addIngredient);
-    const boxLabel = document.createElement('div');
+    initializePrefsBox();
+}
+
+/*
+ * Initializes the display box and list for preferences.
+ * Sets up the event listeners on the buttons, and 
+ * uses existing preferences from the cache to prefill
+ * the list. 
+ */
+function initializePrefsBox() {
+
+    // make the title for prefs box
+    const displayBox = document.querySelector('#pref-display');
+    const boxLabel = document.createElement('strong');
     boxLabel.textContent = 'Current Ingredients in Query:';
-    boxLabel.append(document.createElement('ul'));
     displayBox.append(boxLabel);
-    const existingPrefs = JSON.parse(localStorage.getItem('prefs'));
+
+    // set up the list of preferences to fill in later
+    const scrollableBox = document.createElement('div');
+    scrollableBox.setAttribute('style', 'height:75px;overflow:scroll');
+    prefsList = document.createElement('ul');
+    scrollableBox.append(prefsList);
+    displayBox.append(scrollableBox);
+
+    // make the buttons functional
+    document.querySelector('.add-ingredient-button').addEventListener('click', addIngredient);
     document.querySelector('.remove-ingredient-button').addEventListener('click', removeIngredient);
     document.querySelector('.clear-prefs-button').addEventListener('click', clearPrefs);
 
+    const existingPrefs = JSON.parse(localStorage.getItem('prefs'));
     if (existingPrefs) {
         const ingredientList = existingPrefs['ingredients'];
 
         for (let i = 0; i < ingredientList.length; ++i) {
             const ingredientLabel = document.createElement('li');
+            ingredientLabel.setAttribute('id', `_prefs-ingredient-${ingredientList[i]}`);
             ingredientLabel.textContent = ingredientList[i];
-            displayBox.append(ingredientLabel);
+            prefsList.append(ingredientLabel);
         }
+
     } else {
-        window.localStorage.clear();
-        const prefs = {
-            userName: '',
-            ingredients: [],
-            vegan: false,
-            vegetarian: false
-        }
-        window.localStorage.setItem('prefs', JSON.stringify(prefs));
+        clearPrefs();
         
     }
 }
 
+/*
+ * Adds the ingredient specified to in the text box
+ * with the id `add-ingredient-box`, then clears the
+ * text box. If the ingredient already exists in the
+ * preferences, then the function only clears the box.
+ */
 const addIngredient = () => {
     const addBox = document.querySelector('#add-ingredient-box');
     const ingredient = addBox.value;
+
     if (ingredient) {
         const local = window.localStorage;
         const prefs = JSON.parse(local.getItem('prefs'));
         const ingredientList = prefs['ingredients'];
+
         // if the ingredient is not in the list, add it
         if (ingredientList.indexOf(ingredient) < 0) {
             ingredientList.push(ingredient);
             const ingredientLabel = document.createElement('li');
-            ingredientLabel.setAttribute('id', ingredient);
+            ingredientLabel.setAttribute('id', `_prefs-ingredient-${ingredient}`);
             ingredientLabel.textContent = ingredient;
-            displayBox.append(ingredientLabel);
+            prefsList.append(ingredientLabel);
         }
-        const newPrefs = JSON.stringify(prefs);
-        local.setItem('prefs', newPrefs);
-        //document.querySelector('#pref-display').textContent = newPrefs;
-    }
-    addBox.value = '';
-}
 
-const removeIngredient = () => {
-    const removeBox = document.querySelector('#remove-ingredient-box');
-    const ingredient = removeBox.value;
-    if (ingredient) {
-        const local = window.localStorage;
-        const prefs = JSON.parse(local.getItem('prefs'));
-        const ingredientList = prefs['ingredients'];
-        const idx = ingredientList.indexOf(ingredient);
-        if (idx > -1) {
-            ingredientList.splice(idx, 1);
-            const ingredientLabel = document.querySelector(`#${ingredient}`);
-            ingredientLabel.remove();
-        }
         const newPrefs = JSON.stringify(prefs);
         local.setItem('prefs', newPrefs);
-        //document.querySelector('#pref-display').textContent = newPrefs;
     }
     addBox.value = '';
 }
 
 /*
- * Extract the local data to be used for autofilling the query.
+ * Removes the ingredient specified to in the text box
+ * with the id `remove-ingredient-box`, then clears the
+ * text box. If the ingredient is not found, then the 
+ * function only clears the box.
+ */
+const removeIngredient = () => {
+    const removeBox = document.querySelector('#remove-ingredient-box');
+    const ingredient = removeBox.value;
+    if (ingredient) {
+
+        // grab the local storage and look for ingredient
+        const local = window.localStorage;
+        const prefs = JSON.parse(local.getItem('prefs'));
+        const ingredientList = prefs['ingredients'];
+        const idx = ingredientList.indexOf(ingredient);
+
+        if (idx > -1) {
+            // ingredient exists in our list, now remove it
+            ingredientList.splice(idx, 1);
+            const ingredientLabel = document.querySelector(`#_prefs-ingredient-${ingredient}`);
+            ingredientLabel.remove();
+        }
+
+        // update local prefs with new list
+        const newPrefs = JSON.stringify(prefs);
+        local.setItem('prefs', newPrefs);
+    }
+    removeBox.value = '';
+}
+
+/*
+ * Extract the local data in object form to be used for 
+ * autofilling the query in the API functions.
  */
 const exportPrefs = () => {
     return JSON.parse(window.localStorage.getItem('prefs'));
 }
 
 /*
- * Clear the local preferences and update the html to remove our list of items
+ * Clears the local preferences and updates the html to 
+ * remove all the items from the list.
  */
 const clearPrefs = () => {
-    const ingredientList = JSON.parse(
-        window.localStorage.getItem('prefs')
-    )['ingredients'];
-    for (let i = 0; i < ingredientList.length; ++i) {
-        console.log(ingredientList[i]);
+    const items = prefsList.querySelectorAll('li');
+    for (let i = 0; i < items.length; ++i){
+        items[i].remove();
     }
-    window.localStorage.clear();
-}
-
-/*
- * 
- */
-const refreshBox = () => {
-    for (let i = 0; i < ingredientList.length; ++i) {
-        const ingredientLabel = document.createElement('li');
-        ingredientLabel.textContent = ingredientList[i];
-        displayBox.append(ingredientLabel);
+    window.localStorage.clear(); // may remove later if we store other stuff locally
+    const prefs = {
+        userName: '',
+        ingredients: [],
+        vegan: false,
+        vegetarian: false
     }
+    window.localStorage.setItem('prefs', JSON.stringify(prefs));
 }
