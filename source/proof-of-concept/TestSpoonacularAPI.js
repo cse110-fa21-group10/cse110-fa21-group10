@@ -6,72 +6,97 @@ window.addEventListener('DOMContentLoaded', init);
 //          too many times (or make a new account for a new key)
 const key = '';
 
-// Change these to get different results in the query & console log output
-const initialQueryTerm = 'nachos';
-const includeIngredients = 'rice';
-
-const baseURI = 'https://api.spoonacular.com/recipes';
-const initialQueryURI = `${baseURI}/complexSearch`;
-const initialQueryStr = `${initialQueryURI}?apiKey=${key}&query=${initialQueryTerm}`
-                        + `&includeIngredients=${includeIngredients}`;
-const data = [];
+const baseURL = 'https://api.spoonacular.com/recipes/';
 
 async function init() {
-  // fetch a list of possible matches
-  let fetchSuccessful = await fetchQuery(processInitialQuery, initialQueryStr)
-      .catch(fetchSuccess => {
-    if (!fetchSuccess) {
-      console.log('Query fetch unsuccessful');
-      return;
-    }
-  });
-  console.log(`Fetching a list of results for ${initialQueryTerm} with ${includeIngredients}:`);
-  console.log(data);
-
-  //take the first result and search for its full recipe
-  if (data.length) {
-    const recipeID = data[0]['id'];
-    const recipeQuery = `${baseURI}/${recipeID}/information?apiKey=${key}`;
-
-    console.log(`Recipe data for ${data[0]['title']}`);
-    fetchSuccessful = await fetchQuery(console.log, recipeQuery)
-        .catch(fetchSuccess => {
-      if (!fetchSuccess) {
-        console.log('Recipe fetch unsuccessful');
+    const initialData = [];
+    let dummyIngredients = ["apples", "flour", "sugar"] // List of ingredients to search for
+    let numToFetch = "2"; // Number of results
+    let ingredientQuery = getIngredientQuery(dummyIngredients); // Processes list of ings to proper format
+    let initialQueryStr = `${baseURL}findByIngredients?apiKey=${key}&ingredients=${ingredientQuery}&number=${numToFetch}`;
+    let fetchSuccessful = await fetchJSON(initialQueryStr, initialData);
+    if (!fetchSuccessful) {
+        console.log("Recipes were not fetched successfully from ingredients");
         return;
-      }
+    }
+
+    let JSONquery = processInitialResult(initialData);
+
+    const JSONresult = [];
+    if (!JSONquery.length) return;
+    let recipeQuery = "";
+    for (let i = 0; i < JSONquery.length; i++) {
+        recipeQuery = `${baseURL}${JSONquery[i]}/information?apiKey=${key}`;
+        fetchSuccessful = await fetchJSON(recipeQuery, JSONresult);
+        if (!fetchSuccessful) {
+            console.log("Full JSONs not fetched successfully");
+            return;
+        }
+    }
+    console.log(JSONresult);
+    console.log("DONE!");
+
+}
+
+/*
+ * Async function based on Lab 6
+ * Parses JSON into an array from URL
+ * TODO: Make error messages more verbose
+*/
+async function fetchJSON(URL, arr) {
+    return new Promise( (resolve, reject) => {
+        fetch(URL)
+          .then(function(response) {
+              if (!response.ok) {
+                  throw new Error("error occured");
+              }
+              return response.json();
+          })
+          .then(function(json) {
+              if (json.length > 1) {
+                for (let i = 0; i < json.length; i++) {
+                    arr.push(json[i]);
+                }
+                if (arr.length == json.length) resolve(true);
+              }
+              else {
+                  arr.push(json);
+                  resolve(true);
+              }
+          })
+          .catch(function(error) {
+              console.error("Problem with fetching:", error);
+              reject(false);
+          })
     });
-  } else {
-    console.log(`No recipes found for query: ${initialQueryTerm} with ${includeIngredients}`);
-  } 
 }
 
 /*
- * Helper function that queries with queryStr and processes the result with process()
- */
-async function fetchQuery(process, queryStr) {
-  return new Promise((resolve, reject) => {
-
-    fetch(queryStr)
-      .then(response => response.json())
-      .then(_data => {
-        process(_data);
-      })
-      .then(() => {resolve(true)})
-      .catch(() => {
-        console.log(`ERR: Fetching ${queryStr} unsuccessful.`);
-        reject(false);
-      });
-
-  });
+ * Function that will get and process ingredient query from frontend
+ * Not yet sure how connection to frontend works
+ * So only the processing part is implemented
+ * Will process a given array of comma separated strings into one string in the Spoonacular format
+ * TODO: Connect to front-end to receive query
+*/
+function getIngredientQuery(arr) {
+    let result = '';
+    if (!arr) return;
+    else result = result + arr[0].toLowerCase();
+    for (let i = 1; i < arr.length; i++) {
+        result = result + ",+" + arr[i].toLowerCase();
+    }
+    return result;
 }
 
 /*
- * Small helper function for separating and saving the initial query's results
- */
-const processInitialQuery = _data => {
-  const results = _data['results'];
-  for (let i = 0; i < results.length; i++) {
-    data.push(results[i]);
-  }
+ * Processes the initial JSON response from recipe search
+ * Returns the recipe IDs for the second search
+*/
+function processInitialResult(arr) {
+    let result = [];
+    if (!arr) return [];
+    for (let i = 0; i < arr.length; i++) {
+        result.push(arr[i]['id']);
+    }
+    return result;
 }
