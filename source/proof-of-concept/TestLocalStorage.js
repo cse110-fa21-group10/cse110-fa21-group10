@@ -7,6 +7,16 @@ function init() {
 }
 
 /*
+ * Note: Local Preferences JSON is formatted like this:
+ * {
+ *     userName: '' (unused right now),
+ *     ingredients: [] ([string]),
+ *     vegan: (undefined|true|false),
+ *     vegetarian: (undefined|true|false)
+ *  }
+ */
+
+/*
  * Initializes the display box and list for preferences.
  * Sets up the event listeners on the buttons, and 
  * uses existing preferences from the cache to prefill
