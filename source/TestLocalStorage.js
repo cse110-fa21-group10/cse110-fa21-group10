@@ -49,17 +49,17 @@ function initializePrefsBox() {
             prefsList.append(ingredientLabel);
         }
 
-        if (existingPrefs['vegan'] === '') {
+        if (existingPrefs['vegan'] === undefined) {
             document.querySelector('#vegan-dropdown').selectedIndex = 0;
         } else {
-            const result = existingPrefs['vegetarian'] === 'true';
+            const result = existingPrefs['vegan'];
             document.querySelector('#vegan-dropdown').selectedIndex = result ? 1 : 2;
         }
 
-        if (existingPrefs['vegetarian'] === '') {
+        if (existingPrefs['vegetarian'] === undefined) {
             document.querySelector('#vegetarian-dropdown').selectedIndex = 0;
         } else {
-            const result = existingPrefs['vegetarian'] === 'true';
+            const result = existingPrefs['vegetarian'];
             document.querySelector('#vegetarian-dropdown').selectedIndex = result ? 1 : 2;
         }
 
@@ -153,8 +153,8 @@ const clearPrefs = () => {
     const prefs = {
         userName: '',
         ingredients: [],
-        vegan: '',
-        vegetarian: ''
+        vegan: undefined,
+        vegetarian: undefined
     }
     window.localStorage.setItem('prefs', JSON.stringify(prefs));
 }
