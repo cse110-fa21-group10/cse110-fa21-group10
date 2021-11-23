@@ -31,6 +31,12 @@ function initializePrefsBox() {
     document.querySelector('.add-ingredient-button').addEventListener('click', addIngredient);
     document.querySelector('.remove-ingredient-button').addEventListener('click', removeIngredient);
     document.querySelector('.clear-prefs-button').addEventListener('click', clearPrefs);
+    document.querySelector('#vegan-dropdown').addEventListener('change', e => { 
+        updatePrefs('vegan', e.target.value === 'true');
+    });
+    document.querySelector('#vegetarian-dropdown').addEventListener('change', e => { 
+        updatePrefs('vegetarian', e.target.value === 'true');
+    });
 
     const existingPrefs = JSON.parse(localStorage.getItem('prefs'));
     if (existingPrefs) {
@@ -41,6 +47,20 @@ function initializePrefsBox() {
             ingredientLabel.setAttribute('id', `_prefs-ingredient-${ingredientList[i]}`);
             ingredientLabel.textContent = ingredientList[i];
             prefsList.append(ingredientLabel);
+        }
+
+        if (existingPrefs['vegan'] === '') {
+            document.querySelector('#vegan-dropdown').selectedIndex = 0;
+        } else {
+            const result = existingPrefs['vegetarian'] === 'true';
+            document.querySelector('#vegan-dropdown').selectedIndex = result ? 1 : 2;
+        }
+
+        if (existingPrefs['vegetarian'] === '') {
+            document.querySelector('#vegetarian-dropdown').selectedIndex = 0;
+        } else {
+            const result = existingPrefs['vegetarian'] === 'true';
+            document.querySelector('#vegetarian-dropdown').selectedIndex = result ? 1 : 2;
         }
 
     } else {
@@ -127,12 +147,24 @@ const clearPrefs = () => {
     for (let i = 0; i < items.length; ++i){
         items[i].remove();
     }
+    document.querySelector('#vegan-dropdown').selectedIndex = 0;
+    document.querySelector('#vegetarian-dropdown').selectedIndex = 0;
     window.localStorage.clear(); // may remove later if we store other stuff locally
     const prefs = {
         userName: '',
         ingredients: [],
-        vegan: false,
-        vegetarian: false
+        vegan: '',
+        vegetarian: ''
     }
+    window.localStorage.setItem('prefs', JSON.stringify(prefs));
+}
+
+/*
+ * Updates the preference option referred to by param `option` to be
+ * set to the param `value`. Example updateValue('vegan', true); 
+ */ 
+const updatePrefs = (option, value) => {
+    const prefs = JSON.parse(window.localStorage.getItem('prefs'));
+    prefs[option] = value;
     window.localStorage.setItem('prefs', JSON.stringify(prefs));
 }
