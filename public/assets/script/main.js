@@ -1,8 +1,19 @@
-// main.js
+  // main.js
 
-// Here is where the recipes that you will fetch.
-const recipes = [
-    'assets/recipes/sample-recipe.json'
+  // Here is where the recipes that you will fetch.
+  const recipes = [
+    'assets/recipes/sample-recipe.json',
+    'assets/recipes/sample-recipe.json',
+    'assets/recipes/sample-recipe.json',
+    'assets/recipes/sample-recipe.json',
+    'assets/recipes/sample-recipe.json',
+    'assets/recipes/sample-recipe.json',
+    'assets/recipes/sample-recipe.json',
+    'assets/recipes/sample-recipe.json',
+    'assets/recipes/sample-recipe.json',
+    'assets/recipes/sample-recipe.json',
+    'assets/recipes/sample-recipe.json',
+    'assets/recipes/sample-recipe.json',
   ];
   
   // Once all of the recipes that were specified above have been fetched, their
@@ -23,8 +34,7 @@ const recipes = [
     };
     // Add the first three recipe cards to the page
     createRecipeCards();
-    // Make the "Show more" button functional
-    bindShowMore();
+    loadAdvancedSearch();
   }
   
   async function fetchRecipes() {
@@ -40,12 +50,14 @@ const recipes = [
         fetch(recipes[i])
         .then(response => response.json())
         .then(data => {
-          recipeData[recipes[i]] = data;
+          recipeData[i] = data;
           if (Object.keys(recipeData).length == recipes.length) {
+            console.log('fetch success');
             resolve(true);
           }
         })
         .catch(error => {
+          console.log(error);
           reject(false);
         })
       }
@@ -53,17 +65,32 @@ const recipes = [
   }
   
   function createRecipeCards() {
-    // This function is called for you up above.
-    // From within this function you can access the recipe data from the JSON 
-    // files with the recipeData Object above. Make sure you only display the 
-    // three recipes we give you, you'll use the bindShowMore() function to
-    // show any others you've added when the user clicks on the "Show more" button.
-  
-    var box = document.querySelector('.Top-Picks-box');
-    console.log(recipeData);
-    for(let i = 0; i < 9; i ++) {
+    let box = document.querySelector('.Top-Picks-box');
+    for(let i = 0; i < recipes.length; i ++) {
       let recipe_card = document.createElement('recipe-card');
-      recipe_card.data = recipeData[recipes[i]];
+      recipe_card.data = recipeData[i];
       box.appendChild(recipe_card);
     }
+  }
+
+  function loadAdvancedSearch() {
+    const search_box = document.querySelector('.search-box');
+    const search_button = document.querySelector('.search-btn');
+
+    search_button.addEventListener('click', () => {
+      // placeholder for content in search box
+      let search_content = document.querySelector('.search-txt').innerHTML;
+
+      let search_component= document.createElement('advanced-search');
+      let recipe_card = document.createElement('recipe-card');
+      let result_box = document.createElement('div');
+      let recipe_result = document.createElement('h3');
+      recipe_result.innerHTML = 'Search Result';
+
+      recipe_card.data = recipeData[0];
+      result_box.appendChild(recipe_result);
+      search_box.appendChild(search_component);
+      search_box.appendChild(result_box);
+      search_box.appendChild(recipe_card);
+    });
   }

@@ -264,12 +264,35 @@ svg:not(:root) {
 }
 
 /* */
+/* search result page */
+.search-box {
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.search-box > div {
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.search-box > div > h3 {
+  margin-top: 20px;
+  margin-left: 50px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+/* */
 /* recipe recommendation page */
+.recommend-title {
+  vertical-align: middle;
+  margin-top: 30px;
+}
+
 .Top-Picks-box {
   height: 100%;
   width: 100%;
-  margin: 20px;
-  padding: 10px 0px;
+  padding: 0px 0px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -283,6 +306,7 @@ svg:not(:root) {
   border-radius: 8px;
   padding: 10px;
   width: 400px;
+  float: left;
   /* do your own width, height */
 }
 
@@ -327,7 +351,7 @@ svg:not(:root) {
   transition-property: color, background-color;
 }
 
-.recipe-love-icon:hover {
+.recipe-like-icon:hover {
   background-color: #d0d0d0;
   color: #000;
   outline: none;
@@ -336,26 +360,4 @@ svg:not(:root) {
 .recipe-love-icon:active {
   background-color: rgba(230, 230, 230, 0.1);
   color: #fff;
-}
-
-.recipe-card-text {
-  display: inline-flexbox;
-  margin-top: 20px;
-}
-
-.recipe-title {
-  /* do your own width, height */
-  align-items: center;
-  margin-top: 20px;
-  font-size: 0.9375rem;
-  line-height: 1.4;
-}
-
-.recipe-description {
-  /* do your own height */
-  overflow: hidden;
-  white-space: normal;
-  width: 55%;
-  align-items: left;
-  padding-right: 50px;
 }

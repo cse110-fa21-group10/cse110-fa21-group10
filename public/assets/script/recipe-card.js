@@ -29,56 +29,57 @@ class RecipeCard extends HTMLElement {
       var styles = `
         
         article {
+          margin-top: 50px;
+          margin-left: 50px;
           align-items: center;
           border: 1px solid rgb(223, 225, 229);
           border-radius: 8px;
           display: grid;
-          grid-template-rows: 118px 56px 14px 18px 15px 36px;
+          grid-template-rows: 200px 150px;
           height: auto;
           row-gap: 5px;
-          padding: 0 16px 16px 16px;
-          width: 178px;
+          padding: 0 10px 10px 10px;
+          width: 300px;
+          float: left;
+        }
+
+        a {
+          text_decoration: none;
+        }
+
+        a:hover {
+          text_decoration: underline;
+        }
+
+        .recipe-card-text {
+          display: inline-flexbox;
+          margin-top: 15px;
         }
   
-        article > img {
-          border-top-left-radius: 8px;
-          border-top-right-radius: 8px;
-          height: 200px;
-          object-fit: cover;
-          margin-left: 16px;
-          width: calc(100% + 32px);
-        }
-  
-        p.ingredients {
-          height: 32px;
-          line-height: 16px;
-          padding-top: 4px;
+        .ingredients {
+          height: 50px;
+          line-height: 25px;
           overflow: hidden;
+          white-space: normal;
+          width: 100%;
+          align-items: left;
+          padding-right: 50px;
         }
         
   
-        p.title {
+        .recipe-title {
           display: -webkit-box;
-          font-size: 16px;
-          height: 36px;
-          line-height: 18px;
+          font-size: 20px;
+          height: 25px;
+          line-height: 25px;
           overflow: hidden;
           -webkit-line-clamp: 2;
           -webkit-box-orient: vertical;
         }
   
-        p:not(.title), span, time {
-          color: #70757A;
-          font-size: 32px;
-        }
-
-        .recipe-card {
-          margin: 10px;
-          border: 1px solid #dfdfdf;
-          border-radius: 8px;
-          padding: 10px;
-          width: 400px;
-          /* do your own width, height */
+        p:not(.recipe-title), time {
+          color: #4d4d4d;
+          font-size: 18px;
         }
         
         .recipe-top-media {
@@ -89,15 +90,13 @@ class RecipeCard extends HTMLElement {
         }
         
         .recipe-image {
-          margin-right: 10px;
-          margin-left: 10px;
-          height: 200px;
-          width: 500px;
-          max-width: 100%;
+          margin-left: -10px;
           border-radius: 10px;
+          object-fit: cover;
+          width: 100%;
+          height: 200px;
+          width: 320px;
           vertical-align: middle;
-          box-sizing: border-box;
-        
           background: rgba(0, 0, 0, 0.16);
         }
         
@@ -132,44 +131,22 @@ class RecipeCard extends HTMLElement {
           background-color: rgba(230, 230, 230, 0.1);
           color: #fff;
         }
-        
-        .recipe-card-text {
-          display: inline-flexbox;
-          margin-top: 20px;
-        }
-        
-        .recipe-title {
-          /* do your own width, height */
-          align-items: center;
-          margin-top: 20px;
-          font-size: 0.9375rem;
-          line-height: 1.4;
-        }
-        
-        .recipe-description {
-          /* do your own height */
-          overflow: hidden;
-          white-space: normal;
-          width: 55%;
-          align-items: left;
-          padding-right: 50px;
-        }
       `;
       styleElem.innerHTML = styles;
   
       // ============== Container for Whole Recipe Card ============== 
       // Here's the root element that you'll want to attach all of your other elements to
-      var card = document.createElement('article');
+      const card = document.createElement('article');
 
       // ============== Container for Recipe Card Media ============== 
       // Here is the top media part
       var media_div = document.createElement('div');
       media_div.setAttribute('class', 'recipe-top-media');
       // get recipe image from recipe-card json
-      var image = document.createElement('img');
-      image.setAttribute('src', data.image);
-      image.setAttribute('alt', data.title);
-      image.setAttribute('class', 'recipe-image');
+      var recipe_image = document.createElement('img');
+      recipe_image.setAttribute('src', data.image);
+      recipe_image.setAttribute('alt', data.title);
+      recipe_image.setAttribute('class', 'recipe-image');
       // Here is the icon part
       var love_icon_div = document.createElement('div');
       love_icon_div .setAttribute('class', 'recipe-love-icon');
@@ -193,7 +170,7 @@ class RecipeCard extends HTMLElement {
       love_icon_div.appendChild(icon_link);
 
       // fill our media container
-      media_div.appendChild(image);
+      media_div.appendChild(recipe_image);
       media_div.appendChild(love_icon_div);
   
       // ============== Container for Recipe Card Text ============== 
@@ -205,18 +182,19 @@ class RecipeCard extends HTMLElement {
       title.setAttribute('class','recipe-title');
       // get link image from recipe-card json
       var title_link = document.createElement('a');
-      title_link.setAttribute('href', searchForKey(data, 'sourceUrl'));
+      title_link.setAttribute('href', 'recipe-page.html');
       title_link.innerHTML = searchForKey(data, 'title');
       title.appendChild(title_link);
   
       // get cooking time from 
       var time = document.createElement('time');
-      time.innerHTML = searchForKey(data, 'readyInMinutes') + ' min';
+      time.innerHTML = '<b>Cook time: </b>' + searchForKey(data, 'readyInMinutes') + ' min';
   
       // get ingredients from 
       var pIngred = document.createElement('p');
       pIngred.setAttribute('class', 'ingredients');
-      pIngred.innerHTML =  createIngredientList(searchForKey(data, 'extendedIngredients'));
+      pIngred.innerHTML = '<b>Ingredients: </b>' + data.extendedIngredients;
+      //console.log(data.extendedIngredients);
   
       // fill our text container
       text_div.appendChild(title);
@@ -258,99 +236,6 @@ class RecipeCard extends HTMLElement {
       }
     });
     return value;
-  }
-  
-  /**
-   * Extract the URL from the given recipe schema JSON object
-   * @param {Object} data Raw recipe JSON to find the URL of
-   * @returns {String} If found, it returns the URL as a string, otherwise null
-   */
-  function getUrl(data) {
-    if (data.url) return data.url;
-    if (data['@graph']) {
-      for (let i = 0; i < data['@graph'].length; i++) {
-        if (data['@graph'][i]['@type'] == 'Article') return data['@graph'][i]['@id'];
-      }
-    };
-    return null;
-  }
-  
-  /**
-   * Similar to getUrl(), this function extracts the organizations name from the
-   * schema JSON object. It's not in a standard location so this function helps.
-   * @param {Object} data Raw recipe JSON to find the org string of
-   * @returns {String} If found, it retuns the name of the org as a string, otherwise null
-   */
-  function getOrganization(data) {
-    if (data.publisher?.name) return data.publisher?.name;
-    if (data['@graph']) {
-      for (let i = 0; i < data['@graph'].length; i++) {
-        if (data['@graph'][i]['@type'] == 'Organization') {
-          return data['@graph'][i].name;
-        }
-      }
-    };
-    return null;
-  }
-  
-  /**
-   * Converts ISO 8061 time strings to regular english time strings.
-   * Not perfect but it works for this lab
-   * @param {String} time time string to format
-   * @return {String} formatted time string
-   */
-  function convertTime(time) {
-    let timeStr = '';
-  
-    // Remove the 'PT'
-    time = time.slice(2);
-  
-    let timeArr = time.split('');
-    if (time.includes('H')) {
-      for (let i = 0; i < timeArr.length; i++) {
-        if (timeArr[i] == 'H') return `${timeStr} hr`;
-        timeStr += timeArr[i];
-      }
-    } else {
-      for (let i = 0; i < timeArr.length; i++) {
-        if (timeArr[i] == 'M') return `${timeStr} min`;
-        timeStr += timeArr[i];
-      }
-    }
-  
-    return '';
-  }
-  
-  /**
-   * Takes in a list of ingredients raw from imported data and returns a neatly
-   * formatted comma separated list.
-   * @param {Array} ingredientArr The raw unprocessed array of ingredients from the
-   *                              imported data
-   * @return {String} the string comma separate list of ingredients from the array
-   */
-  function createIngredientList(ingredientArr) {
-    let finalIngredientList = '';
-  
-    /**
-     * Removes the quantity and measurement from an ingredient string.
-     * This isn't perfect, it makes the assumption that there will always be a quantity
-     * (sometimes there isn't, so this would fail on something like '2 apples' or 'Some olive oil').
-     * For the purposes of this lab you don't have to worry about those cases.
-     * @param {String} ingredient the raw ingredient string you'd like to process
-     * @return {String} the ingredient without the measurement & quantity 
-     * (e.g. '1 cup flour' returns 'flour')
-     */
-    function _removeQtyAndMeasurement(ingredient) {
-      return ingredient.split(' ').splice(2).join(' ');
-    }
-  
-    ingredientArr.forEach(ingredient => {
-      ingredient = _removeQtyAndMeasurement(ingredient);
-      finalIngredientList += `${ingredient}, `;
-    });
-  
-    // The .slice(0,-2) here gets ride of the extra ', ' added to the last ingredient
-    return finalIngredientList.slice(0, -2);
   }
   
   // Define the Class so you can use it as a custom element.
