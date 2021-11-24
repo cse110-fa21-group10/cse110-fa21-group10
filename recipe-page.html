@@ -9,9 +9,10 @@
 
 
   <!-- Main Stylesheet & Scripts -->
-  <link rel="stylesheet" href="recipe-page.css" />
-  <!--script src="assets/scripts/main.js" type="module"></script
-  <script src="scripts.js" type="module"></script>-->
+  <link rel="stylesheet" href="css/recipe-page.css" />
+  <!--script src="assets/scripts/main.js" type="module"></script-->
+
+  <script src="scripts.js" type="module"></script>
 </head>
 
 <body>
@@ -20,9 +21,9 @@
       <h1>Recipe Site</h1>
     </div> 
 
-    <!--<div class="account"> 
-      <button class="account-button">Account</button><br><br>
-    </div> -->
+    <div class="account"> 
+        <button class="account-button">Account</button><br><br>
+      </div>
 
     <div class="search"> 
       <input type="text" />
@@ -34,8 +35,7 @@
     </div>
 
     <div class="recipe">
-        <!--html recipe template(autofilled using json)-->
-        <!--<h2 class="title">Recipe #1</h2>
+        <h2>Recipe #1</h2>
         <p class="author">Author First/Last Name</p>
         <div class="recipe-overview">
             <p class="recipe-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vestibulum ante in neque viverra, vitae commodo lorem vulputate. Sed nec  felis eget urna semper accumsan. Fusce auctor diam quis imperdiet  scelerisque. Nunc et convallis lectus, ut luctus ante. Sed sodales ut  nulla nec hendrerit. Curabitur sit amet nisi lacinia, tempor mauris ac,  sollicitudin felis. Praesent hendrerit blandit diam in fringilla. Nullam  vitae diam a dolor ultrices aliquam. Aenean iaculis dignissim euismod.
@@ -63,67 +63,11 @@
             <li>Proin tempus pellentesque ex, ut fermentum felis tincidunt dapibus.  Aenean enim diam, elementum a aliquam id, elementum vitae metus. Proin  ac egestas tortor. Vestibulum auctor justo mattis, dignissim justo non,  vulputate ante.</li>
             <li>Pellentesque maximus risus sed consequat pharetra.  Aliquam erat volutpat. Duis velit odio, lobortis sit amet ornare eget,  efficitur vulputate sem. Suspendisse potenti. Vivamus varius, neque sit  amet congue convallis, arcu sapien hendrerit leo, ac vehicula justo est  sit amet lectus.</li>
             <li>Pellentesque maximus risus sed consequat pharetra.  Aliquam erat volutpat. Duis velit odio, lobortis sit amet ornare eget,  efficitur vulputate sem. Suspendisse potenti. Vivamus varius, neque sit  amet congue convallis, arcu sapien hendrerit leo, ac vehicula justo est  sit amet lectus.</li>
-        </ol>-->
+        </ol>
+        
     </div>
-    <script>
-      const recipeURL = '../assets/recipes/sample-recipe.json'
-      //get recipe data from json file
-      fetch(recipeURL)
-        .then(response => response.json())
-        .then(data => {
-          console.log(data);
-          addData(data);
-        })
-        .catch((error) => {
-          console.log(error)
-        });
-      
-      function addData(recipeData) {
-        let recipe = document.querySelector('.recipe');
 
-        let title = document.createElement('h2');
-        title.classList.add('title');
-        title.innerHTML = recipeData.title;
-        recipe.appendChild(title);
-
-        let overview = document.createElement('div');
-        overview.classList.add('recipe-overview');
-
-        let description = document.createElement('p');
-        description.classList.add('recipe-description');
-        description.innerHTML = recipeData.summary;
-        overview.appendChild(description);
-
-        let image = document.createElement('img');
-        image.classList.add('recipe-image');
-        image.setAttribute('src', recipeData.image);
-        image.setAttribute('alt', 'recipe-image');
-
-        overview.appendChild(image);
-      
-        recipe.appendChild(overview);
-
-        let time = document.createElement('p');
-        time.classList.add('cook-time');
-        time.innerHTML = '<b>Cook Time: </b>' + recipeData.readyInMinutes + ' Minutes';
-        recipe.appendChild(time);
-
-        let ingredients = document.createElement('ul');
-        for(let i = 0; i < recipeData.extendedIngredients.length; i++) {
-          let ingredient = document.createElement('li');
-          ingredient.innerHTML = recipeData.extendedIngredients[i];
-          ingredients.appendChild(ingredient);
-        }
-        recipe.appendChild(ingredients);
-
-        let steps = document.createElement('div');
-        steps.classList.add('recipe-steps');
-        steps.innerHTML = recipeData.instructions;
-        recipe.appendChild(steps);
-      }
-    </script>
-
-    <!--<h2>Similar recipes</h2>
+    <h2>Similar recipes</h2>
     <div class="recipe-container">
 
       <article class="recipe-card">
@@ -158,7 +102,7 @@
         </div>
       </article>
 
-    </div>-->
+    </div>
 
     <h2>Front Page Recommendations</h2>
     <div class="recipe-container">
