@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Main Stylesheets & Scripts -->
+  <link rel="stylesheet" href="../recipe-page.css" />
+  <script src="TestLocalStorage.js" type="module"></script>
+</head>
+<body>
+  <div class="search"> 
+    <input type="text" id="add-ingredient-box" name="add-ingredient">
+    <button class="add-ingredient-button">Add Ingredient</button>
+    <br>
+    <input type="text" id="remove-ingredient-box" name="remove-ingredient">
+    <button class="remove-ingredient-button">Remove Ingredient</button>
+    <br>
+    <button class="clear-prefs-button">Clear Preferences</button>
+    <div id="pref-display"></div>
+    <label for="vegan">Vegan:</label>
+    <select name="vegan" id="vegan-dropdown">
+      <option value="none" disabled>Select an Option</option>
+      <option value="true">Yes</option>
+      <option value="false">No</option>
+    </select>
+    <label for="vegetarian">Vegetarian:</label>
+    <select name="vegetarian" id="vegetarian-dropdown">
+      <option value="none" disabled>Select an Option</option>
+      <option value="true">Yes</option>
+      <option value="false">No</option>
+    </select>
+  </div>
+  <!-- NOTE: NO ELEMENTS HERE YET, CHECK CONSOLE LOGS -->
+</body>
+
+</html>
