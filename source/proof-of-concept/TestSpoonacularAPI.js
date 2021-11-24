@@ -10,10 +10,11 @@ const baseURL = 'https://api.spoonacular.com/recipes/';
 
 async function init() {
     const initialData = [];
-    let dummyIngredients = ["apples", "flour", "sugar"] // List of ingredients to search for
+    let dummyIngredients = ["apples", "flour", "sugar"]; // List of ingredients to search for
     let numToFetch = "2"; // Number of results
+    let dummyDiet = "vegetarian";    // Diet option to search for
     let ingredientQuery = getIngredientQuery(dummyIngredients); // Processes list of ings to proper format
-    let initialQueryStr = `${baseURL}findByIngredients?apiKey=${key}&ingredients=${ingredientQuery}&number=${numToFetch}`;
+    let initialQueryStr = `${baseURL}complexSearch?apiKey=${key}&includeIngredients=${ingredientQuery}&diet=${dummyDiet}&number=${numToFetch}`;
     let fetchSuccessful = await fetchJSON(initialQueryStr, initialData);
     if (!fetchSuccessful) {
         console.log("Recipes were not fetched successfully from ingredients");
@@ -80,11 +81,21 @@ async function fetchJSON(URL, arr) {
 */
 function getIngredientQuery(arr) {
     let result = '';
+
+    let prefList = exportPrefs();   // List of user preference
+    let prefIngredients = prefList['ingredients'];  // User preference ingredient
+    let prefDiet = prefList['diet'];    // User preference diet
+
     if (!arr) return;
     else result = result + arr[0].toLowerCase();
     for (let i = 1; i < arr.length; i++) {
-        result = result + ",+" + arr[i].toLowerCase();
+        result = result + "," + arr[i].toLowerCase();
     }
+
+    result = result + "," + prefIngredients.toLowerCase();
+    result = result + "," + prefDiet.toLowerCase();
+
+    // Now the `result` should have a form of 'arr[0],arr[1], ... ,arr[n],prefIngredients,prefDiet'
     return result;
 }
 
