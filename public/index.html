@@ -22,68 +22,227 @@
       to avoid connecting the SDK to running emulators.
     -->
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
-
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
   </head>
+
   <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
-    </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
-  </body>
+        <header>
+            <!-- Nav Bar -->
+            <nav class="homepage-navbar-section">
+                <div class="navbar-container">
+                    <div class="navbar-left-container">
+                        <div class="navbar-left-link">
+                            <!-- Home Icon -->
+                            <a class="bavbar-left-logo" href="../index.html">Recipe Site</a>
+                            <!-- Link List -->
+                            <ul class="navbar-link-list">
+                                <li class="navbar-active-link">
+                                    <a href="../index.html">Home</a>
+                                </li>
+                                <li>
+                                    <a href="../recipe-page.html">Recipe</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="navbar-right-container">
+                        <div class="navbar-search-box">
+                            <input class="search-txt" type="text" placeholder="Quick Search">
+                            <a class="search-btn">
+                                <svg class="icon" viewBox="0 0 1024 1024" width="30px">
+                                    <path d="M424.024 766.098c-91.619 0-177.754-35.679-242.538-100.464-133.735-133.737-133.735-351.344 0-485.078 64.784-64.784 150.919-100.462 242.538-100.462s177.754 35.677 242.539 100.462c133.733 133.735 133.735 351.34 0 485.078-64.785 64.783-150.922 100.464-242.539 100.464zM424.024 196.085c-60.637 0-117.643 23.613-160.523 66.489-88.512 88.51-88.51 232.53 0 321.040 42.876 42.876 99.885 66.491 160.523 66.491s117.643-23.614 160.523-66.491c88.51-88.51 88.51-232.53 0-321.040-42.876-42.876-99.885-66.489-160.523-66.489z" fill="#e94118" p-id="1176"></path>
+                                    <path d="M886.838 943.904c-14.842 0-29.684-5.663-41.010-16.986l-261.286-261.285c-22.647-22.649-22.647-59.369 0-82.018 22.647-22.647 59.37-22.647 82.018 0l261.286 261.286c22.647 22.649 22.647 59.369 0 82.018-11.325 11.322-26.167 16.985-41.010 16.985z" fill="#e94118" p-id="1177"></path>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="navbar-advanced-search">
+                             <a href="../search.html">Advanced Search</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        
+        <main class="container">
+            <!-- Welcome Text -->
+            <h1> Start your healthy life </h1>
+        
+            <!-- Product List -->
+            <section class="flex-container" id="product-list">
+              <!-- Insert Products Here -->
+            </section>
+        
+            <template>
+              <!-- Sample Product Item -->
+              <!-- <div class="product">
+                <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+                  alt="Fjallraven - Foldstack No. 1 Backpack, Fits 15 Laptops" width=200>
+                <p class="title">Fjallraven - Foldstack No. 1 Backpack, Fits 15 Laptops</p>
+                <p class="price">$109.95</p>
+                <button onclick="alert('Added to Cart!')">Add to Cart</button>
+              </div> -->
+            </template>
+            <div class="recommend-title"><h2>Top Picks</h2></div>
+            <div class="Top-Picks">
+                <div class="Top-Picks-box">
+                    <recipe-card class="recipe-card">
+                        <article>
+                            <div class="recipe-top-media">
+                                <img class="recipe-image" src="../proof-of-concept/test_site/placeholder.png" alt="recipe-image" />
+                                <div class="recipe-like-icon">
+                                    <a href="#" class="like-icon">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="heart">
+                                            <path fill="none" stroke="#000" stroke-width="1.03" d="M10,4 C10,4 8.1,2 5.74,2 C3.38,2 1,3.55 1,6.73 C1,8.84 2.67,10.44 2.67,10.44 L10,18 L17.33,10.44 C17.33,10.44 19,8.84 19,6.73 C19,3.55 16.62,2 14.26,2 C11.9,2 10,4 10,4 L10,4 Z"></path>
+                                        </svg>
+                                    </a>
+                                </div> 
+                            </div>
+                            <div class="recipe-card-text">   
+                                <p class="recipe-title">Recipe Title</p>
+                            </div>
+                        </article>
+                    </recipe-card>
+                    <recipe-card class="recipe-card">
+                        <article>
+                            <div class="recipe-top-media">
+                                <img class="recipe-image" src="../proof-of-concept/test_site/placeholder.png" alt="recipe-image" />
+                                <div class="recipe-like-icon">
+                                    <a href="#" class="like-icon">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="heart">
+                                            <path fill="none" stroke="#000" stroke-width="1.03" d="M10,4 C10,4 8.1,2 5.74,2 C3.38,2 1,3.55 1,6.73 C1,8.84 2.67,10.44 2.67,10.44 L10,18 L17.33,10.44 C17.33,10.44 19,8.84 19,6.73 C19,3.55 16.62,2 14.26,2 C11.9,2 10,4 10,4 L10,4 Z"></path>
+                                        </svg>
+                                    </a>
+                                </div> 
+                            </div>
+                            <div class="recipe-card-text">   
+                                <p class="recipe-title">Recipe Title</p>
+                            </div>
+                        </article>
+                    </recipe-card>
+                    <recipe-card class="recipe-card">
+                        <article>
+                            <div class="recipe-top-media">
+                                <img class="recipe-image" src="../proof-of-concept/test_site/placeholder.png" alt="recipe-image" />
+                                <div class="recipe-like-icon">
+                                    <a href="#" class="like-icon">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="heart">
+                                            <path fill="none" stroke="#000" stroke-width="1.03" d="M10,4 C10,4 8.1,2 5.74,2 C3.38,2 1,3.55 1,6.73 C1,8.84 2.67,10.44 2.67,10.44 L10,18 L17.33,10.44 C17.33,10.44 19,8.84 19,6.73 C19,3.55 16.62,2 14.26,2 C11.9,2 10,4 10,4 L10,4 Z"></path>
+                                        </svg>
+                                    </a>
+                                </div> 
+                            </div>
+                            <div class="recipe-card-text">   
+                                <p class="recipe-title">Recipe Title</p>
+                            </div>
+                        </article>
+                    </recipe-card>
+                    <recipe-card class="recipe-card">
+                        <article>
+                            <div class="recipe-top-media">
+                                <img class="recipe-image" src="../proof-of-concept/test_site/placeholder.png" alt="recipe-image" />
+                                <div class="recipe-like-icon">
+                                    <a href="#" class="like-icon">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="heart">
+                                            <path fill="none" stroke="#000" stroke-width="1.03" d="M10,4 C10,4 8.1,2 5.74,2 C3.38,2 1,3.55 1,6.73 C1,8.84 2.67,10.44 2.67,10.44 L10,18 L17.33,10.44 C17.33,10.44 19,8.84 19,6.73 C19,3.55 16.62,2 14.26,2 C11.9,2 10,4 10,4 L10,4 Z"></path>
+                                        </svg>
+                                    </a>
+                                </div> 
+                            </div>
+                            <div class="recipe-card-text">   
+                                <p class="recipe-title">Recipe Title</p>
+                            </div>
+                        </article>
+                    </recipe-card>
+                    <recipe-card class="recipe-card">
+                        <article>
+                            <div class="recipe-top-media">
+                                <img class="recipe-image" src="../proof-of-concept/test_site/placeholder.png" alt="recipe-image" />
+                                <div class="recipe-like-icon">
+                                    <a href="#" class="like-icon">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="heart">
+                                            <path fill="none" stroke="#000" stroke-width="1.03" d="M10,4 C10,4 8.1,2 5.74,2 C3.38,2 1,3.55 1,6.73 C1,8.84 2.67,10.44 2.67,10.44 L10,18 L17.33,10.44 C17.33,10.44 19,8.84 19,6.73 C19,3.55 16.62,2 14.26,2 C11.9,2 10,4 10,4 L10,4 Z"></path>
+                                        </svg>
+                                    </a>
+                                </div> 
+                            </div>
+                            <div class="recipe-card-text">   
+                                <p class="recipe-title">Recipe Title</p>
+                            </div>
+                        </article>
+                    </recipe-card>
+                    <recipe-card class="recipe-card">
+                        <article>
+                            <div class="recipe-top-media">
+                                <img class="recipe-image" src="../proof-of-concept/test_site/placeholder.png" alt="recipe-image" />
+                                <div class="recipe-like-icon">
+                                    <a href="#" class="like-icon">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="heart">
+                                            <path fill="none" stroke="#000" stroke-width="1.03" d="M10,4 C10,4 8.1,2 5.74,2 C3.38,2 1,3.55 1,6.73 C1,8.84 2.67,10.44 2.67,10.44 L10,18 L17.33,10.44 C17.33,10.44 19,8.84 19,6.73 C19,3.55 16.62,2 14.26,2 C11.9,2 10,4 10,4 L10,4 Z"></path>
+                                        </svg>
+                                    </a>
+                                </div> 
+                            </div>
+                            <div class="recipe-card-text">   
+                                <p class="recipe-title">Recipe Title</p>
+                            </div>
+                        </article>
+                    </recipe-card>
+                    <recipe-card class="recipe-card">
+                        <article>
+                            <div class="recipe-top-media">
+                                <img class="recipe-image" src="../proof-of-concept/test_site/placeholder.png" alt="recipe-image" />
+                                <div class="recipe-like-icon">
+                                    <a href="#" class="like-icon">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="heart">
+                                            <path fill="none" stroke="#000" stroke-width="1.03" d="M10,4 C10,4 8.1,2 5.74,2 C3.38,2 1,3.55 1,6.73 C1,8.84 2.67,10.44 2.67,10.44 L10,18 L17.33,10.44 C17.33,10.44 19,8.84 19,6.73 C19,3.55 16.62,2 14.26,2 C11.9,2 10,4 10,4 L10,4 Z"></path>
+                                        </svg>
+                                    </a>
+                                </div> 
+                            </div>
+                            <div class="recipe-card-text">   
+                                <p class="recipe-title">Recipe Title</p>
+                            </div>
+                        </article>
+                    </recipe-card>
+                    <recipe-card class="recipe-card">
+                        <article>
+                            <div class="recipe-top-media">
+                                <img class="recipe-image" src="../proof-of-concept/test_site/placeholder.png" alt="recipe-image" />
+                                <div class="recipe-like-icon">
+                                    <a href="#" class="like-icon">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="heart">
+                                            <path fill="none" stroke="#000" stroke-width="1.03" d="M10,4 C10,4 8.1,2 5.74,2 C3.38,2 1,3.55 1,6.73 C1,8.84 2.67,10.44 2.67,10.44 L10,18 L17.33,10.44 C17.33,10.44 19,8.84 19,6.73 C19,3.55 16.62,2 14.26,2 C11.9,2 10,4 10,4 L10,4 Z"></path>
+                                        </svg>
+                                    </a>
+                                </div> 
+                            </div>
+                            <div class="recipe-card-text">   
+                                <p class="recipe-title">Recipe Title</p>
+                            </div>
+                        </article>
+                    </recipe-card>
+                    <recipe-card class="recipe-card">
+                        <article>
+                            <div class="recipe-top-media">
+                                <img class="recipe-image" src="../proof-of-concept/test_site/placeholder.png" alt="recipe-image" />
+                                <div class="recipe-like-icon">
+                                    <a href="#" class="like-icon">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="heart">
+                                            <path fill="none" stroke="#000" stroke-width="1.03" d="M10,4 C10,4 8.1,2 5.74,2 C3.38,2 1,3.55 1,6.73 C1,8.84 2.67,10.44 2.67,10.44 L10,18 L17.33,10.44 C17.33,10.44 19,8.84 19,6.73 C19,3.55 16.62,2 14.26,2 C11.9,2 10,4 10,4 L10,4 Z"></path>
+                                        </svg>
+                                    </a>
+                                </div> 
+                            </div>
+                            <div class="recipe-card-text">   
+                                <p class="recipe-title">Recipe Title</p>
+                            </div>
+                        </article>
+                    </recipe-card>
+                    
+                </div>
+            </div>
+            
+            
+            
+        </main>
+    </body>
 </html>
