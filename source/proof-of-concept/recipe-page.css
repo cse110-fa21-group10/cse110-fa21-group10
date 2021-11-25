@@ -76,3 +76,9 @@ body{
   white-space: nowrap;
 }
 
+.local-prefs-list {
+  height: 75px;
+  overflow: scroll;
+  border: 1pt solid black;
+  width: 50%
+}

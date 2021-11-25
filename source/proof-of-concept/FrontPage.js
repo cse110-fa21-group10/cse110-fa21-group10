@@ -63,9 +63,7 @@ function initializePrefsBox() {
     });
     document.querySelector('.add-api-key-button').addEventListener('click', addKey);
     document.querySelector('.remove-api-key-button').addEventListener('click', removeKey);
-    document.querySelector('.search-button').addEventListener('click',() => {
-        processSearch();
-    });
+    document.querySelector('.search-button').addEventListener('click', processSearch);
 
     // check for existing local prefs
     const existingPrefs = JSON.parse(localStorage.getItem('prefs'));
@@ -221,16 +219,18 @@ async function processSearch() {
     const rawQuery = document.querySelector('#search-box').value;
     const splitQuery = rawQuery.split(',');
     const queryJSON = await runQuery(splitQuery);
-    if (queryJSON) {
-        window.localStorage.setItem('queryResult', JSON.stringify(queryJSON));
-        // window.location.href = '';
-        // TODO fill in link here to recipe page
+    if (queryJSON === 'fetch-failure') {
+        alert('There was an error while fetching! Please check parameters and try again');
+    } else if (queryJSON === 'no-results') {
+        alert('No recipes found for this query!');
     } else if (queryJSON === undefined) {
         alert('Missing API key!');
     } else {
-        alert('No recipes found for this query!');
+        window.localStorage.setItem('queryResult', JSON.stringify(queryJSON));
+        window.location.href = './recipe-page.html';
+        // TODO fill in link here to recipe page
     }
-    console.log(getLatestQuery());
+    //console.log(getLatestQuery());
 }
 
 const getLatestQuery = () => {
