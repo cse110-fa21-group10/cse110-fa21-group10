@@ -7,13 +7,12 @@ const baseURL = 'https://api.spoonacular.com/recipes/';
  * result from Spoonacular Complex Search
  */
 async function runQuery(ingredientList) {
-    const initialData = [];
+    let initialData = [];
     const numToFetch = '1'; // TODO: maybe move this somewhere else or change to a diff #
     const prefList = exportPrefs();   // List of user preference
     const key = prefList['key'];
     if (!key) {
-        alert('ERROR: MISSING API KEY');
-        return false;
+        return undefined;
     }
 
     const queryStr = getIngredientQuery(ingredientList, prefList);
@@ -23,9 +22,8 @@ async function runQuery(ingredientList) {
         console.log("Recipes were not fetched successfully from ingredients");
         return false;
     }
-    console.log(initialData);
+    initialData = initialData[0]['results'];
     let JSONquery = processInitialResult(initialData);
-    console.log(JSONquery);
 
     const JSONresult = [];
     if (!JSONquery.length) return false;
@@ -38,9 +36,7 @@ async function runQuery(ingredientList) {
             return false;
         }
     }
-    //console.log(JSONresult);
-    //console.log("DONE!");
-    return JSONresult
+    return JSONresult[0]; // For now, only return the first result
 }
 
 /*
@@ -49,6 +45,7 @@ async function runQuery(ingredientList) {
  * TODO: Make error messages more verbose
 */
 async function fetchJSON(URL, arr) {
+    console.log(`fetching:${URL}`);
     return new Promise( (resolve, reject) => {
         fetch(URL)
           .then(function(response) {
@@ -87,29 +84,31 @@ function getIngredientQuery(arr, prefList) {
 
     let key = prefList['key'];
     let prefIngredients = prefList['ingredients'];  // User preference ingredient
-    let prefDiet = prefList['diet'];    // User preference diet
+    let prefDiet = prefList['diet'].toLowerCase();    // User preference diet
 
     let result = '';
 
-    // TODO: check for empty arr, combine arr with prefs 
-    if (!arr) return;
-    else result = result + '&includeIngredients=' + arr[0].toLowerCase();
-    for (let i = 1; i < arr.length; i++) {
-        result = result + "," + arr[i].toLowerCase();
+    // combine arr with prefs 
+    arr.forEach(e => {
+        let idx = prefIngredients.indexOf(e);
+        if (idx === -1) {
+            prefIngredients.push(e);
+        }
+    })
+    if (!prefIngredients.length) return;
+    else result = result + '&includeIngredients=' + prefIngredients[0].toLowerCase();
+    for (let i = 1; i < prefIngredients.length; i++) {
+        result = result + "," + prefIngredients[i].toLowerCase();
     }
-
-    prefIngredients.forEach(element => {
-      result = result + "," + element.toLowerCase();
-    });
-
-    result = result + "&diet=" + prefDiet.toLowerCase();
+    if (prefDiet !== 'none') {
+        result = result + "&diet=" + prefDiet;
+    }
 
     if (key) {
         result = `?apiKey=${key}${result}`;
     } else {
         result = 'ERR';
     }
-
     // Now the `result` should have a form of 'arr[0],arr[1], ... ,arr[n],prefIngredients,prefDiet'
     return result;
 }

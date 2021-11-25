@@ -174,7 +174,11 @@ const clearPrefs = () => {
     }
     document.querySelector('#diet-dropdown').selectedIndex = 0;
     //window.localStorage.clear(); // may remove later if we store other stuff locally
-    const apiKey = JSON.parse(window.localStorage.getItem('prefs'))['key'];
+    const oldPrefs = JSON.parse(window.localStorage.getItem('prefs'));
+    let apiKey = undefined;
+    if (oldPrefs) {
+        apiKey = oldPrefs['key'];
+    }
     const prefs = {
         userName: '',
         ingredients: [],
@@ -215,8 +219,20 @@ async function processSearch() {
     const rawQuery = document.querySelector('#search-box').value;
     const splitQuery = rawQuery.split(',');
     const queryJSON = await runQuery(splitQuery);
-    console.log(queryJSON);
-    //TODO: Fill in remaining query stuff from here
+    if (queryJSON) {
+        window.localStorage.setItem('queryResult', JSON.stringify(queryJSON));
+        // window.location.href = '';
+        // TODO fill in link here to recipe page
+    } else if (queryJSON === undefined) {
+        alert('Missing API key!');
+    } else {
+        alert('No recipes found for this query!');
+    }
+    console.log(getLatestQuery());
 }
 
-export { exportPrefs };
+const getLatestQuery = () => {
+    return JSON.parse(window.localStorage.getItem('queryResult'));
+}
+
+export { exportPrefs, getLatestQuery };
