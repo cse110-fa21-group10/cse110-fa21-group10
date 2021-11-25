@@ -219,16 +219,18 @@ async function processSearch() {
     const rawQuery = document.querySelector('#search-box').value;
     const splitQuery = rawQuery.split(',');
     const queryJSON = await runQuery(splitQuery);
-    if (queryJSON) {
-        window.localStorage.setItem('queryResult', JSON.stringify(queryJSON));
-        // window.location.href = '';
-        // TODO fill in link here to recipe page
+    if (queryJSON === 'fetch-failure') {
+        alert('There was an error while fetching! Please check parameters and try again');
+    } else if (queryJSON === 'no-results') {
+        alert('No recipes found for this query!');
     } else if (queryJSON === undefined) {
         alert('Missing API key!');
     } else {
-        alert('No recipes found for this query!');
+        window.localStorage.setItem('queryResult', JSON.stringify(queryJSON));
+        // window.location.href = '';
+        // TODO fill in link here to recipe page
     }
-    console.log(getLatestQuery());
+    //console.log(getLatestQuery());
 }
 
 const getLatestQuery = () => {

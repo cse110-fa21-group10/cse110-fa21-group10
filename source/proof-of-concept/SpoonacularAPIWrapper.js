@@ -17,23 +17,29 @@ async function runQuery(ingredientList) {
 
     const queryStr = getIngredientQuery(ingredientList, prefList);
     let initialQueryStr = `${baseURL}complexSearch${queryStr}&number=${numToFetch}`;
-    let fetchSuccessful = await fetchJSON(initialQueryStr, initialData);
-    if (!fetchSuccessful) {
+    let fetchStatus = await fetchJSON(initialQueryStr, initialData).catch(() => {
         console.log("Recipes were not fetched successfully from ingredients");
-        return false;
+        return 'fetch-failure';
+    });
+    if (fetchStatus === 'fetch-failure') {
+        return fetchStatus;
     }
     initialData = initialData[0]['results'];
     let JSONquery = processInitialResult(initialData);
 
     const JSONresult = [];
-    if (!JSONquery.length) return false;
+    if (!JSONquery.length) {
+        return 'no-results';
+    }
     let recipeQuery = '';
     for (let i = 0; i < JSONquery.length; i++) {
         recipeQuery = `${baseURL}${JSONquery[i]}/information?apiKey=${key}`;
-        fetchSuccessful = await fetchJSON(recipeQuery, JSONresult);
-        if (!fetchSuccessful) {
+        fetchStatus = await fetchJSON(recipeQuery, JSONresult).catch(() => {
             console.log("Full JSONs not fetched successfully");
-            return false;
+            return 'fetch-failure';
+        });
+        if (fetchStatus == 'fetch-failure') {
+            return fetchStatus;
         }
     }
     return JSONresult[0]; // For now, only return the first result
