@@ -1,6 +1,12 @@
+import { getIngredientQuery } from './SpoonacularAPIWrapper.js';
+
 window.addEventListener('DOMContentLoaded', init);
 
 let prefsList;
+const diets = ['None', 'Gluten Free', 'Ketogenic', 'Vegetarian', 
+    'Lacto-Vegetarian', 'Ovo-Vegetarian', 'Vegan', 
+    'Pescetarian', 'Paleo', 'Primal', 'Low FODMAP', 
+    'Whole30'];
 
 function init() {
     initializePrefsBox();
@@ -11,8 +17,8 @@ function init() {
  * {
  *     userName: '' (unused right now),
  *     ingredients: [] ([string]),
- *     vegan: (undefined|true|false),
- *     vegetarian: (undefined|true|false)
+ *     diet: (undefined|string),
+ *     key: string
  *  }
  */
 
@@ -27,12 +33,12 @@ function initializePrefsBox() {
     // make the title for prefs box
     const displayBox = document.querySelector('#pref-display');
     const boxLabel = document.createElement('strong');
-    boxLabel.textContent = 'Current Ingredients in Query:';
+    boxLabel.textContent = 'Current Ingredients in Local Preferences:';
     displayBox.append(boxLabel);
 
     // set up the list of preferences to fill in later
     const scrollableBox = document.createElement('div');
-    scrollableBox.setAttribute('style', 'height:75px;overflow:scroll');
+    scrollableBox.classList.add('local-prefs-list');
     prefsList = document.createElement('ul');
     scrollableBox.append(prefsList);
     displayBox.append(scrollableBox);
@@ -41,12 +47,12 @@ function initializePrefsBox() {
     document.querySelector('.add-ingredient-button').addEventListener('click', addIngredient);
     document.querySelector('.remove-ingredient-button').addEventListener('click', removeIngredient);
     document.querySelector('.clear-prefs-button').addEventListener('click', clearPrefs);
-    document.querySelector('#vegan-dropdown').addEventListener('change', e => { 
-        updatePrefs('vegan', e.target.value === 'true');
+    document.querySelector('#diet-dropdown').addEventListener('change', e => { 
+        updatePrefs('diet', e.target.value.toLowerCase());
     });
-    document.querySelector('#vegetarian-dropdown').addEventListener('change', e => { 
-        updatePrefs('vegetarian', e.target.value === 'true');
-    });
+    document.querySelector('.add-api-key-button').addEventListener('click', addKey);
+    document.querySelector('.remove-api-key-button').addEventListener('click', removeKey);
+    document.querySelector('.search-button').addEventListener('click', processSearch);
 
     const existingPrefs = JSON.parse(localStorage.getItem('prefs'));
     if (existingPrefs) {
@@ -58,20 +64,29 @@ function initializePrefsBox() {
             ingredientLabel.textContent = ingredientList[i];
             prefsList.append(ingredientLabel);
         }
+        
+        const dietDropdown = document.querySelector('#diet-dropdown');
 
-        if (existingPrefs['vegan'] === undefined) {
-            document.querySelector('#vegan-dropdown').selectedIndex = 0;
-        } else {
-            const result = existingPrefs['vegan'];
-            document.querySelector('#vegan-dropdown').selectedIndex = result ? 1 : 2;
+        for (let i = 0; i < diets.length; ++i) {
+            const dietOption = document.createElement('option');
+            dietOption.setAttribute('value', diets[i].toLowerCase());
+            dietOption.textContent = diets[i];
+            dietDropdown.append(dietOption);
         }
 
-        if (existingPrefs['vegetarian'] === undefined) {
-            document.querySelector('#vegetarian-dropdown').selectedIndex = 0;
+        if (existingPrefs['diet']) {
+            const selectedDiet = existingPrefs['diet'];
+            let idx;
+            for (idx = 0; idx < diets.length; ++idx) {
+                if (diets[idx].toLowerCase() === selectedDiet) {
+                    break;
+                }
+            }
+            document.querySelector('#diet-dropdown').selectedIndex = idx;
         } else {
-            const result = existingPrefs['vegetarian'];
-            document.querySelector('#vegetarian-dropdown').selectedIndex = result ? 1 : 2;
+            document.querySelector('#diet-dropdown').selectedIndex = 0;
         }
+
 
     } else {
         clearPrefs();
@@ -157,24 +172,51 @@ const clearPrefs = () => {
     for (let i = 0; i < items.length; ++i){
         items[i].remove();
     }
-    document.querySelector('#vegan-dropdown').selectedIndex = 0;
-    document.querySelector('#vegetarian-dropdown').selectedIndex = 0;
-    window.localStorage.clear(); // may remove later if we store other stuff locally
+    document.querySelector('#diet-dropdown').selectedIndex = 0;
+    //window.localStorage.clear(); // may remove later if we store other stuff locally
+    const apiKey = JSON.parse(window.localStorage.getItem('prefs'))['key'];
     const prefs = {
         userName: '',
         ingredients: [],
-        vegan: undefined,
-        vegetarian: undefined
+        diet: 'none',
+        key: apiKey
     }
     window.localStorage.setItem('prefs', JSON.stringify(prefs));
 }
 
 /*
  * Updates the preference option referred to by param `option` to be
- * set to the param `value`. Example updateValue('vegan', true); 
+ * set to the param `value`. Example updateValue('diet', 'vegan'); 
  */ 
 const updatePrefs = (option, value) => {
     const prefs = JSON.parse(window.localStorage.getItem('prefs'));
     prefs[option] = value;
     window.localStorage.setItem('prefs', JSON.stringify(prefs));
 }
+
+/*
+ * Adds an API key entered by user to local prefs
+ */
+const addKey = () => {
+    const keyBox = document.querySelector('#add-api-key-box');
+    const key = keyBox.value;
+    keyBox.value = '';
+    updatePrefs('key', key);
+}
+
+/*
+ * Removes API key from local prefs
+ */
+const removeKey = () => {
+    updatePrefs('key', undefined);
+}
+
+const processSearch = () => {
+    const rawQuery = document.querySelector('#search-box').value;
+    const splitQuery = rawQuery.split(',');
+    const queryString = getIngredientQuery(splitQuery);
+    console.log(queryString);
+    //TODO: Fill in remaining query stuff from here
+}
+
+export { exportPrefs };

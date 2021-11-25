@@ -19,19 +19,18 @@
     <button class="remove-ingredient-button">Remove Ingredient</button>
     <br>
     <button class="clear-prefs-button">Clear Preferences</button>
+    <br>
+    <label for="diet">Dietary Restrictions</label>
+    <select name="diet" id="diet-dropdown"></select>
     <div id="pref-display"></div>
-    <label for="vegan">Vegan:</label>
-    <select name="vegan" id="vegan-dropdown">
-      <option value="none" disabled>Select an Option</option>
-      <option value="true">Yes</option>
-      <option value="false">No</option>
-    </select>
-    <label for="vegetarian">Vegetarian:</label>
-    <select name="vegetarian" id="vegetarian-dropdown">
-      <option value="none" disabled>Select an Option</option>
-      <option value="true">Yes</option>
-      <option value="false">No</option>
-    </select>
+    <input type="text" id="add-api-key-box" name="add-api">
+    <button class="add-api-key-button">Add API Key</button>
+    <button class="remove-api-key-button">Remove API Key</button>
+    <br>
+    <label for="search-box">Ingredients</label>
+    <input type="text" id="search-box" name="search-box">
+    <br>
+    <button class="search-button">Search</button>
   </div>
   <!-- NOTE: NO ELEMENTS HERE YET, CHECK CONSOLE LOGS -->
 </body>

@@ -1,4 +1,6 @@
-window.addEventListener('DOMContentLoaded', init);
+import { exportPrefs } from './FrontPage.js';
+
+//window.addEventListener('DOMContentLoaded', init);
 
 // TODO: replace with different key when expired
 // WARNING: each key only has 150 points per day, right now each rerun
@@ -8,7 +10,7 @@ const key = '';
 
 const baseURL = 'https://api.spoonacular.com/recipes/';
 
-async function init() {
+/*async function init() {
     const initialData = [];
     let dummyIngredients = ["apples", "flour", "sugar"]; // List of ingredients to search for
     let numToFetch = "2"; // Number of results
@@ -37,7 +39,7 @@ async function init() {
     console.log(JSONresult);
     console.log("DONE!");
 
-}
+}*/
 
 /*
  * Async function based on Lab 6
@@ -92,7 +94,10 @@ function getIngredientQuery(arr) {
         result = result + "," + arr[i].toLowerCase();
     }
 
-    result = result + "," + prefIngredients.toLowerCase();
+    prefIngredients.forEach(element => {
+      result = result + "," + element.toLowerCase();
+    });
+
     result = result + "," + prefDiet.toLowerCase();
 
     // Now the `result` should have a form of 'arr[0],arr[1], ... ,arr[n],prefIngredients,prefDiet'
@@ -111,3 +116,5 @@ function processInitialResult(arr) {
     }
     return result;
 }
+
+export { getIngredientQuery };
