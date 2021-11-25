@@ -63,7 +63,9 @@ function initializePrefsBox() {
     });
     document.querySelector('.add-api-key-button').addEventListener('click', addKey);
     document.querySelector('.remove-api-key-button').addEventListener('click', removeKey);
-    document.querySelector('.search-button').addEventListener('click', processSearch);
+    document.querySelector('.search-button').addEventListener('click',() => {
+        processSearch();
+    });
 
     // check for existing local prefs
     const existingPrefs = JSON.parse(localStorage.getItem('prefs'));

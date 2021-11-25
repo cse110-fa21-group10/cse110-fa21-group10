@@ -11,6 +11,20 @@
   <script src="FrontPage.js" type="module"></script>
 </head>
 <body>
+  <p>
+    How to use this:
+  </p>
+
+  <p>
+    Put in the api key from spoonacular (make sure there are no leading spaces)
+  </p>
+  <p>
+    Add or remove items from the preferences.
+  </p>
+  <p>
+    Put in your ingredients, press set query, then go to recipe page.
+  </p>
+
   <div class="search"> 
     <input type="text" id="add-ingredient-box" name="add-ingredient">
     <button class="add-ingredient-button">Add Ingredient</button>
@@ -30,7 +44,11 @@
     <label for="search-box">Ingredients</label>
     <input type="text" id="search-box" name="search-box">
     <br>
-    <button class="search-button">Search</button>
+    <button class="search-button">Set query (press this first)</button>
+    <button class="GFG" 
+    onclick="window.location.href = '/source/proof-of-concept/recipe-page.html';">
+        Go to recipe page (press this second)
+    </button>
   </div>
   <!-- NOTE: NO ELEMENTS HERE YET, CHECK CONSOLE LOGS -->
 </body>
