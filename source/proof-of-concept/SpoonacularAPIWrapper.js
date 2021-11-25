@@ -1,45 +1,47 @@
 import { exportPrefs } from './FrontPage.js';
 
-//window.addEventListener('DOMContentLoaded', init);
-
-// TODO: replace with different key when expired
-// WARNING: each key only has 150 points per day, right now each rerun
-//          of this script costs about 2.5 points, so don't save and rerun
-//          too many times (or make a new account for a new key)
-const key = '';
-
 const baseURL = 'https://api.spoonacular.com/recipes/';
 
-/*async function init() {
+/*
+ * Runs a query using `ingredientList` and returns the JSON for first
+ * result from Spoonacular Complex Search
+ */
+async function runQuery(ingredientList) {
     const initialData = [];
-    let dummyIngredients = ["apples", "flour", "sugar"]; // List of ingredients to search for
-    let numToFetch = "2"; // Number of results
-    let dummyDiet = "vegetarian";    // Diet option to search for
-    let ingredientQuery = getIngredientQuery(dummyIngredients); // Processes list of ings to proper format
-    let initialQueryStr = `${baseURL}complexSearch?apiKey=${key}&includeIngredients=${ingredientQuery}&diet=${dummyDiet}&number=${numToFetch}`;
+    const numToFetch = '1'; // TODO: maybe move this somewhere else or change to a diff #
+    const prefList = exportPrefs();   // List of user preference
+    const key = prefList['key'];
+    if (!key) {
+        alert('ERROR: MISSING API KEY');
+        return false;
+    }
+
+    const queryStr = getIngredientQuery(ingredientList, prefList);
+    let initialQueryStr = `${baseURL}complexSearch${queryStr}&number=${numToFetch}`;
     let fetchSuccessful = await fetchJSON(initialQueryStr, initialData);
     if (!fetchSuccessful) {
         console.log("Recipes were not fetched successfully from ingredients");
-        return;
+        return false;
     }
-
+    console.log(initialData);
     let JSONquery = processInitialResult(initialData);
+    console.log(JSONquery);
 
     const JSONresult = [];
-    if (!JSONquery.length) return;
-    let recipeQuery = "";
+    if (!JSONquery.length) return false;
+    let recipeQuery = '';
     for (let i = 0; i < JSONquery.length; i++) {
         recipeQuery = `${baseURL}${JSONquery[i]}/information?apiKey=${key}`;
         fetchSuccessful = await fetchJSON(recipeQuery, JSONresult);
         if (!fetchSuccessful) {
             console.log("Full JSONs not fetched successfully");
-            return;
+            return false;
         }
     }
-    console.log(JSONresult);
-    console.log("DONE!");
-
-}*/
+    //console.log(JSONresult);
+    //console.log("DONE!");
+    return JSONresult
+}
 
 /*
  * Async function based on Lab 6
@@ -81,15 +83,17 @@ async function fetchJSON(URL, arr) {
  * Will process a given array of comma separated strings into one string in the Spoonacular format
  * TODO: Connect to front-end to receive query
 */
-function getIngredientQuery(arr) {
-    let result = '';
+function getIngredientQuery(arr, prefList) {
 
-    let prefList = exportPrefs();   // List of user preference
+    let key = prefList['key'];
     let prefIngredients = prefList['ingredients'];  // User preference ingredient
     let prefDiet = prefList['diet'];    // User preference diet
 
+    let result = '';
+
+    // TODO: check for empty arr, combine arr with prefs 
     if (!arr) return;
-    else result = result + arr[0].toLowerCase();
+    else result = result + '&includeIngredients=' + arr[0].toLowerCase();
     for (let i = 1; i < arr.length; i++) {
         result = result + "," + arr[i].toLowerCase();
     }
@@ -98,7 +102,13 @@ function getIngredientQuery(arr) {
       result = result + "," + element.toLowerCase();
     });
 
-    result = result + "," + prefDiet.toLowerCase();
+    result = result + "&diet=" + prefDiet.toLowerCase();
+
+    if (key) {
+        result = `?apiKey=${key}${result}`;
+    } else {
+        result = 'ERR';
+    }
 
     // Now the `result` should have a form of 'arr[0],arr[1], ... ,arr[n],prefIngredients,prefDiet'
     return result;
@@ -117,4 +127,4 @@ function processInitialResult(arr) {
     return result;
 }
 
-export { getIngredientQuery };
+export { runQuery };

@@ -1,4 +1,4 @@
-import { getIngredientQuery } from './SpoonacularAPIWrapper.js';
+import { runQuery } from './SpoonacularAPIWrapper.js';
 
 window.addEventListener('DOMContentLoaded', init);
 
@@ -43,21 +43,34 @@ function initializePrefsBox() {
     scrollableBox.append(prefsList);
     displayBox.append(scrollableBox);
 
+    // build dropdown list for diet options
+    const dietDropdown = document.querySelector('#diet-dropdown');
+    for (let i = 0; i < diets.length; ++i) {
+        const dietOption = document.createElement('option');
+        dietOption.setAttribute('value', diets[i]);
+        dietOption.textContent = diets[i];
+        dietDropdown.append(dietOption);
+    }
+
     // make the buttons functional
     document.querySelector('.add-ingredient-button').addEventListener('click', addIngredient);
     document.querySelector('.remove-ingredient-button').addEventListener('click', removeIngredient);
     document.querySelector('.clear-prefs-button').addEventListener('click', clearPrefs);
     document.querySelector('#diet-dropdown').addEventListener('change', e => { 
-        updatePrefs('diet', e.target.value.toLowerCase());
+        if (diets.indexOf(e.target.value) > -1) {
+            updatePrefs('diet', e.target.value);
+        }
     });
     document.querySelector('.add-api-key-button').addEventListener('click', addKey);
     document.querySelector('.remove-api-key-button').addEventListener('click', removeKey);
     document.querySelector('.search-button').addEventListener('click', processSearch);
 
+    // check for existing local prefs
     const existingPrefs = JSON.parse(localStorage.getItem('prefs'));
     if (existingPrefs) {
         const ingredientList = existingPrefs['ingredients'];
 
+        // add existing prefs to page
         for (let i = 0; i < ingredientList.length; ++i) {
             const ingredientLabel = document.createElement('li');
             ingredientLabel.setAttribute('id', `_prefs-ingredient-${ingredientList[i]}`);
@@ -65,28 +78,15 @@ function initializePrefsBox() {
             prefsList.append(ingredientLabel);
         }
         
-        const dietDropdown = document.querySelector('#diet-dropdown');
-
-        for (let i = 0; i < diets.length; ++i) {
-            const dietOption = document.createElement('option');
-            dietOption.setAttribute('value', diets[i].toLowerCase());
-            dietOption.textContent = diets[i];
-            dietDropdown.append(dietOption);
-        }
-
+        let idx = 0;
         if (existingPrefs['diet']) {
             const selectedDiet = existingPrefs['diet'];
-            let idx;
-            for (idx = 0; idx < diets.length; ++idx) {
-                if (diets[idx].toLowerCase() === selectedDiet) {
-                    break;
-                }
+            idx = diets.indexOf(selectedDiet);
+            if (idx == -1) {
+                idx = 0;
             }
-            document.querySelector('#diet-dropdown').selectedIndex = idx;
-        } else {
-            document.querySelector('#diet-dropdown').selectedIndex = 0;
         }
-
+        document.querySelector('#diet-dropdown').selectedIndex = idx;
 
     } else {
         clearPrefs();
@@ -211,11 +211,11 @@ const removeKey = () => {
     updatePrefs('key', undefined);
 }
 
-const processSearch = () => {
+async function processSearch() {
     const rawQuery = document.querySelector('#search-box').value;
     const splitQuery = rawQuery.split(',');
-    const queryString = getIngredientQuery(splitQuery);
-    console.log(queryString);
+    const queryJSON = await runQuery(splitQuery);
+    console.log(queryJSON);
     //TODO: Fill in remaining query stuff from here
 }
 
