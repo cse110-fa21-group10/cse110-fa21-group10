@@ -20,7 +20,8 @@
       <h1>Recipe Site</h1>
     </div> 
 
-    <!--<div class="account"> 
+    <!--removed feature
+    <div class="account"> 
       <button class="account-button">Account</button><br><br>
     </div> -->
 
@@ -77,7 +78,7 @@
         .catch((error) => {
           console.log(error)
         });
-      
+      //fills recipe html with json data
       function addData(recipeData) {
         let recipe = document.querySelector('.recipe');
 
@@ -123,7 +124,8 @@
       }
     </script>
 
-    <!--<h2>Similar recipes</h2>
+    <!--removed feature
+    <h2>Similar recipes</h2>
     <div class="recipe-container">
 
       <article class="recipe-card">
@@ -163,7 +165,7 @@
     <h2>Front Page Recommendations</h2>
     <div class="recipe-container">
 
-      <article class="recipe-card">
+      <!--<article class="recipe-card">
         <img class="recipe-image" src="proof-of-concept/test_site/placeholder.png" alt="recipe-image" />
         <div>
           <h1 class="recipe-name">Recipe #1</h1>
@@ -193,9 +195,50 @@
           <h1 class="recipe-name">Recipe #1</h1>
           <p class="recipe-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent cursus nisi vitae purus feugiat gravida. Vestibulum congue felis vulputate cursus faucibus</p>
         </div>
-      </article>
+      </article>-->
 
     </div>
+    <script>
+       const recipeURLs = ['../assets/recipes/sample-recipe.json', '../assets/recipes/sample-recipe.json', '../assets/recipes/sample-recipe.json', '../assets/recipes/sample-recipe.json']
+      //get recipe data from json files and fill cards
+      for(let i = 0; i < recipeURLs.length; i++) {
+        fetch(recipeURLs[i]) 
+          .then(response => response.json())
+          .then(data => {
+            fillCard(data);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+      function fillCard(cardData) {
+        let container = document.querySelector('.recipe-container');
+
+        let card = document.createElement('article');
+        card.classList.add('recipe-card');
+
+        let image = document.createElement('img');
+        image.classList.add('card-image');
+        image.setAttribute('src', cardData.image);
+        image.setAttribute('alt', 'recipe-image');
+        card.appendChild(image);
+
+        let div = document.createElement('div');
+
+        let title = document.createElement('h1');
+        title.classList.add('recipe-name');
+        title.innerHTML = cardData.title;
+        div.appendChild(title);
+
+        let description = document.createElement('p');
+        description.classList.add('recipe-description');
+        description.innerHTML = cardData.summary;
+        div.appendChild(description);
+
+        card.appendChild(div);
+        container.appendChild(card);
+      }
+    </script>
   </main>
 </body>
 

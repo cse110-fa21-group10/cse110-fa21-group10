@@ -50,6 +50,15 @@ body{
     margin-right: 10px;
     margin-left: 10px;
   }
+
+  .card-image {
+    width: 200px;
+    height: 200px;
+  }
+
+  .recipe-name {
+    font-size: 20px;
+  }
   
   .recipe-description {
       /* do your own height */
