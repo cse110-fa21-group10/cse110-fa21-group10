@@ -1,4 +1,5 @@
-import { exportPrefs } from './FrontPage.js';
+// import { exportPrefs } from './FrontPage.js';
+const functions = require('./FrontPage.js');
 
 const baseURL = 'https://api.spoonacular.com/recipes/';
 
@@ -9,7 +10,7 @@ const baseURL = 'https://api.spoonacular.com/recipes/';
 async function runQuery(ingredientList) {
     let initialData = [];
     const numToFetch = '1'; // TODO: maybe move this somewhere else or change to a diff #
-    const prefList = exportPrefs();   // List of user preference
+    const prefList = functions.exportPrefs();   // List of user preference
     const key = prefList['key'];
     if (!key) {
         return undefined;
@@ -132,4 +133,4 @@ function processInitialResult(arr) {
     return result;
 }
 
-export { runQuery };
+module.exports = { runQuery, getIngredientQuery, processInitialResult };
