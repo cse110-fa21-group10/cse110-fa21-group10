@@ -6,13 +6,13 @@ const functions = require('../source/proof-of-concept/SpoonacularAPIWrapper.js')
 
 // Testing getIngredientQuery
 test('getIngredientQuery', () => {
-    expect(functions.getIngredientQuery([], {'ingredients': [], 'diet': "", 'key': ""}))
-    .toBe("?apiKey=&includeIngredients=&diet=");
+    expect(functions.getIngredientQuery([], {'ingredients': ["sugar"], 'diet': "primal", 'key': "000"}))
+    .toBe("?apiKey=000&includeIngredients=sugar&diet=primal");
 });
 
 test('getIngredientQuery', () => {
-    expect(functions.getIngredientQuery([], {'ingredients': ["apple"], 'diet': "vegan", 'key': "123"}))
-    .toBe("?apiKey=123&includeIngredients=apple&diet=vegan");
+    expect(functions.getIngredientQuery([], {'ingredients': ["apple", "blueberry"], 'diet': "vegan", 'key': "123"}))
+    .toBe("?apiKey=123&includeIngredients=apple,blueberry&diet=vegan");
 });
 
 test('getIngredientQuery', () => {
