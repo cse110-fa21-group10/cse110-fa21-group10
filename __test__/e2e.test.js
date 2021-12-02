@@ -63,7 +63,7 @@ describe('Basic user flow for Website', () => {
       expect(local.indexOf(ingredient_add[i])).toBeGreaterThanOrEqual(0);
     }
     // //Add API Key
-    await page.$eval('#add-api-key-box', el => el.value = 'edf4753b7dbf48c7ae6665777f8b8f11');
+    await page.$eval('#add-api-key-box', el => el.value = '1ae797d1850647b7aeddd60d1aa509d8');
     await page.click('button.add-api-key-button');
     //Search for a recipe
     await Promise.all([

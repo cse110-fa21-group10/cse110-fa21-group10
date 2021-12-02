@@ -1,4 +1,5 @@
-import { runQuery } from './SpoonacularAPIWrapper.js';
+// import { runQuery } from './SpoonacularAPIWrapper.js';
+const functions = require('./SpoonacularAPIWrapper.js');
 
 window.addEventListener('DOMContentLoaded', init);
 
@@ -237,4 +238,4 @@ const getLatestQuery = () => {
     return JSON.parse(window.localStorage.getItem('queryResult'));
 }
 
-export { exportPrefs, getLatestQuery };
+module.exports = { exportPrefs, getLatestQuery };

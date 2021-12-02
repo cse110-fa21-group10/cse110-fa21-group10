@@ -1,4 +1,5 @@
-import { exportPrefs } from './FrontPage.js';
+// import { exportPrefs } from './FrontPage.js';
+const functions = require('./FrontPage.js');
 
 const baseURL = 'https://api.spoonacular.com/recipes/';
 
@@ -132,4 +133,4 @@ function processInitialResult(arr) {
     return result;
 }
 
-export { runQuery };
+module.exports = { runQuery, getIngredientQuery, processInitialResult };
