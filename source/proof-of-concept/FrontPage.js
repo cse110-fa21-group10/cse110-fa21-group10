@@ -10,6 +10,7 @@ const diets = ['None', 'Gluten Free', 'Ketogenic', 'Vegetarian',
 
 function init() {
     initializePrefsBox();
+    await loadRecommendations();
 }
 
 /*
@@ -236,5 +237,11 @@ async function processSearch() {
 const getLatestQuery = () => {
     return JSON.parse(window.localStorage.getItem('queryResult'));
 }
+
+async function loadRecommendations() {
+    // TODO: Fill this in to populate recommendations
+}
+
+
 
 export { exportPrefs, getLatestQuery };
