@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Main Stylesheets & Scripts -->
+  <link rel="stylesheet" href="./recipe-page.css" />
+  <script src="FrontPage.js" type="module"></script>
+</head>
+<body>
+  <p>
+    How to use this:
+  </p>
+
+  <p>
+    Put in the api key from spoonacular (make sure there are no leading spaces)
+  </p>
+  <p>
+    Add or remove items from the preferences.
+  </p>
+  <p>
+    Put in your ingredients, press set query, then go to recipe page.
+  </p>
+
+  <div class="search"> 
+    <input type="text" id="add-ingredient-box" name="add-ingredient">
+    <button class="add-ingredient-button">Add Ingredient</button>
+    <br>
+    <input type="text" id="remove-ingredient-box" name="remove-ingredient">
+    <button class="remove-ingredient-button">Remove Ingredient</button>
+    <br>
+    <button class="clear-prefs-button">Clear Preferences</button>
+    <br>
+    <label for="diet">Dietary Restrictions</label>
+    <select name="diet" id="diet-dropdown"></select>
+    <div id="pref-display"></div>
+    <input type="text" id="add-api-key-box" name="add-api">
+    <button class="add-api-key-button">Add API Key</button>
+    <button class="remove-api-key-button">Remove API Key</button>
+    <br>
+    <label for="search-box">Ingredients</label>
+    <input type="text" id="search-box" name="search-box">
+    <br>
+    <button class="search-button">Search</button>
+    <!--
+    <button class="GFG" 
+    onclick="window.location.href = './recipe-page.html';">
+        Go to recipe page (press this second)
+    </button>
+    -->
+  </div>
+  <!-- NOTE: NO ELEMENTS HERE YET, CHECK CONSOLE LOGS -->
+</body>
+
+</html>

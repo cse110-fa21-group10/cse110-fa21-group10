@@ -227,7 +227,11 @@ async function processSearch() {
         alert('Missing API key!');
     } else {
         window.localStorage.setItem('queryResult', JSON.stringify(queryJSON));
+<<<<<<< HEAD
         // window.location.href = '';
+=======
+        window.location.href = './recipe-page.html';
+>>>>>>> master
         // TODO fill in link here to recipe page
     }
     //console.log(getLatestQuery());

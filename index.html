@@ -1,27 +1,42 @@
 <!DOCTYPE html>
-<html lang="en-gb" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>
-            Recipe Homepage
-        </title>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Recipe Homepage</title>
 
-        <!-- Favicon -->
-        <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/9.5.0/firebase-app-compat.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/9.5.0/firebase-auth-compat.js"></script>
+    <script defer src="/__/firebase/9.5.0/firebase-database-compat.js"></script>
+    <script defer src="/__/firebase/9.5.0/firebase-firestore-compat.js"></script>
+    <script defer src="/__/firebase/9.5.0/firebase-functions-compat.js"></script>
+    <script defer src="/__/firebase/9.5.0/firebase-messaging-compat.js"></script>
+    <script defer src="/__/firebase/9.5.0/firebase-storage-compat.js"></script>
+    <script defer src="/__/firebase/9.5.0/firebase-analytics-compat.js"></script>
+    <script defer src="/__/firebase/9.5.0/firebase-remote-config-compat.js"></script>
+    <script defer src="/__/firebase/9.5.0/firebase-performance-compat.js"></script>
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png">
 
-        <!-- Main Stylesheet -->
-        <link rel="stylesheet" href="css/main.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/main.css">
 
-        <!-- Web Components -->
-        <!-- TO BE ADD -->
-        
-        <!-- Main Scripts -->
-        <!-- TO BE ADD -->
+    <!-- Web Components -->
+    <!-- TO BE ADD -->
+    
+    <!-- Main Scripts -->
+    <!-- TO BE ADD -->
+  </head>
 
-    </head>
-
-    <body>
+  <body>
         <header>
             <!-- Nav Bar -->
             <nav class="homepage-navbar-section">
@@ -36,10 +51,7 @@
                                     <a href="index.html">Home</a>
                                 </li>
                                 <li>
-                                    <a href="recipe.html">Recipe</a>
-                                </li>
-                                <li>
-                                    <a href="sign-in.html">Sign in</a>
+                                    <a href="recipe-page.html">Recipe</a>
                                 </li>
                             </ul>
                         </div>
@@ -81,82 +93,168 @@
                 <button onclick="alert('Added to Cart!')">Add to Cart</button>
               </div> -->
             </template>
+            <div class="recommend-title"><h2>Top Picks</h2></div>
             <div class="Top-Picks">
                 <div class="Top-Picks-box">
-                    <div class="recipe-card">
-                        <img src="https://www.recipetineats.com/wp-content/uploads/2020/08/My-best-Vanilla-Cake_9.jpg" alt="My very best Vanilla Cake - stays moist 4 days!">                    </div>
-                    <div class="recipe-card">
-                        <img src="https://www.recipetineats.com/wp-content/uploads/2020/08/My-best-Vanilla-Cake_9.jpg" alt="My very best Vanilla Cake - stays moist 4 days!">                    </div>
-                    <div class="recipe-card">
-                        <img src="https://www.recipetineats.com/wp-content/uploads/2020/08/My-best-Vanilla-Cake_9.jpg" alt="My very best Vanilla Cake - stays moist 4 days!">                    </div>
-                    <div class="recipe-card">
-                        <img src="https://www.recipetineats.com/wp-content/uploads/2020/08/My-best-Vanilla-Cake_9.jpg" alt="My very best Vanilla Cake - stays moist 4 days!">                    </div>
-                    <div class="recipe-card">                
-                        <img src="https://www.recipetineats.com/wp-content/uploads/2020/08/My-best-Vanilla-Cake_9.jpg" alt="My very best Vanilla Cake - stays moist 4 days!">                    </div>
+                    <recipe-card class="recipe-card">
+                        <article>
+                            <div class="recipe-top-media">
+                                <img class="recipe-image" src="proof-of-concept/test_site/placeholder.png" alt="recipe-image" />
+                                <div class="recipe-like-icon">
+                                    <a href="#" class="like-icon">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="heart">
+                                            <path fill="none" stroke="#000" stroke-width="1.03" d="M10,4 C10,4 8.1,2 5.74,2 C3.38,2 1,3.55 1,6.73 C1,8.84 2.67,10.44 2.67,10.44 L10,18 L17.33,10.44 C17.33,10.44 19,8.84 19,6.73 C19,3.55 16.62,2 14.26,2 C11.9,2 10,4 10,4 L10,4 Z"></path>
+                                        </svg>
+                                    </a>
+                                </div> 
+                            </div>
+                            <div class="recipe-card-text">   
+                                <p class="recipe-title">Recipe Title</p>
+                            </div>
+                        </article>
+                    </recipe-card>
+                    <recipe-card class="recipe-card">
+                        <article>
+                            <div class="recipe-top-media">
+                                <img class="recipe-image" src="proof-of-concept/test_site/placeholder.png" alt="recipe-image" />
+                                <div class="recipe-like-icon">
+                                    <a href="#" class="like-icon">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="heart">
+                                            <path fill="none" stroke="#000" stroke-width="1.03" d="M10,4 C10,4 8.1,2 5.74,2 C3.38,2 1,3.55 1,6.73 C1,8.84 2.67,10.44 2.67,10.44 L10,18 L17.33,10.44 C17.33,10.44 19,8.84 19,6.73 C19,3.55 16.62,2 14.26,2 C11.9,2 10,4 10,4 L10,4 Z"></path>
+                                        </svg>
+                                    </a>
+                                </div> 
+                            </div>
+                            <div class="recipe-card-text">   
+                                <p class="recipe-title">Recipe Title</p>
+                            </div>
+                        </article>
+                    </recipe-card>
+                    <recipe-card class="recipe-card">
+                        <article>
+                            <div class="recipe-top-media">
+                                <img class="recipe-image" src="proof-of-concept/test_site/placeholder.png" alt="recipe-image" />
+                                <div class="recipe-like-icon">
+                                    <a href="#" class="like-icon">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="heart">
+                                            <path fill="none" stroke="#000" stroke-width="1.03" d="M10,4 C10,4 8.1,2 5.74,2 C3.38,2 1,3.55 1,6.73 C1,8.84 2.67,10.44 2.67,10.44 L10,18 L17.33,10.44 C17.33,10.44 19,8.84 19,6.73 C19,3.55 16.62,2 14.26,2 C11.9,2 10,4 10,4 L10,4 Z"></path>
+                                        </svg>
+                                    </a>
+                                </div> 
+                            </div>
+                            <div class="recipe-card-text">   
+                                <p class="recipe-title">Recipe Title</p>
+                            </div>
+                        </article>
+                    </recipe-card>
+                    <recipe-card class="recipe-card">
+                        <article>
+                            <div class="recipe-top-media">
+                                <img class="recipe-image" src="proof-of-concept/test_site/placeholder.png" alt="recipe-image" />
+                                <div class="recipe-like-icon">
+                                    <a href="#" class="like-icon">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="heart">
+                                            <path fill="none" stroke="#000" stroke-width="1.03" d="M10,4 C10,4 8.1,2 5.74,2 C3.38,2 1,3.55 1,6.73 C1,8.84 2.67,10.44 2.67,10.44 L10,18 L17.33,10.44 C17.33,10.44 19,8.84 19,6.73 C19,3.55 16.62,2 14.26,2 C11.9,2 10,4 10,4 L10,4 Z"></path>
+                                        </svg>
+                                    </a>
+                                </div> 
+                            </div>
+                            <div class="recipe-card-text">   
+                                <p class="recipe-title">Recipe Title</p>
+                            </div>
+                        </article>
+                    </recipe-card>
+                    <recipe-card class="recipe-card">
+                        <article>
+                            <div class="recipe-top-media">
+                                <img class="recipe-image" src="proof-of-concept/test_site/placeholder.png" alt="recipe-image" />
+                                <div class="recipe-like-icon">
+                                    <a href="#" class="like-icon">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="heart">
+                                            <path fill="none" stroke="#000" stroke-width="1.03" d="M10,4 C10,4 8.1,2 5.74,2 C3.38,2 1,3.55 1,6.73 C1,8.84 2.67,10.44 2.67,10.44 L10,18 L17.33,10.44 C17.33,10.44 19,8.84 19,6.73 C19,3.55 16.62,2 14.26,2 C11.9,2 10,4 10,4 L10,4 Z"></path>
+                                        </svg>
+                                    </a>
+                                </div> 
+                            </div>
+                            <div class="recipe-card-text">   
+                                <p class="recipe-title">Recipe Title</p>
+                            </div>
+                        </article>
+                    </recipe-card>
+                    <recipe-card class="recipe-card">
+                        <article>
+                            <div class="recipe-top-media">
+                                <img class="recipe-image" src="proof-of-concept/test_site/placeholder.png" alt="recipe-image" />
+                                <div class="recipe-like-icon">
+                                    <a href="#" class="like-icon">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="heart">
+                                            <path fill="none" stroke="#000" stroke-width="1.03" d="M10,4 C10,4 8.1,2 5.74,2 C3.38,2 1,3.55 1,6.73 C1,8.84 2.67,10.44 2.67,10.44 L10,18 L17.33,10.44 C17.33,10.44 19,8.84 19,6.73 C19,3.55 16.62,2 14.26,2 C11.9,2 10,4 10,4 L10,4 Z"></path>
+                                        </svg>
+                                    </a>
+                                </div> 
+                            </div>
+                            <div class="recipe-card-text">   
+                                <p class="recipe-title">Recipe Title</p>
+                            </div>
+                        </article>
+                    </recipe-card>
+                    <recipe-card class="recipe-card">
+                        <article>
+                            <div class="recipe-top-media">
+                                <img class="recipe-image" src="proof-of-concept/test_site/placeholder.png" alt="recipe-image" />
+                                <div class="recipe-like-icon">
+                                    <a href="#" class="like-icon">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="heart">
+                                            <path fill="none" stroke="#000" stroke-width="1.03" d="M10,4 C10,4 8.1,2 5.74,2 C3.38,2 1,3.55 1,6.73 C1,8.84 2.67,10.44 2.67,10.44 L10,18 L17.33,10.44 C17.33,10.44 19,8.84 19,6.73 C19,3.55 16.62,2 14.26,2 C11.9,2 10,4 10,4 L10,4 Z"></path>
+                                        </svg>
+                                    </a>
+                                </div> 
+                            </div>
+                            <div class="recipe-card-text">   
+                                <p class="recipe-title">Recipe Title</p>
+                            </div>
+                        </article>
+                    </recipe-card>
+                    <recipe-card class="recipe-card">
+                        <article>
+                            <div class="recipe-top-media">
+                                <img class="recipe-image" src="proof-of-concept/test_site/placeholder.png" alt="recipe-image" />
+                                <div class="recipe-like-icon">
+                                    <a href="#" class="like-icon">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="heart">
+                                            <path fill="none" stroke="#000" stroke-width="1.03" d="M10,4 C10,4 8.1,2 5.74,2 C3.38,2 1,3.55 1,6.73 C1,8.84 2.67,10.44 2.67,10.44 L10,18 L17.33,10.44 C17.33,10.44 19,8.84 19,6.73 C19,3.55 16.62,2 14.26,2 C11.9,2 10,4 10,4 L10,4 Z"></path>
+                                        </svg>
+                                    </a>
+                                </div> 
+                            </div>
+                            <div class="recipe-card-text">   
+                                <p class="recipe-title">Recipe Title</p>
+                            </div>
+                        </article>
+                    </recipe-card>
+                    <recipe-card class="recipe-card">
+                        <article>
+                            <div class="recipe-top-media">
+                                <img class="recipe-image" src="proof-of-concept/test_site/placeholder.png" alt="recipe-image" />
+                                <div class="recipe-like-icon">
+                                    <a href="#" class="like-icon">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="heart">
+                                            <path fill="none" stroke="#000" stroke-width="1.03" d="M10,4 C10,4 8.1,2 5.74,2 C3.38,2 1,3.55 1,6.73 C1,8.84 2.67,10.44 2.67,10.44 L10,18 L17.33,10.44 C17.33,10.44 19,8.84 19,6.73 C19,3.55 16.62,2 14.26,2 C11.9,2 10,4 10,4 L10,4 Z"></path>
+                                        </svg>
+                                    </a>
+                                </div> 
+                            </div>
+                            <div class="recipe-card-text">   
+                                <p class="recipe-title">Recipe Title</p>
+                            </div>
+                        </article>
+                    </recipe-card>
+                    
                 </div>
             </div>
-            <div class="Top-Picks">
-                <h3>Top Picks</h3>
-                <div class="Top-Picks-box">
-                    <div class="recipe-card">
-                        <img src="https://www.recipetineats.com/wp-content/uploads/2020/08/My-best-Vanilla-Cake_9.jpg" alt="My very best Vanilla Cake - stays moist 4 days!">                    </div>
-                    <div class="recipe-card">
-                        <img src="https://www.recipetineats.com/wp-content/uploads/2020/08/My-best-Vanilla-Cake_9.jpg" alt="My very best Vanilla Cake - stays moist 4 days!">                    </div>
-                    <div class="recipe-card">
-                        <img src="https://www.recipetineats.com/wp-content/uploads/2020/08/My-best-Vanilla-Cake_9.jpg" alt="My very best Vanilla Cake - stays moist 4 days!">                    </div>
-                    <div class="recipe-card">
-                        <img src="https://www.recipetineats.com/wp-content/uploads/2020/08/My-best-Vanilla-Cake_9.jpg" alt="My very best Vanilla Cake - stays moist 4 days!">                    </div>
-                    <div class="recipe-card">                
-                        <img src="https://www.recipetineats.com/wp-content/uploads/2020/08/My-best-Vanilla-Cake_9.jpg" alt="My very best Vanilla Cake - stays moist 4 days!">                    </div>
-                </div>
-            </div>
-            <div class="New-Recipes">
-                <h3>New Recipes</h3>
-                <div class="New Recipes-box">
-                    <div class="recipe-card">
-                        <img src="https://www.recipetineats.com/wp-content/uploads/2020/08/My-best-Vanilla-Cake_9.jpg" alt="My very best Vanilla Cake - stays moist 4 days!">                    </div>
-                    <div class="recipe-card">
-                        <img src="https://www.recipetineats.com/wp-content/uploads/2020/08/My-best-Vanilla-Cake_9.jpg" alt="My very best Vanilla Cake - stays moist 4 days!">                    </div>
-                    <div class="recipe-card">
-                        <img src="https://www.recipetineats.com/wp-content/uploads/2020/08/My-best-Vanilla-Cake_9.jpg" alt="My very best Vanilla Cake - stays moist 4 days!">                    </div>
-                    <div class="recipe-card">
-                        <img src="https://www.recipetineats.com/wp-content/uploads/2020/08/My-best-Vanilla-Cake_9.jpg" alt="My very best Vanilla Cake - stays moist 4 days!">                    </div>
-                    <div class="recipe-card">                
-                        <img src="https://www.recipetineats.com/wp-content/uploads/2020/08/My-best-Vanilla-Cake_9.jpg" alt="My very best Vanilla Cake - stays moist 4 days!">                    </div>
-                </div>
-            </div>
-            <div class="New-American">
-                <h3>New American</h3>
-                <div class="New-American-box">
-                    <div class="recipe-card">
-                        <img src="https://www.recipetineats.com/wp-content/uploads/2020/08/My-best-Vanilla-Cake_9.jpg" alt="My very best Vanilla Cake - stays moist 4 days!">                    </div>
-                    <div class="recipe-card">
-                        <img src="https://www.recipetineats.com/wp-content/uploads/2020/08/My-best-Vanilla-Cake_9.jpg" alt="My very best Vanilla Cake - stays moist 4 days!">                    </div>
-                    <div class="recipe-card">
-                        <img src="https://www.recipetineats.com/wp-content/uploads/2020/08/My-best-Vanilla-Cake_9.jpg" alt="My very best Vanilla Cake - stays moist 4 days!">                    </div>
-                    <div class="recipe-card">
-                        <img src="https://www.recipetineats.com/wp-content/uploads/2020/08/My-best-Vanilla-Cake_9.jpg" alt="My very best Vanilla Cake - stays moist 4 days!">                    </div>
-                    <div class="recipe-card">                
-                        <img src="https://www.recipetineats.com/wp-content/uploads/2020/08/My-best-Vanilla-Cake_9.jpg" alt="My very best Vanilla Cake - stays moist 4 days!">                    </div>
-                </div>
-            </div>
-            <div class="Best-Meat">
-                <h3>Best Meat</h3>
-                <div class="Best-Meat-box">
-                    <div class="recipe-card">
-                        <img src="https://www.recipetineats.com/wp-content/uploads/2020/08/My-best-Vanilla-Cake_9.jpg" alt="My very best Vanilla Cake - stays moist 4 days!">                    </div>
-                    <div class="recipe-card">
-                        <img src="https://www.recipetineats.com/wp-content/uploads/2020/08/My-best-Vanilla-Cake_9.jpg" alt="My very best Vanilla Cake - stays moist 4 days!">                    </div>
-                    <div class="recipe-card">
-                        <img src="https://www.recipetineats.com/wp-content/uploads/2020/08/My-best-Vanilla-Cake_9.jpg" alt="My very best Vanilla Cake - stays moist 4 days!">                    </div>
-                    <div class="recipe-card">
-                        <img src="https://www.recipetineats.com/wp-content/uploads/2020/08/My-best-Vanilla-Cake_9.jpg" alt="My very best Vanilla Cake - stays moist 4 days!">                    </div>
-                    <div class="recipe-card">                
-                        <img src="https://www.recipetineats.com/wp-content/uploads/2020/08/My-best-Vanilla-Cake_9.jpg" alt="My very best Vanilla Cake - stays moist 4 days!">                    </div>
-                </div>
-            </div>
+            
+            
+            
         </main>
     </body>
 </html>
-
-        
