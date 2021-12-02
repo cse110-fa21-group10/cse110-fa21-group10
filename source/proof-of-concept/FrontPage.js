@@ -10,7 +10,7 @@ const diets = ['None', 'Gluten Free', 'Ketogenic', 'Vegetarian',
 
 function init() {
     initializePrefsBox();
-    await loadRecommendations();
+    loadRecommendations();
 }
 
 /*
