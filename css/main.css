@@ -1,3 +1,275 @@
+<<<<<<< HEAD
+@charset "UTF-8";
+/* Table of Contents ============================================
+(quick find components)
+1.   base
+2.   navbar
+
+10.  login page 
+
+   End of Contents   ============================================
+*/
+
+/* 1 */
+/* base */
+html {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+
+  -webkit-text-size-adjust: 100%;
+
+  background: #fff;
+  color: #4a4a4a;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: #e79924;
+}
+
+div {
+  display: flex;
+  flex-flow: row wrap;
+  align-content: space-around;
+}
+
+a:active,
+a:hover {
+  outline: none;
+}
+
+a {
+  color: #eb4a36;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:hover {
+  color: #000;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 20px 0;
+  font-family: "Montserrat", san-serif;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2.23125rem;
+  line-height: 1.2;
+}
+h2 {
+  font-size: 1.4875rem;
+  line-height: 1.4;
+}
+h3 {
+  font-size: 1.375rem;
+  line-height: 1.4;
+}
+h4 {
+  font-size: 1.125rem;
+  line-height: 1.4;
+}
+h5 {
+  font-size: 16px;
+  line-height: 1.4;
+}
+h6 {
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+/* 2 */
+/* nevbar */
+.navbar-container {
+  margin-left: -15px;
+  margin-right: -15px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  background: #fff;
+}
+
+.navbar-container > .navbar-left-container {
+  margin-left: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.navbar-container > .navbar-right-container {
+  margin-right: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* nevbar page link */
+.navbar-link-list {
+  display: flex;
+  margin: 0;
+  padding-left: 15px;
+  list-style: none;
+}
+
+.navbar-left-link > li > a {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: 126px;
+  padding: 0 15px;
+  font-size: 0.75rem;
+  font-family: "Montserrat", san-serif;
+  text-decoration: none;
+
+  color: #4a4a4a;
+  text-transform: none;
+  transition: 0.1s ease-in-out;
+  transition-property: color, background-color;
+}
+
+.navbar-left-link > li:hover > a {
+  color: #eb4a36;
+  outline: none;
+}
+
+.navbar-left-link > li > a:active {
+  color: #333;
+}
+
+.navbar-link-list a {
+  margin-right: 15px;
+  text-align: center;
+  color: #333;
+}
+
+.navbar-active-link {
+  color: #3d3d3d;
+}
+
+/* search box */
+.navbar-search-box {
+  background: #3d3d3d;
+  height: 40px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+/* dynamic effect when status is hover*/
+.navbar-search-box:hover > .search-txt {
+  width: 200px;
+}
+
+.navbar-search-box:hover > .search-btn {
+  background: white;
+}
+
+/* default effect */
+.search-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #3d3d3d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-txt {
+  border: none;
+  background: none;
+  outline: none;
+  padding: 0;
+  color: white;
+  font-size: 16px;
+  line-height: 40px;
+}
+
+.navbar-advanced-search {
+  margin-left: 15px;
+  margin-right: -15px;
+  display: flex;
+}
+
+/* 10 */
+/* login page */
+.login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -150px 0 0 -150px;
+  width: 300px;
+  height: 300px;
+}
+
+.login-box h1 {
+  color: #555;
+  text-shadow: 0px 10px 8px #cdc673;
+  letter-spacing: 2px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-box input {
+  padding: 10px;
+  width: 100%;
+  color: white;
+  margin-bottom: 15px;
+  background-color: #abd31b;
+  border: 1px solid black;
+  border-radius: 5px;
+  border-spacing: 2px;
+}
+
+.login-box form button {
+  padding: 10px;
+  width: 100%;
+  color: white;
+  margin-bottom: 15px;
+  background-color: #fc9f15;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* recipe recommendation page */
+.New-Recipes-box,
+.New-American-box,
+.Best-Meat-box,
+.Top-Picks-box {
+  height: 100%;
+  width: 100%;
+  margin: 30px;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+
+.recipe-card {
+  width: 40%;
+  display: inline-block;
+  margin-left: 5px;
+  flex-shrink: 0;
+  border: 1px solid black;
+}
+
+.recipe-card > img {
+  height: 200px;
+  width: 200px;
+}
+=======
 @charset "UTF-8";
 /* Table of Contents ============================================
 (quick find components)
@@ -359,3 +631,4 @@ svg:not(:root) {
   align-items: left;
   padding-right: 50px;
 }
+>>>>>>> master
