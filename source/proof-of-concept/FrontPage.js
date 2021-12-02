@@ -8,9 +8,25 @@ const diets = ['None', 'Gluten Free', 'Ketogenic', 'Vegetarian',
     'Pescetarian', 'Paleo', 'Primal', 'Low FODMAP', 
     'Whole30'];
 
-function init() {
+const recipes = [
+    'recipes/sample-recipe.json',
+    'recipes/ButternutSquashFrittata.json',
+    'recipes/vietnamesePancakes.json'
+  ];
+
+const recipeData = {}
+
+async function init() {
     initializePrefsBox();
-    loadRecommendations();
+    // fetch the recipes and wait for them to load
+    let fetchSuccessful = await loadRecommendations();
+    // if they didn't successfully load, quit the function
+    if (!fetchSuccessful) {
+      console.log('Recipe fetch unsuccessful');
+      return;
+    };
+    // Add the first three recipe cards to the page
+    createRecipeCards();
 }
 
 /*
@@ -239,9 +255,137 @@ const getLatestQuery = () => {
 }
 
 async function loadRecommendations() {
-    // TODO: Fill this in to populate recommendations
+    // Fill this in to populate recommendations
+    return new Promise((resolve, reject) => {
+        // This function is called in init()
+        // From this function, you are going to fetch each of the recipes in the 'recipes' array above.
+        // Once you have that data, store it in the 'recipeData' object. You can use whatever you like
+        // for the keys. Once everything in the array has been successfully fetched, call the resolve(true)
+        // callback function to resolve this promise. If there's any error fetching any of the items, call
+        // the reject(false) function.
+  
+        for(let i = 0; i < recipes.length; i ++) {
+          fetch(recipes[i])
+          .then(response => response.json())
+          .then(data => {
+            recipeData[i] = data;
+            if (Object.keys(recipeData).length == recipes.length) {
+              console.log('fetch success');
+              resolve(true);
+            }
+          })
+          .catch(error => {
+            console.log(error);
+            reject(false);
+          })
+        }
+      });
 }
 
+/*
+ * Create recipe cards from const object
+ */
+function createRecipeCards() {
+    let box = document.querySelector('.Top-Picks-box');
+    for(let i = 0; i < recipes.length; i ++) {
+      let recipe_card = document.createElement('recipe-card');
+      recipe_card.data = recipeData[i];
+      box.appendChild(recipe_card);
+    }
+}
 
+class RecipeCard extends HTMLElement {
+    constructor() {
+      super();
+      this.attachShadow({mode: 'open'});
+    }
+  
+    set data(data) {
+      // This is the CSS that you'll use for your recipe cards
+      const styleEle = document.createElement('link');
+      styleEle.setAttribute('rel', 'stylesheet');
+      styleEle.setAttribute('href', 'front-page.css');
+  
+      // ============== Container for Whole Recipe Card ============== 
+      // Here's the root element that you'll want to attach all of your other elements to
+      const card = document.createElement('article');
 
-export { exportPrefs, getLatestQuery };
+      // ============== Container for Recipe Card Picture ============== 
+      // Here is the top media part
+      var media_div = document.createElement('div');
+      media_div.classList.add('recipe-top-media');
+      // get recipe image from recipe-card json
+      var recipe_image = document.createElement('img');
+      console.log('image', data.image);
+      recipe_image.setAttribute('src', data.image);
+      recipe_image.setAttribute('alt', data.title);
+      recipe_image.classList.add('recipe-image');
+      // Here is the icon part
+
+      // fill our media container
+      media_div.appendChild(recipe_image);
+  
+      // ============== Container for Recipe Card Text ============== 
+      // Here is the text part div
+      var text_div = document.createElement('div');
+      text_div.classList.add('recipe-card-text');
+      // get title image from recipe-card json
+      var title= document.createElement('p');
+      title.classList.add('recipe-title');
+      // get link image from recipe-card json
+      var title_link = document.createElement('a');
+      title_link.setAttribute('href', 'recipe-page.html');
+      title_link.innerHTML = searchForKey(data, 'title');
+      title.appendChild(title_link);
+  
+      // get cooking time from 
+      var time = document.createElement('time');
+      time.innerHTML = '<b>Cook time: </b>' + searchForKey(data, 'readyInMinutes') + ' min';
+  
+      // get ingredients from 
+      var pIngred = document.createElement('p');
+      pIngred.classList.add('ingredients');
+      pIngred.innerHTML = '<b>Ingredients: </b>' + data.extendedIngredients;
+      console.log('Ingredients', data.extendedIngredients);
+      //console.log(data.extendedIngredients);
+  
+      // fill our text container
+      text_div.appendChild(title);
+      text_div.appendChild(time);
+      text_div.appendChild(pIngred);
+
+      // fill our recipe cards
+      card.appendChild(media_div);
+      card.appendChild(text_div);
+  
+      this.shadowRoot.appendChild(styleEle);
+      this.shadowRoot.appendChild(card);
+    }
+  }
+  
+  /**
+   * Recursively search for a key nested somewhere inside an object
+   * @param {Object} object the object with which you'd like to search
+   * @param {String} key the key that you are looking for in the object
+   * @returns {*} the value of the found key
+   */
+  function searchForKey(object, key) {
+    var value;
+    Object.keys(object).some(function (k) {
+      if (k === key) {
+        value = object[k];
+        return true;
+      }
+      if (object[k] && typeof object[k] === 'object') {
+        value = searchForKey(object[k], key);
+        return value !== undefined;
+      }
+    });
+    return value;
+  }
+  
+  // Define the Class so you can use it as a custom element.
+  // This is critical, leave this here and don't touch it
+  customElements.define('recipe-card', RecipeCard);
+
+export { exportPrefs, getLatestQuery};
