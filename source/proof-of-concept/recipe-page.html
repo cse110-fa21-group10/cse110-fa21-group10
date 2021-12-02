@@ -22,7 +22,7 @@
 
     <!--<div class="account"> 
       <button class="account-button">Account</button><br><br>
-    </div> -->
+    </div> 
 
     <div class="search"> 
       <input type="text" />
@@ -31,7 +31,7 @@
 
     <div class="advanced-search"> 
         <button class="advanced-search-button">Advanced Search</button><br><br>
-    </div>
+    </div>-->
 
     <div class="recipe">
         <!--html recipe template(autofilled using json)-->
@@ -103,7 +103,7 @@
         let ingredients = document.createElement('ul');
         for(let i = 0; i < recipeData.extendedIngredients.length; i++) {
           let ingredient = document.createElement('li');
-          ingredient.innerHTML = JSON.stringify(recipeData.extendedIngredients[i]['original']);
+          ingredient.innerHTML = recipeData.extendedIngredients[i]['original'];
           ingredients.appendChild(ingredient);
         }
         recipe.appendChild(ingredients);
@@ -150,7 +150,7 @@
         </div>
       </article>
 
-    </div>-->
+    </div>
 
     <h2>Front Page Recommendations</h2>
     <div class="recipe-container">
@@ -187,7 +187,7 @@
         </div>
       </article>
 
-    </div>
+    </div>-->
   </main>
 </body>
 
