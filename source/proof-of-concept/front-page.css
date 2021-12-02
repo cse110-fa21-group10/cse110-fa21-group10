@@ -1,0 +1,85 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+
+body{
+  background: #f2f2f2;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.search {
+	display: block;
+    width: 50%;
+	border: 3pt solid black;
+	border-radius: 10px;
+	padding-top: .5em;
+	padding-left: .5em;
+	top: 20px;
+}
+
+.recipe-overview {
+    display: flex;
+    align-items: center;
+}
+
+.recipe-description {
+    width: 55%; 
+    align-items: left;
+    padding-right: 50px;
+}
+
+.main-recipe-image {
+    /* do your own width, height */
+    margin-right: 10px;
+    margin-left: 10px;
+    width: 25%;
+    align-items: right;
+  }
+
+.recipe-card {
+    align-items: center;
+    border: 1px solid #dfdfdf;
+    border-radius: 8px;
+    display: inline-flex;
+    padding: 5px;
+    width: 500px
+   /* do your own width, height */
+  }
+
+  .recipe-image {
+    /* do your own width, height */
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  
+  .recipe-description {
+      /* do your own height */
+      overflow: hidden;
+      white-space: normal;
+  }
+
+  .topnav {
+    overflow: hidden;
+  }
+  
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  
+.container > * {
+  display: inline-block;
+}
+
+.recipe-container {
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.local-prefs-list {
+  height: 75px;
+  overflow: scroll;
+  border: 1pt solid black;
+  width: 50%
+}
+
