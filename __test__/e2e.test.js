@@ -13,7 +13,7 @@ describe('Basic user flow for Website', () => {
     for (let i = 0; i < ingredient_add.length; ++i){
       await page.$eval('#add-ingredient-box', (el, ingredient) => {el.value = ingredient}, ingredient_add[i]);
       await page.click('button.add-ingredient-button');
-      await new Promise((r) => setTimeout(r, 100));
+      await new Promise((r) => setTimeout(r, 200));
     }
     //Obtain the local preferences json file
     const local = await page.evaluate(() => {
@@ -51,7 +51,7 @@ describe('Basic user flow for Website', () => {
     //Add salt back into the preference
     await page.$eval('#add-ingredient-box', el => el.value = 'salt');
     await page.click('button.add-ingredient-button');
-    await new Promise((r) => setTimeout(r, 100));
+    await new Promise((r) => setTimeout(r, 200));
     //Get the preference list
     let local = await page.evaluate(() => {
       const prefs = JSON.parse(localStorage.getItem('prefs'));
