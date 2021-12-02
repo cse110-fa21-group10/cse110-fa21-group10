@@ -103,7 +103,7 @@
         let ingredients = document.createElement('ul');
         for(let i = 0; i < recipeData.extendedIngredients.length; i++) {
           let ingredient = document.createElement('li');
-          ingredient.innerHTML = recipeData.extendedIngredients[i];
+          ingredient.innerHTML = JSON.stringify(recipeData.extendedIngredients[i]['original']);
           ingredients.appendChild(ingredient);
         }
         recipe.appendChild(ingredients);
