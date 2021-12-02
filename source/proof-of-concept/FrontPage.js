@@ -10,6 +10,7 @@ const diets = ['None', 'Gluten Free', 'Ketogenic', 'Vegetarian',
 
 function init() {
     initializePrefsBox();
+    initializeRecommendations();
 }
 
 /*
@@ -173,7 +174,6 @@ const clearPrefs = () => {
         items[i].remove();
     }
     document.querySelector('#diet-dropdown').selectedIndex = 0;
-    //window.localStorage.clear(); // may remove later if we store other stuff locally
     const oldPrefs = JSON.parse(window.localStorage.getItem('prefs'));
     let apiKey = undefined;
     if (oldPrefs) {
@@ -186,6 +186,7 @@ const clearPrefs = () => {
         key: apiKey
     }
     window.localStorage.setItem('prefs', JSON.stringify(prefs));
+    window.localStorage.removeItem('recommendations');
 }
 
 /*
@@ -218,7 +219,7 @@ const removeKey = () => {
 async function processSearch() {
     const rawQuery = document.querySelector('#search-box').value;
     const splitQuery = rawQuery.split(',');
-    const queryJSON = await runQuery(splitQuery);
+    const queryJSON = await runQuery(splitQuery, 1);
     if (queryJSON === 'fetch-failure') {
         alert('There was an error while fetching! Please check parameters and try again');
     } else if (queryJSON === 'no-results') {
@@ -226,15 +227,42 @@ async function processSearch() {
     } else if (queryJSON === undefined) {
         alert('Missing API key!');
     } else {
-        window.localStorage.setItem('queryResult', JSON.stringify(queryJSON));
+        const singleResult = queryJSON[0];
+        window.localStorage.setItem('queryResult', JSON.stringify(singleResult));
         window.location.href = './recipe-page.html';
-        // TODO fill in link here to recipe page
     }
-    //console.log(getLatestQuery());
 }
 
+/*
+ * Utility function to simply pull the latest query
+ */
 const getLatestQuery = () => {
     return JSON.parse(window.localStorage.getItem('queryResult'));
+}
+
+/*
+ * Initializes user recommendations based on local prefs.
+ * Conditions: user must not have existing recommendations and must have 
+ *             existing preferences
+ * User can clear preferences to also clear recommendations 
+ * (currently requires a page refresh afterwards)
+ */
+async function initializeRecommendations() {
+    const existingRecs = JSON.parse(window.localStorage.getItem('recommendations'));
+    const existingPrefs = JSON.parse(window.localStorage.getItem('prefs'));
+    if (!existingRecs && existingPrefs['ingredients'].length > 0) {
+        const newRecs = await runQuery([], 4); // TODO change 4 to 9?
+        if (newRecs === 'fetch-failure') {
+            // ignore for now
+        } else if (newRecs === 'no-results') {
+            // ignore for now
+        } else if (newRecs === undefined) {
+            // ignore for now
+        } else {
+            // add in the recs locally if we got something
+            window.localStorage.setItem('recommendations', JSON.stringify(newRecs));
+        }
+    }
 }
 
 export { exportPrefs, getLatestQuery };

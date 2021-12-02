@@ -6,9 +6,10 @@ const baseURL = 'https://api.spoonacular.com/recipes/';
  * Runs a query using `ingredientList` and returns the JSON for first
  * result from Spoonacular Complex Search
  */
-async function runQuery(ingredientList) {
+async function runQuery(ingredientList, numResults) {
     let initialData = [];
-    const numToFetch = '1'; // TODO: maybe move this somewhere else or change to a diff #
+    // WARNING: Racks up daily uses of API key FAST
+    const numToFetch = numResults;    // TODO: maybe move this somewhere else or change to a diff #
     const prefList = exportPrefs();   // List of user preference
     const key = prefList['key'];
     if (!key) {
@@ -42,14 +43,30 @@ async function runQuery(ingredientList) {
             return fetchStatus;
         }
     }
-    return JSONresult[0]; // For now, only return the first result
+    shuffle(JSONresult); // for adding some randomness to queries
+    return JSONresult;   //return a list of queries
+}
+
+/*
+ * Short helper function for randomizing queries.
+ * Runs an in-place shuffle over the input array.
+ */
+
+function shuffle(arr) {
+    let l = arr.length;
+    for (let i = 0; i < l; ++i) {
+        let idx = parseInt(Math.random() * l);
+        let temp = arr[i];
+        arr[i] = arr[idx];
+        arr[idx] = temp;
+    }
 }
 
 /*
  * Async function based on Lab 6
  * Parses JSON into an array from URL
  * TODO: Make error messages more verbose
-*/
+ */
 async function fetchJSON(URL, arr) {
     console.log(`fetching:${URL}`);
     return new Promise( (resolve, reject) => {
@@ -85,7 +102,7 @@ async function fetchJSON(URL, arr) {
  * So only the processing part is implemented
  * Will process a given array of comma separated strings into one string in the Spoonacular format
  * TODO: Connect to front-end to receive query
-*/
+ */
 function getIngredientQuery(arr, prefList) {
 
     let key = prefList['key'];
@@ -100,12 +117,14 @@ function getIngredientQuery(arr, prefList) {
         if (idx === -1) {
             prefIngredients.push(e);
         }
-    })
+    });
+    console.log(prefIngredients);
     if (!prefIngredients.length) return;
     else result = result + '&includeIngredients=' + prefIngredients[0].toLowerCase();
     for (let i = 1; i < prefIngredients.length; i++) {
         result = result + "," + prefIngredients[i].toLowerCase();
     }
+    console.log(result);
     if (prefDiet !== 'none') {
         result = result + "&diet=" + prefDiet;
     }
@@ -122,7 +141,7 @@ function getIngredientQuery(arr, prefList) {
 /*
  * Processes the initial JSON response from recipe search
  * Returns the recipe IDs for the second search
-*/
+ */
 function processInitialResult(arr) {
     let result = [];
     if (!arr) return [];
