@@ -343,10 +343,14 @@ class RecipeCard extends HTMLElement {
       time.innerHTML = '<b>Cook time: </b>' + searchForKey(data, 'readyInMinutes') + ' min';
   
       // get ingredients from 
-      var pIngred = document.createElement('p');
+      var pIngred = document.createElement('ul');
       pIngred.classList.add('ingredients');
-      pIngred.innerHTML = '<b>Ingredients: </b>' + data.extendedIngredients;
-      console.log('Ingredients', data.extendedIngredients);
+      for (let i = 0; i < data.extendedIngredients.length; i++) {
+        let ingredient = document.createElement('li');
+        ingredient.innerHTML = data.extendedIngredients[i]['original'];
+        pIngred.appendChild(ingredient);  
+      }
+      console.log('Ingredients', data.extendedIngredients[0]['original']);
       //console.log(data.extendedIngredients);
   
       // fill our text container
