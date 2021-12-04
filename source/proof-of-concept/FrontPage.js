@@ -11,6 +11,12 @@ const diets = ['None', 'Gluten Free', 'Ketogenic', 'Vegetarian',
 const recipes = [
     'recipes/sample-recipe.json',
     'recipes/ButternutSquashFrittata.json',
+    'recipes/vietnamesePancakes.json',
+    'recipes/sample-recipe.json',
+    'recipes/ButternutSquashFrittata.json',
+    'recipes/vietnamesePancakes.json',
+    'recipes/sample-recipe.json',
+    'recipes/ButternutSquashFrittata.json',
     'recipes/vietnamesePancakes.json'
   ];
 
