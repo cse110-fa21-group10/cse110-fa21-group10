@@ -6,9 +6,10 @@ const baseURL = 'https://api.spoonacular.com/recipes/';
  * Runs a query using `ingredientList` and returns the JSON for first
  * result from Spoonacular Complex Search
  */
-async function runQuery(ingredientList) {
+async function runQuery(ingredientList, numResults) {
     let initialData = [];
-    const numToFetch = '1'; // TODO: maybe move this somewhere else or change to a diff #
+    // WARNING: Racks up daily uses of API key FAST
+    const numToFetch = numResults;    // TODO: maybe move this somewhere else or change to a diff #
     const prefList = exportPrefs();   // List of user preference
     const key = prefList['key'];
     if (!key) {
@@ -42,7 +43,62 @@ async function runQuery(ingredientList) {
             return fetchStatus;
         }
     }
-    return JSONresult[0]; // For now, only return the first result
+    shuffle(JSONresult); // for adding some randomness to queries
+    return JSONresult;   //return a list of queries
+}
+// async function runQuery(ingredientList) {
+//     let initialData = [];
+//     const numToFetch = '1'; // TODO: maybe move this somewhere else or change to a diff #
+//     const prefList = exportPrefs();   // List of user preference
+//     const key = prefList['key'];
+//     if (!key) {
+//         return undefined;
+//     }
+
+//     const queryStr = getIngredientQuery(ingredientList, prefList);
+//     let initialQueryStr = `${baseURL}complexSearch${queryStr}&number=${numToFetch}`;
+//     let fetchStatus = await fetchJSON(initialQueryStr, initialData).catch(() => {
+//         console.log("Recipes were not fetched successfully from ingredients");
+//         return 'fetch-failure';
+//     });
+//     if (fetchStatus === 'fetch-failure') {
+//         return fetchStatus;
+//     }
+//     initialData = initialData[0]['results'];
+//     let JSONquery = processInitialResult(initialData);
+
+//     const JSONresult = [];
+//     if (!JSONquery.length) {
+//         return 'no-results';
+//     }
+//     let recipeQuery = '';
+//     for (let i = 0; i < JSONquery.length; i++) {
+//         recipeQuery = `${baseURL}${JSONquery[i]}/information?apiKey=${key}`;
+//         fetchStatus = await fetchJSON(recipeQuery, JSONresult).catch(() => {
+//             console.log("Full JSONs not fetched successfully");
+//             return 'fetch-failure';
+//         });
+//         if (fetchStatus == 'fetch-failure') {
+//             return fetchStatus;
+//         }
+//     }
+//     return JSONresult[0]; // For now, only return the first result
+// }
+
+
+/*
+ * Short helper function for randomizing queries.
+ * Runs an in-place shuffle over the input array.
+ */
+
+function shuffle(arr) {
+    let l = arr.length;
+    for (let i = 0; i < l; ++i) {
+        let idx = parseInt(Math.random() * l);
+        let temp = arr[i];
+        arr[i] = arr[idx];
+        arr[idx] = temp;
+    }
 }
 
 /*

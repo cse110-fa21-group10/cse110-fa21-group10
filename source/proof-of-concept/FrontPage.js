@@ -3,12 +3,16 @@ import { runQuery } from './SpoonacularAPIWrapper.js';
 window.addEventListener('DOMContentLoaded', init);
 
 let prefsList;
-const diets = ['None', 'Gluten Free', 'Ketogenic', 'Vegetarian', 
+const diets = ['No Restrictions', 'Gluten Free', 'Ketogenic', 'Vegetarian', 
     'Lacto-Vegetarian', 'Ovo-Vegetarian', 'Vegan', 
     'Pescetarian', 'Paleo', 'Primal', 'Low FODMAP', 
     'Whole30'];
 
+
 const recipes = [
+    'recipes/sample-recipe.json',
+    'recipes/ButternutSquashFrittata.json',
+    'recipes/vietnamesePancakes.json',
     'recipes/sample-recipe.json',
     'recipes/ButternutSquashFrittata.json',
     'recipes/vietnamesePancakes.json',
@@ -31,6 +35,8 @@ async function init() {
       console.log('Recipe fetch unsuccessful');
       return;
     };
+    initializeRecommendations();
+    console.log('recs created')
     // Add the first three recipe cards to the page
     createRecipeCards();
 }
@@ -143,6 +149,8 @@ const addIngredient = () => {
 
         const newPrefs = JSON.stringify(prefs);
         local.setItem('prefs', newPrefs);
+        local.setItem('new_flag', 1);
+
     }
     addBox.value = '';
 }
@@ -154,7 +162,7 @@ const addIngredient = () => {
  * function only clears the box.
  */
 const removeIngredient = () => {
-    const removeBox = document.querySelector('#remove-ingredient-box');
+    const removeBox = document.querySelector('#add-ingredient-box');
     const ingredient = removeBox.value;
     if (ingredient) {
 
@@ -174,6 +182,7 @@ const removeIngredient = () => {
         // update local prefs with new list
         const newPrefs = JSON.stringify(prefs);
         local.setItem('prefs', newPrefs);
+        local.setItem('new_flag', 1);
     }
     removeBox.value = '';
 }
@@ -241,7 +250,7 @@ const removeKey = () => {
 async function processSearch() {
     const rawQuery = document.querySelector('#search-box').value;
     const splitQuery = rawQuery.split(',');
-    const queryJSON = await runQuery(splitQuery);
+    const queryJSON = await runQuery(splitQuery, 1);
     if (queryJSON === 'fetch-failure') {
         alert('There was an error while fetching! Please check parameters and try again');
     } else if (queryJSON === 'no-results') {
@@ -269,21 +278,33 @@ async function loadRecommendations() {
         // for the keys. Once everything in the array has been successfully fetched, call the resolve(true)
         // callback function to resolve this promise. If there's any error fetching any of the items, call
         // the reject(false) function.
-  
-        for(let i = 0; i < recipes.length; i ++) {
-          fetch(recipes[i])
-          .then(response => response.json())
-          .then(data => {
-            recipeData[i] = data;
-            if (Object.keys(recipeData).length == recipes.length) {
-              console.log('fetch success');
-              resolve(true);
+        const existingRecs = JSON.parse(window.localStorage.getItem('recommendations'));
+        if(existingRecs != null){
+            console.log('creating recs from prefs')
+            for(let i = 0; i < existingRecs.length; i++) {
+                recipeData[i] = existingRecs[i];
+                if (Object.keys(recipeData).length == existingRecs.length) {
+                    console.log('fetch success');
+                    resolve(true);
+                }
             }
-          })
-          .catch(error => {
-            console.log(error);
-            reject(false);
-          })
+        }else{
+
+            for(let i = 0; i < recipes.length; i ++) {
+            fetch(recipes[i])
+            .then(response => response.json())
+            .then(data => {
+                recipeData[i] = data;
+                if (Object.keys(recipeData).length == recipes.length) {
+                console.log('fetch success');
+                resolve(true);
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                reject(false);
+            })
+            }
         }
       });
 }
@@ -307,15 +328,19 @@ class RecipeCard extends HTMLElement {
     }
   
     set data(data) {
+      if(data == null){
+          return
+      }
       // This is the CSS that you'll use for your recipe cards
       const styleEle = document.createElement('link');
       styleEle.setAttribute('rel', 'stylesheet');
       styleEle.setAttribute('href', 'front-page.css');
-  
+      
       // ============== Container for Whole Recipe Card ============== 
       // Here's the root element that you'll want to attach all of your other elements to
       const card = document.createElement('article');
-
+      
+      card.classList.add('recipe-card2');
       // ============== Container for Recipe Card Picture ============== 
       // Here is the top media part
       var media_div = document.createElement('div');
@@ -333,10 +358,10 @@ class RecipeCard extends HTMLElement {
   
       // ============== Container for Recipe Card Text ============== 
       // Here is the text part div
-      var text_div = document.createElement('div');
+      var text_div = document.createElement('recipe-title');
       text_div.classList.add('recipe-card-text');
       // get title image from recipe-card json
-      var title= document.createElement('p');
+      var title= document.createElement('recipe-title');
       title.classList.add('recipe-title');
       // get link image from recipe-card json
       var title_link = document.createElement('a');
@@ -347,7 +372,16 @@ class RecipeCard extends HTMLElement {
       // get cooking time from 
       var time = document.createElement('time');
       time.innerHTML = '<b>Cook time: </b>' + searchForKey(data, 'readyInMinutes') + ' min';
-  
+      // restrictions
+      var restrs = document.createElement('ul');
+      restrs.classList.add('restrictions');
+      for (let i = 0; i < data.diets.length && i < 3 ; i++) {
+        let restriction = document.createElement('li');
+        restriction.innerHTML = data.diets[i];
+        restrs.appendChild(restriction);  
+      }
+      console.log('Ingredients', data.extendedIngredients[0]['original']);
+
       // get ingredients from 
       var pIngred = document.createElement('ul');
       pIngred.classList.add('ingredients');
@@ -362,7 +396,8 @@ class RecipeCard extends HTMLElement {
       // fill our text container
       text_div.appendChild(title);
       text_div.appendChild(time);
-      text_div.appendChild(pIngred);
+    //   text_div.appendChild(pIngred);
+      text_div.appendChild(restrs);
 
       // fill our recipe cards
       card.appendChild(media_div);
@@ -394,6 +429,31 @@ class RecipeCard extends HTMLElement {
     return value;
   }
   
+  async function initializeRecommendations() {
+    const existingRecs = JSON.parse(window.localStorage.getItem('recommendations'));
+    const existingPrefs = JSON.parse(window.localStorage.getItem('prefs'));
+    const newFlag = JSON.parse(window.localStorage.getItem('new_flag'));
+    if ((!existingRecs && existingPrefs['ingredients'].length > 0) || (newFlag == 1 && existingPrefs['ingredients'].length > 0)  ) {
+        console.log('in if')
+        const newRecs = await runQuery([], 12); // TODO change 4 to 9?
+        if (newRecs === 'fetch-failure') {
+            console.log('fetch-failure')
+            // ignore for now
+        } else if (newRecs === 'no-results') {
+            console.log('no-results')
+            // ignore for now
+        } else if (newRecs === undefined) {
+            console.log('undefined')
+            // ignore for now
+        } else {
+            // add in the recs locally if we got something
+            console.log('else')
+            window.localStorage.setItem('recommendations', JSON.stringify(newRecs));
+        }
+    }
+    window.localStorage.setItem('new_flag', 0);
+}
+
   // Define the Class so you can use it as a custom element.
   // This is critical, leave this here and don't touch it
   customElements.define('recipe-card', RecipeCard);

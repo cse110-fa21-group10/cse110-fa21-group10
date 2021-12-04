@@ -2,10 +2,10 @@
 
 body {
   margin: 40px auto;
-  max-width: 70%;
+  max-width: 60%;
   line-height: 1.6;
   font-size: 18px;
-  background: #f2f2f2;
+  background: linear-gradient(to right, #9296a3, #d7dde8);
   font-family: "Open Sans", sans-serif;
   padding: 010px;
 }
@@ -62,8 +62,16 @@ body {
   margin-left: 10px;
   max-width: 100%;
   width: 90%;
+  border: 3pt solid black;
+  border-radius: 10px;
   height: auto;
   object-fit: contain;
+}
+
+.recipe-title {
+  /* do your own height */
+  overflow: hidden;
+  white-space: normal;
 }
 
 .recipe-description {

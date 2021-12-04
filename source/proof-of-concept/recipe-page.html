@@ -65,7 +65,7 @@
     <script>
       const recipeURL = '../assets/recipes/sample-recipe.json'
       //get recipe data from json file
-      addData(JSON.parse(window.localStorage.getItem('queryResult')));
+      addData(JSON.parse(window.localStorage.getItem('queryResult'))[0]);
       
       function addData(recipeData) {
         let recipe = document.querySelector('.recipe');
