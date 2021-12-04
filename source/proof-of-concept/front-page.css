@@ -21,6 +21,12 @@ body {
   position: sticky;
 }
 
+/* .search:hover {
+  transition: 0.15s ease-in-out;
+  transform: scale(1.005);
+  box-shadow: 0 5px 10px 5px rgba(0,0,0,0.3);
+} */
+
 .top {
   display: flex;
   flex-direction: column;

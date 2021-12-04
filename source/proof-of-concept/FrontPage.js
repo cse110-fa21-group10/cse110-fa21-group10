@@ -259,7 +259,7 @@ async function processSearch() {
         alert('Missing API key!');
     } else {
         window.localStorage.setItem('queryResult', JSON.stringify(queryJSON));
-        window.location.href = './recipe-page.html';
+        window.location.href = './recipe-page.html?s=-1';
         // TODO fill in link here to recipe page
     }
     //console.log(getLatestQuery());
@@ -314,11 +314,21 @@ async function loadRecommendations() {
  */
 function createRecipeCards() {
     let box = document.querySelector('.Top-Picks-box');
-    for(let i = 0; i < recipes.length; i ++) {
-      let recipe_card = document.createElement('recipe-card');
-      recipe_card.data = recipeData[i];
-      box.appendChild(recipe_card);
+    if(Object.keys({}).length == 0){
+        for(let i = 0; i < recipes.length; i ++) {
+            let recipe_card = document.createElement('recipe-card');
+            recipe_card.data = {data: recipeData[i],num: i};
+            box.appendChild(recipe_card);
+          }
+    }else{
+        for(let i = 0; i < Object.keys({}).length; i ++) {
+            let recipe_card = document.createElement('recipe-card');
+            recipe_card.data = {data: recipeData[i],num: i};
+            box.appendChild(recipe_card);
+          }
     }
+
+    
 }
 
 class RecipeCard extends HTMLElement {
@@ -327,7 +337,10 @@ class RecipeCard extends HTMLElement {
       this.attachShadow({mode: 'open'});
     }
   
-    set data(data) {
+    set data(param) {
+      var data = param.data;
+      var num = param.num;
+
       if(data == null){
           return
       }
@@ -365,7 +378,8 @@ class RecipeCard extends HTMLElement {
       title.classList.add('recipe-title');
       // get link image from recipe-card json
       var title_link = document.createElement('a');
-      title_link.setAttribute('href', 'recipe-page.html');
+      var new_link = 'recipe-page.html?s='+num;
+      title_link.setAttribute('href', new_link);
       title_link.innerHTML = searchForKey(data, 'title');
       title.appendChild(title_link);
   

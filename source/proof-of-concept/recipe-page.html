@@ -65,8 +65,18 @@
     <script>
       const recipeURL = '../assets/recipes/sample-recipe.json'
       //get recipe data from json file
-      addData(JSON.parse(window.localStorage.getItem('queryResult'))[0]);
+      const params = new URLSearchParams(window.location.search);
+      const s = params.get("s");
+
+      if(s == "-1" || s == null){
+        addData(JSON.parse(window.localStorage.getItem('queryResult'))[0]);
+      }else if(JSON.parse(window.localStorage.getItem('recommendations'))){
+        addData(JSON.parse(window.localStorage.getItem('recommendations'))[parseInt(s)]);
+      }
       
+      
+
+
       function addData(recipeData) {
         let recipe = document.querySelector('.recipe');
 
