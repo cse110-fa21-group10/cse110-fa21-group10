@@ -1,5 +1,5 @@
-// import { runQuery } from './SpoonacularAPIWrapper.js';
-const functions = require('./SpoonacularAPIWrapper.js');
+import { runQuery } from './SpoonacularAPIWrapper.js';
+// const functions = require('./SpoonacularAPIWrapper.js');
 
 window.addEventListener('DOMContentLoaded', init);
 
@@ -219,7 +219,7 @@ const removeKey = () => {
 async function processSearch() {
     const rawQuery = document.querySelector('#search-box').value;
     const splitQuery = rawQuery.split(',');
-    const queryJSON = await functions.runQuery(splitQuery);
+    const queryJSON = await runQuery(splitQuery);
     if (queryJSON === 'fetch-failure') {
         alert('There was an error while fetching! Please check parameters and try again');
     } else if (queryJSON === 'no-results') {
@@ -238,4 +238,4 @@ const getLatestQuery = () => {
     return JSON.parse(window.localStorage.getItem('queryResult'));
 }
 
-module.exports = { exportPrefs, getLatestQuery };
+export { exportPrefs, getLatestQuery };
