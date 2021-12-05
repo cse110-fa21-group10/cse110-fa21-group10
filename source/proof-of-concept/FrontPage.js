@@ -28,6 +28,7 @@ const recipeData = {}
 
 async function init() {
     initializePrefsBox();
+
     // fetch the recipes and wait for them to load
     let fetchSuccessful = await loadRecommendations();
     // if they didn't successfully load, quit the function
@@ -205,7 +206,6 @@ const clearPrefs = () => {
         items[i].remove();
     }
     document.querySelector('#diet-dropdown').selectedIndex = 0;
-    //window.localStorage.clear(); // may remove later if we store other stuff locally
     const oldPrefs = JSON.parse(window.localStorage.getItem('prefs'));
     let apiKey = undefined;
     if (oldPrefs) {
@@ -218,6 +218,7 @@ const clearPrefs = () => {
         key: apiKey
     }
     window.localStorage.setItem('prefs', JSON.stringify(prefs));
+    window.localStorage.removeItem('recommendations');
 }
 
 /*
@@ -262,9 +263,11 @@ async function processSearch() {
         window.location.href = './recipe-page.html?s=-1';
         // TODO fill in link here to recipe page
     }
-    //console.log(getLatestQuery());
 }
 
+/*
+ * Utility function to simply pull the latest query
+ */
 const getLatestQuery = () => {
     return JSON.parse(window.localStorage.getItem('queryResult'));
 }
@@ -473,3 +476,4 @@ class RecipeCard extends HTMLElement {
   customElements.define('recipe-card', RecipeCard);
 
 export { exportPrefs, getLatestQuery};
+
