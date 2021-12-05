@@ -103,8 +103,8 @@ function initializePrefsBox() {
             updatePrefs('diet', e.target.value);
         }
     });
-    document.querySelector('.add-api-key-button').addEventListener('click', addKey);
-    document.querySelector('.remove-api-key-button').addEventListener('click', removeKey);
+    // document.querySelector('.add-api-key-button').addEventListener('click', addKey);
+    // document.querySelector('.remove-api-key-button').addEventListener('click', removeKey);
     document.querySelector('.search-button').addEventListener('click', processSearch);
 
     // check for existing local prefs
@@ -252,6 +252,8 @@ const addKey = () => {
     keyBox.value = '';
     updatePrefs('key', key);
 }
+
+updatePrefs('key', '2091e7c0530041daa573b77bdfb2f1b2')
 
 /*
  * Removes API key from local prefs
