@@ -108,7 +108,7 @@ function shuffle(arr) {
  * TODO: Make error messages more verbose
  */
 async function fetchJSON(URL, arr) {
-    console.log(`fetching:${URL}`);
+    // console.log(`fetching:${URL}`);
     return new Promise( (resolve, reject) => {
         fetch(URL)
           .then(function(response) {
