@@ -3,14 +3,43 @@ import { runQuery } from './SpoonacularAPIWrapper.js';
 window.addEventListener('DOMContentLoaded', init);
 
 let prefsList;
-const diets = ['None', 'Gluten Free', 'Ketogenic', 'Vegetarian', 
+const diets = ['No Restrictions', 'Gluten Free', 'Ketogenic', 'Vegetarian', 
     'Lacto-Vegetarian', 'Ovo-Vegetarian', 'Vegan', 
     'Pescetarian', 'Paleo', 'Primal', 'Low FODMAP', 
     'Whole30'];
 
-function init() {
+
+const recipes = [
+    'recipes/sample-recipe.json',
+    'recipes/ButternutSquashFrittata.json',
+    'recipes/vietnamesePancakes.json',
+    'recipes/sample-recipe.json',
+    'recipes/ButternutSquashFrittata.json',
+    'recipes/vietnamesePancakes.json',
+    'recipes/sample-recipe.json',
+    'recipes/ButternutSquashFrittata.json',
+    'recipes/vietnamesePancakes.json',
+    'recipes/sample-recipe.json',
+    'recipes/ButternutSquashFrittata.json',
+    'recipes/vietnamesePancakes.json'
+  ];
+
+const recipeData = {}
+
+async function init() {
     initializePrefsBox();
+
+    // fetch the recipes and wait for them to load
+    let fetchSuccessful = await loadRecommendations();
+    // if they didn't successfully load, quit the function
+    if (!fetchSuccessful) {
+      console.log('Recipe fetch unsuccessful');
+      return;
+    };
     initializeRecommendations();
+    console.log('recs created')
+    // Add the first three recipe cards to the page
+    createRecipeCards();
 }
 
 /*
@@ -121,6 +150,8 @@ const addIngredient = () => {
 
         const newPrefs = JSON.stringify(prefs);
         local.setItem('prefs', newPrefs);
+        local.setItem('new_flag', 1);
+
     }
     addBox.value = '';
 }
@@ -132,7 +163,7 @@ const addIngredient = () => {
  * function only clears the box.
  */
 const removeIngredient = () => {
-    const removeBox = document.querySelector('#remove-ingredient-box');
+    const removeBox = document.querySelector('#add-ingredient-box');
     const ingredient = removeBox.value;
     if (ingredient) {
 
@@ -152,6 +183,7 @@ const removeIngredient = () => {
         // update local prefs with new list
         const newPrefs = JSON.stringify(prefs);
         local.setItem('prefs', newPrefs);
+        local.setItem('new_flag', 1);
     }
     removeBox.value = '';
 }
@@ -227,9 +259,9 @@ async function processSearch() {
     } else if (queryJSON === undefined) {
         alert('Missing API key!');
     } else {
-        const singleResult = queryJSON[0];
-        window.localStorage.setItem('queryResult', JSON.stringify(singleResult));
-        window.location.href = './recipe-page.html';
+        window.localStorage.setItem('queryResult', JSON.stringify(queryJSON));
+        window.location.href = './recipe-page.html?s=-1';
+        // TODO fill in link here to recipe page
     }
 }
 
@@ -240,29 +272,208 @@ const getLatestQuery = () => {
     return JSON.parse(window.localStorage.getItem('queryResult'));
 }
 
+async function loadRecommendations() {
+    // Fill this in to populate recommendations
+    return new Promise((resolve, reject) => {
+        // This function is called in init()
+        // From this function, you are going to fetch each of the recipes in the 'recipes' array above.
+        // Once you have that data, store it in the 'recipeData' object. You can use whatever you like
+        // for the keys. Once everything in the array has been successfully fetched, call the resolve(true)
+        // callback function to resolve this promise. If there's any error fetching any of the items, call
+        // the reject(false) function.
+        const existingRecs = JSON.parse(window.localStorage.getItem('recommendations'));
+        if(existingRecs != null){
+            console.log('creating recs from prefs')
+            for(let i = 0; i < existingRecs.length; i++) {
+                recipeData[i] = existingRecs[i];
+                if (Object.keys(recipeData).length == existingRecs.length) {
+                    console.log('fetch success');
+                    resolve(true);
+                }
+            }
+        }else{
+
+            for(let i = 0; i < recipes.length; i ++) {
+            fetch(recipes[i])
+            .then(response => response.json())
+            .then(data => {
+                recipeData[i] = data;
+                if (Object.keys(recipeData).length == recipes.length) {
+                console.log('fetch success');
+                resolve(true);
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                reject(false);
+            })
+            }
+        }
+      });
+}
+
 /*
- * Initializes user recommendations based on local prefs.
- * Conditions: user must not have existing recommendations and must have 
- *             existing preferences
- * User can clear preferences to also clear recommendations 
- * (currently requires a page refresh afterwards)
+ * Create recipe cards from const object
  */
-async function initializeRecommendations() {
+function createRecipeCards() {
+    let box = document.querySelector('.Top-Picks-box');
+    if(Object.keys({}).length == 0){
+        for(let i = 0; i < recipes.length; i ++) {
+            let recipe_card = document.createElement('recipe-card');
+            recipe_card.data = {data: recipeData[i],num: i};
+            box.appendChild(recipe_card);
+          }
+    }else{
+        for(let i = 0; i < Object.keys({}).length; i ++) {
+            let recipe_card = document.createElement('recipe-card');
+            recipe_card.data = {data: recipeData[i],num: i};
+            box.appendChild(recipe_card);
+          }
+    }
+
+    
+}
+
+class RecipeCard extends HTMLElement {
+    constructor() {
+      super();
+      this.attachShadow({mode: 'open'});
+    }
+  
+    set data(param) {
+      var data = param.data;
+      var num = param.num;
+
+      if(data == null){
+          return
+      }
+      // This is the CSS that you'll use for your recipe cards
+      const styleEle = document.createElement('link');
+      styleEle.setAttribute('rel', 'stylesheet');
+      styleEle.setAttribute('href', 'front-page.css');
+      
+      // ============== Container for Whole Recipe Card ============== 
+      // Here's the root element that you'll want to attach all of your other elements to
+      const card = document.createElement('article');
+      
+      card.classList.add('recipe-card2');
+      // ============== Container for Recipe Card Picture ============== 
+      // Here is the top media part
+      var media_div = document.createElement('div');
+      media_div.classList.add('recipe-top-media');
+      // get recipe image from recipe-card json
+      var recipe_image = document.createElement('img');
+      console.log('image', data.image);
+      recipe_image.setAttribute('src', data.image);
+      recipe_image.setAttribute('alt', data.title);
+      recipe_image.classList.add('recipe-image');
+      // Here is the icon part
+
+      // fill our media container
+      media_div.appendChild(recipe_image);
+  
+      // ============== Container for Recipe Card Text ============== 
+      // Here is the text part div
+      var text_div = document.createElement('recipe-title');
+      text_div.classList.add('recipe-card-text');
+      // get title image from recipe-card json
+      var title= document.createElement('recipe-title');
+      title.classList.add('recipe-title');
+      // get link image from recipe-card json
+      var title_link = document.createElement('a');
+      var new_link = 'recipe-page.html?s='+num;
+      title_link.setAttribute('href', new_link);
+      title_link.innerHTML = searchForKey(data, 'title');
+      title.appendChild(title_link);
+  
+      // get cooking time from 
+      var time = document.createElement('time');
+      time.innerHTML = '<b>Cook time: </b>' + searchForKey(data, 'readyInMinutes') + ' min';
+      // restrictions
+      var restrs = document.createElement('ul');
+      restrs.classList.add('restrictions');
+      for (let i = 0; i < data.diets.length && i < 3 ; i++) {
+        let restriction = document.createElement('li');
+        restriction.innerHTML = data.diets[i];
+        restrs.appendChild(restriction);  
+      }
+      console.log('Ingredients', data.extendedIngredients[0]['original']);
+
+      // get ingredients from 
+      var pIngred = document.createElement('ul');
+      pIngred.classList.add('ingredients');
+      for (let i = 0; i < data.extendedIngredients.length; i++) {
+        let ingredient = document.createElement('li');
+        ingredient.innerHTML = data.extendedIngredients[i]['original'];
+        pIngred.appendChild(ingredient);  
+      }
+      console.log('Ingredients', data.extendedIngredients[0]['original']);
+      //console.log(data.extendedIngredients);
+  
+      // fill our text container
+      text_div.appendChild(title);
+      text_div.appendChild(time);
+    //   text_div.appendChild(pIngred);
+      text_div.appendChild(restrs);
+
+      // fill our recipe cards
+      card.appendChild(media_div);
+      card.appendChild(text_div);
+  
+      this.shadowRoot.appendChild(styleEle);
+      this.shadowRoot.appendChild(card);
+    }
+  }
+  
+  /**
+   * Recursively search for a key nested somewhere inside an object
+   * @param {Object} object the object with which you'd like to search
+   * @param {String} key the key that you are looking for in the object
+   * @returns {*} the value of the found key
+   */
+  function searchForKey(object, key) {
+    var value;
+    Object.keys(object).some(function (k) {
+      if (k === key) {
+        value = object[k];
+        return true;
+      }
+      if (object[k] && typeof object[k] === 'object') {
+        value = searchForKey(object[k], key);
+        return value !== undefined;
+      }
+    });
+    return value;
+  }
+  
+  async function initializeRecommendations() {
     const existingRecs = JSON.parse(window.localStorage.getItem('recommendations'));
     const existingPrefs = JSON.parse(window.localStorage.getItem('prefs'));
-    if (!existingRecs && existingPrefs['ingredients'].length > 0) {
-        const newRecs = await runQuery([], 4); // TODO change 4 to 9?
+    const newFlag = JSON.parse(window.localStorage.getItem('new_flag'));
+    if ((!existingRecs && existingPrefs['ingredients'].length > 0) || (newFlag == 1 && existingPrefs['ingredients'].length > 0)  ) {
+        console.log('in if')
+        const newRecs = await runQuery([], 12); // TODO change 4 to 9?
         if (newRecs === 'fetch-failure') {
+            console.log('fetch-failure')
             // ignore for now
         } else if (newRecs === 'no-results') {
+            console.log('no-results')
             // ignore for now
         } else if (newRecs === undefined) {
+            console.log('undefined')
             // ignore for now
         } else {
             // add in the recs locally if we got something
+            console.log('else')
             window.localStorage.setItem('recommendations', JSON.stringify(newRecs));
         }
     }
+    window.localStorage.setItem('new_flag', 0);
 }
 
-export { exportPrefs, getLatestQuery };
+  // Define the Class so you can use it as a custom element.
+  // This is critical, leave this here and don't touch it
+  customElements.define('recipe-card', RecipeCard);
+
+export { exportPrefs, getLatestQuery};
+

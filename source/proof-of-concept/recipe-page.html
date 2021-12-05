@@ -16,13 +16,10 @@
 
 <body>
   <main>
-    <div class="container">
-      <h1>Recipe Site</h1>
-    </div> 
 
     <!--<div class="account"> 
       <button class="account-button">Account</button><br><br>
-    </div> -->
+    </div> 
 
     <div class="search"> 
       <input type="text" />
@@ -31,7 +28,7 @@
 
     <div class="advanced-search"> 
         <button class="advanced-search-button">Advanced Search</button><br><br>
-    </div>
+    </div>-->
 
     <div class="recipe">
         <!--html recipe template(autofilled using json)-->
@@ -68,12 +65,22 @@
     <script>
       const recipeURL = '../assets/recipes/sample-recipe.json'
       //get recipe data from json file
-      addData(JSON.parse(window.localStorage.getItem('queryResult')));
+      const params = new URLSearchParams(window.location.search);
+      const s = params.get("s");
+
+      if(s == "-1" || s == null){
+        addData(JSON.parse(window.localStorage.getItem('queryResult'))[0]);
+      }else if(JSON.parse(window.localStorage.getItem('recommendations'))){
+        addData(JSON.parse(window.localStorage.getItem('recommendations'))[parseInt(s)]);
+      }
       
+      
+
+
       function addData(recipeData) {
         let recipe = document.querySelector('.recipe');
 
-        let title = document.createElement('h2');
+        let title = document.createElement('h1');
         title.classList.add('title');
         title.innerHTML = recipeData.title;
         recipe.appendChild(title);
@@ -100,13 +107,24 @@
         time.innerHTML = '<b>Cook Time: </b>' + recipeData.readyInMinutes + ' Minutes';
         recipe.appendChild(time);
 
+        let ingred = document.createElement('h2');
+        ingred.classList.add('ingr_title');
+        ingred.innerHTML = "Ingredients";
+        recipe.appendChild(ingred);
+
         let ingredients = document.createElement('ul');
         for(let i = 0; i < recipeData.extendedIngredients.length; i++) {
           let ingredient = document.createElement('li');
-          ingredient.innerHTML = JSON.stringify(recipeData.extendedIngredients[i]['original']);
+          // ingredient.innerHTML = JSON.stringify(recipeData.extendedIngredients[i]['original']);
+          ingredient.innerHTML = recipeData.extendedIngredients[i]['original'];
           ingredients.appendChild(ingredient);
         }
         recipe.appendChild(ingredients);
+
+        let steps_title = document.createElement('h2');
+        steps_title.classList.add('steps_title');
+        steps_title.innerHTML = "Recipe Steps";
+        recipe.appendChild(steps_title);
 
         let steps = document.createElement('div');
         steps.classList.add('recipe-steps');
@@ -150,7 +168,7 @@
         </div>
       </article>
 
-    </div>-->
+    </div>
 
     <h2>Front Page Recommendations</h2>
     <div class="recipe-container">
@@ -187,7 +205,7 @@
         </div>
       </article>
 
-    </div>
+    </div>-->
   </main>
 </body>
 

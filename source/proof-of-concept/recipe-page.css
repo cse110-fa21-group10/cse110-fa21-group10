@@ -1,72 +1,94 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
+body {
+  margin: 40px auto;
+  max-width: 60%;
+  line-height: 1.6;
+  font-size: 18px;
+  background: linear-gradient(to right, #9296a3, #d7dde8);
+  font-family: "Open Sans", sans-serif;
+  padding: 010px;
+}
 
-body{
-  background: #f2f2f2;
-  font-family: 'Open Sans', sans-serif;
+@media only screen and (max-width: 1200px) {
+  body {
+    background-color: lightblue;
+    max-width: 90%;
+  }
 }
 
 .search {
-	display: block;
-    width: 50%;
-	border: 3pt solid black;
-	border-radius: 10px;
-	padding-top: .5em;
-	padding-left: .5em;
-	top: 20px;
+  display: block;
+  width: 50%;
+  border: 3pt solid black;
+  border-radius: 10px;
+  padding-top: 0.5em;
+  padding-left: 0.5em;
+  top: 20px;
 }
 
 .recipe-overview {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .recipe-description {
-    width: 55%; 
-    align-items: left;
-    padding-right: 50px;
+  width: 55%;
+  align-items: left;
+  padding-right: 50px;
 }
 
 .main-recipe-image {
-    /* do your own width, height */
-    margin-right: 10px;
-    margin-left: 10px;
-    width: 25%;
-    align-items: right;
-  }
+  /* do your own width, height */
+  margin-right: 10px;
+  margin-left: 10px;
+  width: 25%;
+  align-items: right;
+}
 
 .recipe-card {
-    align-items: center;
-    border: 1px solid #dfdfdf;
-    border-radius: 8px;
-    display: inline-flex;
-    padding: 5px;
-    width: 500px
-   /* do your own width, height */
-  }
+  align-items: center;
+  border: 1px solid #dfdfdf;
+  border-radius: 8px;
+  display: inline-flex;
+  padding: 5px;
+  width: 500px;
+  /* do your own width, height */
+}
 
-  .recipe-image {
-    /* do your own width, height */
-    margin-right: 10px;
-    margin-left: 10px;
-  }
-  
-  .recipe-description {
-      /* do your own height */
-      overflow: hidden;
-      white-space: normal;
-  }
+.recipe-image {
+  /* do your own width, height */
+  margin-right: 10px;
+  margin-left: 10px;
+  max-width: 100%;
+  width: 90%;
+  border: 3pt solid black;
+  border-radius: 10px;
+  height: auto;
+  object-fit: contain;
+}
 
-  .topnav {
-    overflow: hidden;
-  }
-  
-  .topnav a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-  
-  
+.recipe-title {
+  /* do your own height */
+  overflow: hidden;
+  white-space: normal;
+}
+
+.recipe-description {
+  /* do your own height */
+  overflow: hidden;
+  white-space: normal;
+}
+
+.topnav {
+  overflow: hidden;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
 .container > * {
   display: inline-block;
 }
@@ -80,5 +102,5 @@ body{
   height: 75px;
   overflow: scroll;
   border: 1pt solid black;
-  width: 50%
+  width: 50%;
 }
