@@ -63,15 +63,43 @@
         </ol>-->
     </div>
     <script>
+      
+      let recipes = [
+        'recipes/batetaPoha.json',
+        'recipes/ButternutSquashFrittata.json',
+        'recipes/vietnamesePancakes.json',
+        'recipes/lentilSoup.json',
+        'recipes/mushroomtofusoup.json',
+        'recipes/thaitofu.json',
+        'recipes/jambalaya.json',
+        'recipes/riceSalad.json',
+        'recipes/nigeriansnailstew.json',
+        'recipes/gingerbeefbroccoli.json',
+        'recipes/beefstew.json',
+        'recipes/stuffedpepper.json'
+      ];
       const recipeURL = '../assets/recipes/sample-recipe.json'
       //get recipe data from json file
       const params = new URLSearchParams(window.location.search);
       const s = params.get("s");
-
+      const existingRecs = JSON.parse(window.localStorage.getItem('recommendations'));
+      
       if(s == "-1" || s == null){
         addData(JSON.parse(window.localStorage.getItem('queryResult'))[0]);
-      }else if(JSON.parse(window.localStorage.getItem('recommendations'))){
-        addData(JSON.parse(window.localStorage.getItem('recommendations'))[parseInt(s)]);
+      }else if(existingRecs){
+        addData(existingRecs[parseInt(s)]);
+      }else{
+        fetch(recipes[parseInt(s)])
+            .then(response => response.json())
+            .then(data => {
+              addData(data)
+            })
+            .catch(error => {
+                console.log(error);
+                reject(false);
+            })
+        
+        
       }
       
       

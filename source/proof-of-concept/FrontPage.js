@@ -34,7 +34,7 @@ function shuffle(arr) {
     }
 }
 
-shuffle(recipes)
+// shuffle(recipes)
 
 const recipeData = {}
 
