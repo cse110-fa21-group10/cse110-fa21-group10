@@ -1,0 +1,588 @@
+{
+    "vegetarian": true,
+    "vegan": true,
+    "glutenFree": true,
+    "dairyFree": true,
+    "veryHealthy": true,
+    "cheap": false,
+    "veryPopular": false,
+    "sustainable": false,
+    "weightWatcherSmartPoints": 6,
+    "gaps": "no",
+    "lowFodmap": false,
+    "aggregateLikes": 1,
+    "spoonacularScore": 91,
+    "healthScore": 100,
+    "creditsText": "Foodista.com – The Cooking Encyclopedia Everyone Can Edit",
+    "license": "CC BY 3.0",
+    "sourceName": "Foodista",
+    "pricePerServing": 94.77,
+    "extendedIngredients": [
+      {
+        "id": 2004,
+        "aisle": "Spices and Seasonings",
+        "image": "bay-leaves.jpg",
+        "consistency": "solid",
+        "name": "bay leaves",
+        "nameClean": "bay leaves",
+        "original": "8 whole bay leaves",
+        "originalString": "8 whole bay leaves",
+        "originalName": "whole bay leaves",
+        "amount": 8,
+        "unit": "",
+        "meta": [
+          "whole"
+        ],
+        "metaInformation": [
+          "whole"
+        ],
+        "measures": {
+          "us": {
+            "amount": 8,
+            "unitShort": "",
+            "unitLong": ""
+          },
+          "metric": {
+            "amount": 8,
+            "unitShort": "",
+            "unitLong": ""
+          }
+        }
+      },
+      {
+        "id": 11124,
+        "aisle": "Produce",
+        "image": "sliced-carrot.png",
+        "consistency": "solid",
+        "name": "carrots",
+        "nameClean": "carrot",
+        "original": "bunch of carrots, cut up",
+        "originalString": "bunch of carrots, cut up",
+        "originalName": "carrots, cut up",
+        "amount": 1,
+        "unit": "bunch",
+        "meta": [],
+        "metaInformation": [],
+        "measures": {
+          "us": {
+            "amount": 1,
+            "unitShort": "bunch",
+            "unitLong": "bunch"
+          },
+          "metric": {
+            "amount": 1,
+            "unitShort": "bunch",
+            "unitLong": "bunch"
+          }
+        }
+      },
+      {
+        "id": 1002014,
+        "aisle": "Spices and Seasonings",
+        "image": "ground-cumin.jpg",
+        "consistency": "solid",
+        "name": "cumin",
+        "nameClean": "cumin",
+        "original": "pinch of cumin",
+        "originalString": "pinch of cumin",
+        "originalName": "pinch of cumin",
+        "amount": 1,
+        "unit": "pinch",
+        "meta": [],
+        "metaInformation": [],
+        "measures": {
+          "us": {
+            "amount": 1,
+            "unitShort": "pinch",
+            "unitLong": "pinch"
+          },
+          "metric": {
+            "amount": 1,
+            "unitShort": "pinch",
+            "unitLong": "pinch"
+          }
+        }
+      },
+      {
+        "id": 2015,
+        "aisle": "Spices and Seasonings",
+        "image": "curry-powder.jpg",
+        "consistency": "solid",
+        "name": "curry powder",
+        "nameClean": "curry powder",
+        "original": "pinch of curry powder",
+        "originalString": "pinch of curry powder",
+        "originalName": "pinch of curry powder",
+        "amount": 1,
+        "unit": "pinch",
+        "meta": [],
+        "metaInformation": [],
+        "measures": {
+          "us": {
+            "amount": 1,
+            "unitShort": "pinch",
+            "unitLong": "pinch"
+          },
+          "metric": {
+            "amount": 1,
+            "unitShort": "pinch",
+            "unitLong": "pinch"
+          }
+        }
+      },
+      {
+        "id": 11215,
+        "aisle": "Produce",
+        "image": "garlic.png",
+        "consistency": "solid",
+        "name": "garlic",
+        "nameClean": "garlic",
+        "original": "1 clove garlic",
+        "originalString": "1 clove garlic",
+        "originalName": "garlic",
+        "amount": 1,
+        "unit": "clove",
+        "meta": [],
+        "metaInformation": [],
+        "measures": {
+          "us": {
+            "amount": 1,
+            "unitShort": "clove",
+            "unitLong": "clove"
+          },
+          "metric": {
+            "amount": 1,
+            "unitShort": "clove",
+            "unitLong": "clove"
+          }
+        }
+      },
+      {
+        "id": 16069,
+        "aisle": "Pasta and Rice;Canned and Jarred;Produce",
+        "image": "lentils-green.jpg",
+        "consistency": "solid",
+        "name": "lentils",
+        "nameClean": "legumes",
+        "original": "2 cups of dry lentils",
+        "originalString": "2 cups of dry lentils",
+        "originalName": "dry lentils",
+        "amount": 2,
+        "unit": "cups",
+        "meta": [
+          "dry"
+        ],
+        "metaInformation": [
+          "dry"
+        ],
+        "measures": {
+          "us": {
+            "amount": 2,
+            "unitShort": "cups",
+            "unitLong": "cups"
+          },
+          "metric": {
+            "amount": 473.176,
+            "unitShort": "ml",
+            "unitLong": "milliliters"
+          }
+        }
+      },
+      {
+        "id": 1002030,
+        "aisle": "Spices and Seasonings",
+        "image": "pepper.jpg",
+        "consistency": "solid",
+        "name": "pepper",
+        "nameClean": "black pepper",
+        "original": "pinch of pepper",
+        "originalString": "pinch of pepper",
+        "originalName": "pinch of pepper",
+        "amount": 1,
+        "unit": "pinch",
+        "meta": [],
+        "metaInformation": [],
+        "measures": {
+          "us": {
+            "amount": 1,
+            "unitShort": "pinch",
+            "unitLong": "pinch"
+          },
+          "metric": {
+            "amount": 1,
+            "unitShort": "pinch",
+            "unitLong": "pinch"
+          }
+        }
+      },
+      {
+        "id": 1012047,
+        "aisle": "Spices and Seasonings",
+        "image": "salt.jpg",
+        "consistency": "solid",
+        "name": "sea salt",
+        "nameClean": "coarse sea salt",
+        "original": "pinch of sea salt",
+        "originalString": "pinch of sea salt",
+        "originalName": "pinch of sea salt",
+        "amount": 1,
+        "unit": "pinch",
+        "meta": [],
+        "metaInformation": [],
+        "measures": {
+          "us": {
+            "amount": 1,
+            "unitShort": "pinch",
+            "unitLong": "pinch"
+          },
+          "metric": {
+            "amount": 1,
+            "unitShort": "pinch",
+            "unitLong": "pinch"
+          }
+        }
+      },
+      {
+        "id": 10011457,
+        "aisle": "Produce",
+        "image": "spinach.jpg",
+        "consistency": "solid",
+        "name": "spinach",
+        "nameClean": "spinach",
+        "original": "bunch of spinach",
+        "originalString": "bunch of spinach",
+        "originalName": "spinach",
+        "amount": 1,
+        "unit": "bunch",
+        "meta": [],
+        "metaInformation": [],
+        "measures": {
+          "us": {
+            "amount": 1,
+            "unitShort": "bunch",
+            "unitLong": "bunch"
+          },
+          "metric": {
+            "amount": 1,
+            "unitShort": "bunch",
+            "unitLong": "bunch"
+          }
+        }
+      },
+      {
+        "id": 11507,
+        "aisle": "Produce",
+        "image": "sweet-potato.png",
+        "consistency": "solid",
+        "name": "sweet potato",
+        "nameClean": "sweet potato",
+        "original": "1 whole sweet potato, chopped up",
+        "originalString": "1 whole sweet potato, chopped up",
+        "originalName": "whole sweet potato, chopped up",
+        "amount": 1,
+        "unit": "",
+        "meta": [
+          "whole",
+          "chopped"
+        ],
+        "metaInformation": [
+          "whole",
+          "chopped"
+        ],
+        "measures": {
+          "us": {
+            "amount": 1,
+            "unitShort": "",
+            "unitLong": ""
+          },
+          "metric": {
+            "amount": 1,
+            "unitShort": "",
+            "unitLong": ""
+          }
+        }
+      },
+      {
+        "id": 14412,
+        "aisle": "Beverages",
+        "image": "water.png",
+        "consistency": "liquid",
+        "name": "water",
+        "nameClean": "water",
+        "original": "2 cups water",
+        "originalString": "2 cups water",
+        "originalName": "water",
+        "amount": 2,
+        "unit": "cups",
+        "meta": [],
+        "metaInformation": [],
+        "measures": {
+          "us": {
+            "amount": 2,
+            "unitShort": "cups",
+            "unitLong": "cups"
+          },
+          "metric": {
+            "amount": 473.176,
+            "unitShort": "ml",
+            "unitLong": "milliliters"
+          }
+        }
+      },
+      {
+        "id": 10511282,
+        "aisle": "Produce",
+        "image": "brown-onion.png",
+        "consistency": "solid",
+        "name": "yellow onion",
+        "nameClean": "yellow onion",
+        "original": "1 yellow onion, chopped up",
+        "originalString": "1 yellow onion, chopped up",
+        "originalName": "yellow onion, chopped up",
+        "amount": 1,
+        "unit": "",
+        "meta": [
+          "yellow",
+          "chopped"
+        ],
+        "metaInformation": [
+          "yellow",
+          "chopped"
+        ],
+        "measures": {
+          "us": {
+            "amount": 1,
+            "unitShort": "",
+            "unitLong": ""
+          },
+          "metric": {
+            "amount": 1,
+            "unitShort": "",
+            "unitLong": ""
+          }
+        }
+      }
+    ],
+    "id": 649946,
+    "title": "Lentil, Sweet Potato and Spinach Soup",
+    "readyInMinutes": 240,
+    "servings": 6,
+    "sourceUrl": "http://www.foodista.com/recipe/3CY5B52M/lentil-sweet-potato-and-spinach-soup",
+    "image": "https://spoonacular.com/recipeImages/649946-556x370.jpg",
+    "imageType": "jpg",
+    "summary": "Lentil, Sweet Potato and Spinach Soup might be just the main course you are searching for. For <b>95 cents per serving</b>, this recipe <b>covers 36%</b> of your daily requirements of vitamins and minerals. One serving contains <b>290 calories</b>, <b>19g of protein</b>, and <b>1g of fat</b>. 1 person has made this recipe and would make it again. It will be a hit at your <b>Autumn</b> event. It is a good option if you're following a <b>gluten free and vegan</b> diet. From preparation to the plate, this recipe takes approximately <b>4 hours</b>. A mixture of water, carrots, sweet potato, and a handful of other ingredients are all it takes to make this recipe so scrumptious. To use up the cumin you could follow this main course with the <a href=\"https://spoonacular.com/recipes/moroccan-chocolate-mousse-752536\">Moroccan Chocolate Mousse</a> as a dessert. All things considered, we decided this recipe <b>deserves a spoonacular score of 92%</b>. This score is tremendous. Try <a href=\"https://spoonacular.com/recipes/sweet-potato-and-lentil-soup-with-spinach-617851\">Sweet Potato and Lentil Soup with Spinach</a>, <a href=\"https://spoonacular.com/recipes/sweet-potato-spinach-and-lentil-stoup-33858\">Sweet Potato, Spinach, And Lentil Stoup</a>, and <a href=\"https://spoonacular.com/recipes/lentil-soup-with-sweet-potatoes-and-spinach-547718\">Lentil Soup with Sweet Potatoes and Spinach</a> for similar recipes.",
+    "cuisines": [],
+    "dishTypes": [
+      "lunch",
+      "main course",
+      "main dish",
+      "dinner"
+    ],
+    "diets": [
+      "gluten free",
+      "dairy free",
+      "lacto ovo vegetarian",
+      "vegan"
+    ],
+    "occasions": [
+      "fall",
+      "winter"
+    ],
+    "winePairing": {
+      "pairedWines": [],
+      "pairingText": "",
+      "productMatches": []
+    },
+    "instructions": "<ol><li>Let the dry beans soak for a 2-3 hours before you start the soup. When ready to cook, pour the water in a pot, let boil and add the onions and garlic. Add the lentils, peanut butter, and bay leaves when the water comes to a steady boil. Cover the pot and cut up the potatoes and carrots. Let the lentils cook for an hour or so, checking on it periodically (adding water is common). Then add the potatoes and carrots, along with various seasonings (curry, salt, pepper and cumin) and cover. Make sure to taste as go and let cook for about another 45 minutes to an hour. Turn off the flame and place a bunch of fresh spinach on the bottom of a bowl, pour in the soup and enjoy!</li></ol>",
+    "analyzedInstructions": [
+      {
+        "name": "",
+        "steps": [
+          {
+            "number": 1,
+            "step": "Let the dry beans soak for a 2-3 hours before you start the soup. When ready to cook, pour the water in a pot, let boil and add the onions and garlic.",
+            "ingredients": [
+              {
+                "id": 11215,
+                "name": "garlic",
+                "localizedName": "garlic",
+                "image": "garlic.png"
+              },
+              {
+                "id": 11282,
+                "name": "onion",
+                "localizedName": "onion",
+                "image": "brown-onion.png"
+              },
+              {
+                "id": 0,
+                "name": "beans",
+                "localizedName": "beans",
+                "image": "kidney-beans.jpg"
+              },
+              {
+                "id": 14412,
+                "name": "water",
+                "localizedName": "water",
+                "image": "water.png"
+              },
+              {
+                "id": 0,
+                "name": "soup",
+                "localizedName": "soup",
+                "image": ""
+              }
+            ],
+            "equipment": [
+              {
+                "id": 404752,
+                "name": "pot",
+                "localizedName": "pot",
+                "image": "stock-pot.jpg"
+              }
+            ],
+            "length": {
+              "number": 180,
+              "unit": "minutes"
+            }
+          },
+          {
+            "number": 2,
+            "step": "Add the lentils, peanut butter, and bay leaves when the water comes to a steady boil. Cover the pot and cut up the potatoes and carrots.",
+            "ingredients": [
+              {
+                "id": 16098,
+                "name": "peanut butter",
+                "localizedName": "peanut butter",
+                "image": "peanut-butter.png"
+              },
+              {
+                "id": 2004,
+                "name": "bay leaves",
+                "localizedName": "bay leaves",
+                "image": "bay-leaves.jpg"
+              },
+              {
+                "id": 11352,
+                "name": "potato",
+                "localizedName": "potato",
+                "image": "potatoes-yukon-gold.png"
+              },
+              {
+                "id": 11124,
+                "name": "carrot",
+                "localizedName": "carrot",
+                "image": "sliced-carrot.png"
+              },
+              {
+                "id": 10316069,
+                "name": "lentils",
+                "localizedName": "lentils",
+                "image": "lentils-brown.jpg"
+              },
+              {
+                "id": 14412,
+                "name": "water",
+                "localizedName": "water",
+                "image": "water.png"
+              }
+            ],
+            "equipment": [
+              {
+                "id": 404752,
+                "name": "pot",
+                "localizedName": "pot",
+                "image": "stock-pot.jpg"
+              }
+            ]
+          },
+          {
+            "number": 3,
+            "step": "Let the lentils cook for an hour or so, checking on it periodically (adding water is common). Then add the potatoes and carrots, along with various seasonings (curry, salt, pepper and cumin) and cover. Make sure to taste as go and let cook for about another 45 minutes to an hour. Turn off the flame and place a bunch of fresh spinach on the bottom of a bowl, pour in the soup and enjoy!",
+            "ingredients": [
+              {
+                "id": 1042027,
+                "name": "seasoning",
+                "localizedName": "seasoning",
+                "image": "seasoning.png"
+              },
+              {
+                "id": 11352,
+                "name": "potato",
+                "localizedName": "potato",
+                "image": "potatoes-yukon-gold.png"
+              },
+              {
+                "id": 11124,
+                "name": "carrot",
+                "localizedName": "carrot",
+                "image": "sliced-carrot.png"
+              },
+              {
+                "id": 10316069,
+                "name": "lentils",
+                "localizedName": "lentils",
+                "image": "lentils-brown.jpg"
+              },
+              {
+                "id": 10011457,
+                "name": "spinach",
+                "localizedName": "spinach",
+                "image": "spinach.jpg"
+              },
+              {
+                "id": 1002030,
+                "name": "pepper",
+                "localizedName": "pepper",
+                "image": "pepper.jpg"
+              },
+              {
+                "id": 1002014,
+                "name": "cumin",
+                "localizedName": "cumin",
+                "image": "ground-cumin.jpg"
+              },
+              {
+                "id": 2015,
+                "name": "curry powder",
+                "localizedName": "curry powder",
+                "image": "curry-powder.jpg"
+              },
+              {
+                "id": 14412,
+                "name": "water",
+                "localizedName": "water",
+                "image": "water.png"
+              },
+              {
+                "id": 2047,
+                "name": "salt",
+                "localizedName": "salt",
+                "image": "salt.jpg"
+              },
+              {
+                "id": 0,
+                "name": "soup",
+                "localizedName": "soup",
+                "image": ""
+              }
+            ],
+            "equipment": [
+              {
+                "id": 404783,
+                "name": "bowl",
+                "localizedName": "bowl",
+                "image": "bowl.jpg"
+              }
+            ],
+            "length": {
+              "number": 45,
+              "unit": "minutes"
+            }
+          }
+        ]
+      }
+    ],
+    "originalId": null,
+    "spoonacularSourceUrl": "https://spoonacular.com/lentil-sweet-potato-and-spinach-soup-649946"
+  }

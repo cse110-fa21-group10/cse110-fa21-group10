@@ -1,0 +1,593 @@
+{
+    "vegetarian": false,
+    "vegan": false,
+    "glutenFree": true,
+    "dairyFree": true,
+    "veryHealthy": true,
+    "cheap": false,
+    "veryPopular": false,
+    "sustainable": false,
+    "weightWatcherSmartPoints": 4,
+    "gaps": "no",
+    "lowFodmap": false,
+    "aggregateLikes": 1,
+    "spoonacularScore": 84,
+    "healthScore": 53,
+    "creditsText": "Foodista.com – The Cooking Encyclopedia Everyone Can Edit",
+    "license": "CC BY 3.0",
+    "sourceName": "Foodista",
+    "pricePerServing": 172.06,
+    "extendedIngredients": [
+      {
+        "id": 11116,
+        "aisle": "Produce",
+        "image": "bok-choy.jpg",
+        "consistency": "solid",
+        "name": "bok choy",
+        "nameClean": "bok choy",
+        "original": "1 large head bok choy, chopped",
+        "originalString": "1 large head bok choy, chopped",
+        "originalName": "bok choy, chopped",
+        "amount": 1,
+        "unit": "large head",
+        "meta": [
+          "chopped"
+        ],
+        "metaInformation": [
+          "chopped"
+        ],
+        "measures": {
+          "us": {
+            "amount": 1,
+            "unitShort": "large head",
+            "unitLong": "large head"
+          },
+          "metric": {
+            "amount": 1,
+            "unitShort": "large head",
+            "unitLong": "large head"
+          }
+        }
+      },
+      {
+        "id": 19334,
+        "aisle": "Baking",
+        "image": "light-brown-sugar.jpg",
+        "consistency": "solid",
+        "name": "brown sugar",
+        "nameClean": "golden brown sugar",
+        "original": "2 teaspoons brown sugar",
+        "originalString": "2 teaspoons brown sugar",
+        "originalName": "brown sugar",
+        "amount": 2,
+        "unit": "teaspoons",
+        "meta": [],
+        "metaInformation": [],
+        "measures": {
+          "us": {
+            "amount": 2,
+            "unitShort": "tsps",
+            "unitLong": "teaspoons"
+          },
+          "metric": {
+            "amount": 2,
+            "unitShort": "tsps",
+            "unitLong": "teaspoons"
+          }
+        }
+      },
+      {
+        "id": 11124,
+        "aisle": "Produce",
+        "image": "sliced-carrot.png",
+        "consistency": "solid",
+        "name": "carrots",
+        "nameClean": "carrot",
+        "original": "1 c. julienned carrots",
+        "originalString": "1 c. julienned carrots",
+        "originalName": "julienned carrots",
+        "amount": 1,
+        "unit": "c",
+        "meta": [
+          "julienned"
+        ],
+        "metaInformation": [
+          "julienned"
+        ],
+        "measures": {
+          "us": {
+            "amount": 1,
+            "unitShort": "cup",
+            "unitLong": "cup"
+          },
+          "metric": {
+            "amount": 236.588,
+            "unitShort": "ml",
+            "unitLong": "milliliters"
+          }
+        }
+      },
+      {
+        "id": 6973,
+        "aisle": "Ethnic Foods",
+        "image": "chili-paste.png",
+        "consistency": "solid",
+        "name": "chili paste",
+        "nameClean": "chili paste",
+        "original": "2 teaspoons hot chili paste (depending on how spicy you prefer your dish- start with 1 tsp and taste test it)",
+        "originalString": "2 teaspoons hot chili paste (depending on how spicy you prefer your dish- start with 1 tsp and taste test it)",
+        "originalName": "hot chili paste (depending on how spicy you prefer your dish- start with 1 tsp and taste test it)",
+        "amount": 2,
+        "unit": "teaspoons",
+        "meta": [
+          "with 1 tsp and taste test it)",
+          "hot"
+        ],
+        "metaInformation": [
+          "with 1 tsp and taste test it)",
+          "hot"
+        ],
+        "measures": {
+          "us": {
+            "amount": 2,
+            "unitShort": "tsps",
+            "unitLong": "teaspoons"
+          },
+          "metric": {
+            "amount": 2,
+            "unitShort": "tsps",
+            "unitLong": "teaspoons"
+          }
+        }
+      },
+      {
+        "id": 20027,
+        "aisle": "Baking",
+        "image": "white-powder.jpg",
+        "consistency": "solid",
+        "name": "corn starch",
+        "nameClean": "corn starch",
+        "original": "1 teaspoon corn starch dissolved in 1 tablespoon cold water",
+        "originalString": "1 teaspoon corn starch dissolved in 1 tablespoon cold water",
+        "originalName": "corn starch dissolved in 1 tablespoon cold water",
+        "amount": 1,
+        "unit": "teaspoon",
+        "meta": [
+          "dissolved in 1 tablespoon cold water"
+        ],
+        "metaInformation": [
+          "dissolved in 1 tablespoon cold water"
+        ],
+        "measures": {
+          "us": {
+            "amount": 1,
+            "unitShort": "tsp",
+            "unitLong": "teaspoon"
+          },
+          "metric": {
+            "amount": 1,
+            "unitShort": "tsp",
+            "unitLong": "teaspoon"
+          }
+        }
+      },
+      {
+        "id": 16163,
+        "aisle": "Refrigerated;Produce;Ethnic Foods",
+        "image": "tofu.png",
+        "consistency": "solid",
+        "name": "extra firm tofu",
+        "nameClean": "extra firm tofu",
+        "original": "1 12 ounce block extra firm tofu, drained and pressed to remove water",
+        "originalString": "1 12 ounce block extra firm tofu, drained and pressed to remove water",
+        "originalName": "block extra firm tofu, drained and pressed to remove water",
+        "amount": 12,
+        "unit": "ounce",
+        "meta": [
+          "firm",
+          "pressed",
+          "drained"
+        ],
+        "metaInformation": [
+          "firm",
+          "pressed",
+          "drained"
+        ],
+        "measures": {
+          "us": {
+            "amount": 12,
+            "unitShort": "oz",
+            "unitLong": "ounces"
+          },
+          "metric": {
+            "amount": 340.194,
+            "unitShort": "g",
+            "unitLong": "grams"
+          }
+        }
+      },
+      {
+        "id": 6179,
+        "aisle": "Ethnic Foods",
+        "image": "asian-fish-sauce.jpg",
+        "consistency": "liquid",
+        "name": "fish sauce",
+        "nameClean": "fish sauce",
+        "original": "1 T. fish sauce",
+        "originalString": "1 T. fish sauce",
+        "originalName": "fish sauce",
+        "amount": 1,
+        "unit": "T",
+        "meta": [],
+        "metaInformation": [],
+        "measures": {
+          "us": {
+            "amount": 1,
+            "unitShort": "Tbsp",
+            "unitLong": "Tbsp"
+          },
+          "metric": {
+            "amount": 1,
+            "unitShort": "Tbsp",
+            "unitLong": "Tbsp"
+          }
+        }
+      },
+      {
+        "id": 6176,
+        "aisle": "Ethnic Foods",
+        "image": "oyster-sauce.jpg",
+        "consistency": "liquid",
+        "name": "oyster sauce",
+        "nameClean": "oyster sauce",
+        "original": "3 tablespoons oyster sauce",
+        "originalString": "3 tablespoons oyster sauce",
+        "originalName": "oyster sauce",
+        "amount": 3,
+        "unit": "tablespoons",
+        "meta": [],
+        "metaInformation": [],
+        "measures": {
+          "us": {
+            "amount": 3,
+            "unitShort": "Tbsps",
+            "unitLong": "Tbsps"
+          },
+          "metric": {
+            "amount": 3,
+            "unitShort": "Tbsps",
+            "unitLong": "Tbsps"
+          }
+        }
+      },
+      {
+        "id": 4058,
+        "aisle": "Ethnic Foods",
+        "image": "sesame-oil.png",
+        "consistency": "liquid",
+        "name": "sesame oil",
+        "nameClean": "sesame oil",
+        "original": "2 tablespoons Sesame oil",
+        "originalString": "2 tablespoons Sesame oil",
+        "originalName": "Sesame oil",
+        "amount": 2,
+        "unit": "tablespoons",
+        "meta": [],
+        "metaInformation": [],
+        "measures": {
+          "us": {
+            "amount": 2,
+            "unitShort": "Tbsps",
+            "unitLong": "Tbsps"
+          },
+          "metric": {
+            "amount": 2,
+            "unitShort": "Tbsps",
+            "unitLong": "Tbsps"
+          }
+        }
+      },
+      {
+        "id": 16124,
+        "aisle": "Ethnic Foods;Condiments",
+        "image": "soy-sauce.jpg",
+        "consistency": "liquid",
+        "name": "soy sauce",
+        "nameClean": "soy sauce",
+        "original": "2 tablespoons soy sauce",
+        "originalString": "2 tablespoons soy sauce",
+        "originalName": "soy sauce",
+        "amount": 2,
+        "unit": "tablespoons",
+        "meta": [],
+        "metaInformation": [],
+        "measures": {
+          "us": {
+            "amount": 2,
+            "unitShort": "Tbsps",
+            "unitLong": "Tbsps"
+          },
+          "metric": {
+            "amount": 2,
+            "unitShort": "Tbsps",
+            "unitLong": "Tbsps"
+          }
+        }
+      }
+    ],
+    "id": 663166,
+    "title": "Thai Tofu With Bok Choy",
+    "readyInMinutes": 45,
+    "servings": 4,
+    "sourceUrl": "http://www.foodista.com/recipe/DJXLVF5B/thai-tofu-with-bok-choy",
+    "image": "https://spoonacular.com/recipeImages/663166-556x370.jpg",
+    "imageType": "jpg",
+    "summary": "The recipe Thai Tofu With Bok Choy is ready <b>in approximately 45 minutes</b> and is definitely a super <b>gluten free, dairy free, and pescatarian</b> option for lovers of Asian food. This side dish has <b>181 calories</b>, <b>11g of protein</b>, and <b>10g of fat</b> per serving. For <b>$1.72 per serving</b>, this recipe <b>covers 24%</b> of your daily requirements of vitamins and minerals. Not a lot of people made this recipe, and 1 would say it hit the spot. A mixture of corn starch, fish sauce, soy sauce, and a handful of other ingredients are all it takes to make this recipe so delicious. All things considered, we decided this recipe <b>deserves a spoonacular score of 85%</b>. This score is outstanding. Try <a href=\"https://spoonacular.com/recipes/bok-choy-shiitake-and-garlic-noodles-922753\">Bok Choy, Shiitake, and Garlic Noodles</a>, <a href=\"https://spoonacular.com/recipes/garlic-ginger-zucchini-noodle-bowl-with-salmon-and-bok-choy-912729\">Garlic Ginger Zucchini Noodle Bowl with Salmon and Bok Choy</a>, and <a href=\"https://spoonacular.com/recipes/tofu-with-bok-choy-92062\">Tofu with Bok Choy</a> for similar recipes.",
+    "cuisines": [
+      "Thai",
+      "Asian"
+    ],
+    "dishTypes": [
+      "side dish"
+    ],
+    "diets": [
+      "gluten free",
+      "dairy free",
+      "pescatarian"
+    ],
+    "occasions": [],
+    "winePairing": {
+      "pairedWines": [
+        "chenin blanc",
+        "gewurztraminer",
+        "riesling"
+      ],
+      "pairingText": "Asian on the menu? Try pairing with Chenin Blanc, Gewurztraminer, and Riesling. The best wine for Asian food depends on the cuisine and dish - of course - but these acidic whites pair with a number of traditional meals, spicy or not. The Lubanzi Chenin Blanc with a 4.1 out of 5 star rating seems like a good match. It costs about 16 dollars per bottle.",
+      "productMatches": [
+        {
+          "id": 484336,
+          "title": "Lubanzi Chenin Blanc",
+          "description": "The 2018 Lubanzi Chenin Blanc is drawn from a blend of older, dry farmed bush vines & younger, drip irrigated vines. Its deep straw color points towards both ripe freshness & complexity. The nose brings tropical & stone fruits first, eliciting thoughts of tangerine & lychee. The palate is round and fleshy, pushing forward lychee again, along with white peach, apricot & green apple, all carried by a touch of elevated acidity. There is brightness & a slight hint of freshly baked bread throughout. The finish is long, soft & affectionate.",
+          "price": "$15.99",
+          "imageUrl": "https://spoonacular.com/productImages/484336-312x231.jpg",
+          "averageRating": 0.82,
+          "ratingCount": 14,
+          "score": 0.7967441860465115,
+          "link": "https://click.linksynergy.com/deeplink?id=*QCiIS6t4gA&mid=2025&murl=https%3A%2F%2Fwww.wine.com%2Fproduct%2Flubanzi-chenin-blanc-2019%2F604774"
+        }
+      ]
+    },
+    "instructions": "<ol><li>Cut the tofu into 1\" cubes. Whisk together sauce ingredients (soy sauce, oyster sauce, fish sauce, brown sugar, and chili paste). Set aside.</li><li>Heat 2 tsp sesame oil over medium-high heat in a large wok or pan. When the pan is hot, add the tofu and let cook for 2 minutes on one side, undisturbed, until they develop a crisp crust. Flip and cook 2 minutes more.</li><li>Remove the tofu to a plate. Return pan to the heat.</li><li>Add remaining 1 tsp sesame oil to the pan along with the carrots. Saute for 3 minutes, until the carrots begin to soften.</li><li>Add the bok choy and saute for 2 minutes, until it begins to soften and wilt.</li><li>Stir in the sauce.</li><li>Return the tofu to the pan and stir in the corn starch mixture. Allow the sauce to come to a boil for it to thicken. Stir.</li><li>Serve with rice.</li></ol>",
+    "analyzedInstructions": [
+      {
+        "name": "",
+        "steps": [
+          {
+            "number": 1,
+            "step": "Cut the tofu into 1\" cubes.",
+            "ingredients": [
+              {
+                "id": 16213,
+                "name": "tofu",
+                "localizedName": "tofu",
+                "image": "tofu.png"
+              }
+            ],
+            "equipment": []
+          },
+          {
+            "number": 2,
+            "step": "Whisk together sauce ingredients (soy sauce, oyster sauce, fish sauce, brown sugar, and chili paste). Set aside.",
+            "ingredients": [
+              {
+                "id": 6176,
+                "name": "oyster sauce",
+                "localizedName": "oyster sauce",
+                "image": "oyster-sauce.jpg"
+              },
+              {
+                "id": 19334,
+                "name": "brown sugar",
+                "localizedName": "brown sugar",
+                "image": "dark-brown-sugar.png"
+              },
+              {
+                "id": 6973,
+                "name": "chili paste",
+                "localizedName": "chili paste",
+                "image": "chili-paste.png"
+              },
+              {
+                "id": 6179,
+                "name": "fish sauce",
+                "localizedName": "fish sauce",
+                "image": "asian-fish-sauce.jpg"
+              },
+              {
+                "id": 16124,
+                "name": "soy sauce",
+                "localizedName": "soy sauce",
+                "image": "soy-sauce.jpg"
+              },
+              {
+                "id": 0,
+                "name": "sauce",
+                "localizedName": "sauce",
+                "image": ""
+              }
+            ],
+            "equipment": [
+              {
+                "id": 404661,
+                "name": "whisk",
+                "localizedName": "whisk",
+                "image": "whisk.png"
+              }
+            ]
+          },
+          {
+            "number": 3,
+            "step": "Heat 2 tsp sesame oil over medium-high heat in a large wok or pan. When the pan is hot, add the tofu and let cook for 2 minutes on one side, undisturbed, until they develop a crisp crust. Flip and cook 2 minutes more.",
+            "ingredients": [
+              {
+                "id": 4058,
+                "name": "sesame oil",
+                "localizedName": "sesame oil",
+                "image": "sesame-oil.png"
+              },
+              {
+                "id": 0,
+                "name": "crust",
+                "localizedName": "crust",
+                "image": ""
+              },
+              {
+                "id": 16213,
+                "name": "tofu",
+                "localizedName": "tofu",
+                "image": "tofu.png"
+              }
+            ],
+            "equipment": [
+              {
+                "id": 404645,
+                "name": "frying pan",
+                "localizedName": "frying pan",
+                "image": "pan.png"
+              },
+              {
+                "id": 404666,
+                "name": "wok",
+                "localizedName": "wok",
+                "image": "wok.png"
+              }
+            ],
+            "length": {
+              "number": 4,
+              "unit": "minutes"
+            }
+          },
+          {
+            "number": 4,
+            "step": "Remove the tofu to a plate. Return pan to the heat.",
+            "ingredients": [
+              {
+                "id": 16213,
+                "name": "tofu",
+                "localizedName": "tofu",
+                "image": "tofu.png"
+              }
+            ],
+            "equipment": [
+              {
+                "id": 404645,
+                "name": "frying pan",
+                "localizedName": "frying pan",
+                "image": "pan.png"
+              }
+            ]
+          },
+          {
+            "number": 5,
+            "step": "Add remaining 1 tsp sesame oil to the pan along with the carrots.",
+            "ingredients": [
+              {
+                "id": 4058,
+                "name": "sesame oil",
+                "localizedName": "sesame oil",
+                "image": "sesame-oil.png"
+              },
+              {
+                "id": 11124,
+                "name": "carrot",
+                "localizedName": "carrot",
+                "image": "sliced-carrot.png"
+              }
+            ],
+            "equipment": [
+              {
+                "id": 404645,
+                "name": "frying pan",
+                "localizedName": "frying pan",
+                "image": "pan.png"
+              }
+            ]
+          },
+          {
+            "number": 6,
+            "step": "Saute for 3 minutes, until the carrots begin to soften.",
+            "ingredients": [
+              {
+                "id": 11124,
+                "name": "carrot",
+                "localizedName": "carrot",
+                "image": "sliced-carrot.png"
+              }
+            ],
+            "equipment": [],
+            "length": {
+              "number": 3,
+              "unit": "minutes"
+            }
+          },
+          {
+            "number": 7,
+            "step": "Add the bok choy and saute for 2 minutes, until it begins to soften and wilt.Stir in the sauce.Return the tofu to the pan and stir in the corn starch mixture. Allow the sauce to come to a boil for it to thicken. Stir.",
+            "ingredients": [
+              {
+                "id": 20027,
+                "name": "corn starch",
+                "localizedName": "corn starch",
+                "image": "white-powder.jpg"
+              },
+              {
+                "id": 11116,
+                "name": "bok choy",
+                "localizedName": "bok choy",
+                "image": "bok-choy.jpg"
+              },
+              {
+                "id": 0,
+                "name": "sauce",
+                "localizedName": "sauce",
+                "image": ""
+              },
+              {
+                "id": 16213,
+                "name": "tofu",
+                "localizedName": "tofu",
+                "image": "tofu.png"
+              }
+            ],
+            "equipment": [
+              {
+                "id": 404645,
+                "name": "frying pan",
+                "localizedName": "frying pan",
+                "image": "pan.png"
+              }
+            ],
+            "length": {
+              "number": 2,
+              "unit": "minutes"
+            }
+          },
+          {
+            "number": 8,
+            "step": "Serve with rice.",
+            "ingredients": [
+              {
+                "id": 20444,
+                "name": "rice",
+                "localizedName": "rice",
+                "image": "uncooked-white-rice.png"
+              }
+            ],
+            "equipment": []
+          }
+        ]
+      }
+    ],
+    "originalId": null,
+    "spoonacularSourceUrl": "https://spoonacular.com/thai-tofu-with-bok-choy-663166"
+  }

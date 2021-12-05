@@ -9,20 +9,32 @@ const diets = ['No Restrictions', 'Gluten Free', 'Ketogenic', 'Vegetarian',
     'Whole30'];
 
 
-const recipes = [
-    'recipes/sample-recipe.json',
+let recipes = [
+    'recipes/batetaPoha.json',
     'recipes/ButternutSquashFrittata.json',
     'recipes/vietnamesePancakes.json',
-    'recipes/sample-recipe.json',
-    'recipes/ButternutSquashFrittata.json',
-    'recipes/vietnamesePancakes.json',
-    'recipes/sample-recipe.json',
-    'recipes/ButternutSquashFrittata.json',
-    'recipes/vietnamesePancakes.json',
-    'recipes/sample-recipe.json',
-    'recipes/ButternutSquashFrittata.json',
-    'recipes/vietnamesePancakes.json'
+    'recipes/lentilSoup.json',
+    'recipes/mushroomtofusoup.json',
+    'recipes/thaitofu.json',
+    'recipes/jambalaya.json',
+    'recipes/riceSalad.json',
+    'recipes/nigeriansnailstew.json',
+    'recipes/gingerbeefbroccoli.json',
+    'recipes/beefstew.json',
+    'recipes/stuffedpepper.json'
   ];
+
+function shuffle(arr) {
+    let l = arr.length;
+    for (let i = 0; i < l; ++i) {
+        let idx = parseInt(Math.random() * l);
+        let temp = arr[i];
+        arr[i] = arr[idx];
+        arr[idx] = temp;
+    }
+}
+
+shuffle(recipes)
 
 const recipeData = {}
 

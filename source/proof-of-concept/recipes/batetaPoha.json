@@ -1,0 +1,807 @@
+{
+  "vegetarian": true,
+  "vegan": true,
+  "glutenFree": true,
+  "dairyFree": true,
+  "veryHealthy": true,
+  "cheap": false,
+  "veryPopular": false,
+  "sustainable": false,
+  "weightWatcherSmartPoints": 16,
+  "gaps": "no",
+  "lowFodmap": false,
+  "aggregateLikes": 1,
+  "spoonacularScore": 92,
+  "healthScore": 100,
+  "creditsText": "Foodista.com – The Cooking Encyclopedia Everyone Can Edit",
+  "license": "CC BY 3.0",
+  "sourceName": "Foodista",
+  "pricePerServing": 245.79,
+  "extendedIngredients": [
+    {
+      "id": 1032035,
+      "aisle": "Spices and Seasonings",
+      "image": "curry-powder.jpg",
+      "consistency": "solid",
+      "name": "asafoetida",
+      "nameClean": "asafoetida",
+      "original": "1/4 teaspoon asafoetida (optional)",
+      "originalString": "1/4 teaspoon asafoetida (optional)",
+      "originalName": "asafoetida (optional)",
+      "amount": 0.25,
+      "unit": "teaspoon",
+      "meta": [],
+      "metaInformation": [],
+      "measures": {
+        "us": {
+          "amount": 0.25,
+          "unitShort": "tsps",
+          "unitLong": "teaspoons"
+        },
+        "metric": {
+          "amount": 0.25,
+          "unitShort": "tsps",
+          "unitLong": "teaspoons"
+        }
+      }
+    },
+    {
+      "id": 31015,
+      "aisle": "Produce",
+      "image": "chili-peppers-green.jpg",
+      "consistency": "solid",
+      "name": "green chillies",
+      "nameClean": "green chili pepper",
+      "original": "4 mediums hot green chillies (more or less according to your taste)",
+      "originalString": "4 mediums hot green chillies (more or less according to your taste)",
+      "originalName": "s hot green chillies (more or less according to your taste)",
+      "amount": 4,
+      "unit": "medium",
+      "meta": [
+        "green",
+        "hot",
+        "(more or less according to your taste)"
+      ],
+      "metaInformation": [
+        "green",
+        "hot",
+        "(more or less according to your taste)"
+      ],
+      "measures": {
+        "us": {
+          "amount": 4,
+          "unitShort": "medium",
+          "unitLong": "mediums"
+        },
+        "metric": {
+          "amount": 4,
+          "unitShort": "medium",
+          "unitLong": "mediums"
+        }
+      }
+    },
+    {
+      "id": 2012,
+      "aisle": "Spices and Seasonings",
+      "image": "ground-coriander.jpg",
+      "consistency": "solid",
+      "name": "coriander",
+      "nameClean": "dried cilantro",
+      "original": "1/4 cup chopped coriander",
+      "originalString": "1/4 cup chopped coriander",
+      "originalName": "chopped coriander",
+      "amount": 0.25,
+      "unit": "cup",
+      "meta": [
+        "chopped"
+      ],
+      "metaInformation": [
+        "chopped"
+      ],
+      "measures": {
+        "us": {
+          "amount": 0.25,
+          "unitShort": "cups",
+          "unitLong": "cups"
+        },
+        "metric": {
+          "amount": 59.147,
+          "unitShort": "ml",
+          "unitLong": "milliliters"
+        }
+      }
+    },
+    {
+      "id": 2014,
+      "aisle": "Spices and Seasonings",
+      "image": "ground-cumin.jpg",
+      "consistency": "solid",
+      "name": "cumin seeds",
+      "nameClean": "cumin seeds",
+      "original": "2 teaspoons cumin seeds",
+      "originalString": "2 teaspoons cumin seeds",
+      "originalName": "cumin seeds",
+      "amount": 2,
+      "unit": "teaspoons",
+      "meta": [],
+      "metaInformation": [],
+      "measures": {
+        "us": {
+          "amount": 2,
+          "unitShort": "tsps",
+          "unitLong": "teaspoons"
+        },
+        "metric": {
+          "amount": 2,
+          "unitShort": "tsps",
+          "unitLong": "teaspoons"
+        }
+      }
+    },
+    {
+      "id": 93604,
+      "aisle": "Ethnic Foods",
+      "image": "curry-leaves.jpg",
+      "consistency": "solid",
+      "name": "curry leaves",
+      "nameClean": "curry leaves",
+      "original": "10 curry leaves",
+      "originalString": "10 curry leaves",
+      "originalName": "curry leaves",
+      "amount": 10,
+      "unit": "",
+      "meta": [],
+      "metaInformation": [],
+      "measures": {
+        "us": {
+          "amount": 10,
+          "unitShort": "",
+          "unitLong": ""
+        },
+        "metric": {
+          "amount": 10,
+          "unitShort": "",
+          "unitLong": ""
+        }
+      }
+    },
+    {
+      "id": 98953,
+      "aisle": "Spices and Seasonings",
+      "image": "hemp-protein-powder.png",
+      "consistency": "solid",
+      "name": "fennel powder",
+      "nameClean": "ground fennel",
+      "original": "1/2 teaspoon fennel powder (optional- I like fennel powder)",
+      "originalString": "1/2 teaspoon fennel powder (optional- I like fennel powder)",
+      "originalName": "fennel powder (optional- I like fennel powder)",
+      "amount": 0.5,
+      "unit": "teaspoon",
+      "meta": [
+        "(optional- I like fennel powder)"
+      ],
+      "metaInformation": [
+        "(optional- I like fennel powder)"
+      ],
+      "measures": {
+        "us": {
+          "amount": 0.5,
+          "unitShort": "tsps",
+          "unitLong": "teaspoons"
+        },
+        "metric": {
+          "amount": 0.5,
+          "unitShort": "tsps",
+          "unitLong": "teaspoons"
+        }
+      }
+    },
+    {
+      "id": 11216,
+      "aisle": "Produce;Ethnic Foods;Spices and Seasonings",
+      "image": "ginger.png",
+      "consistency": "solid",
+      "name": "ginger",
+      "nameClean": "ginger",
+      "original": "1 tablespoon ginger, minced",
+      "originalString": "1 tablespoon ginger, minced",
+      "originalName": "ginger, minced",
+      "amount": 1,
+      "unit": "tablespoon",
+      "meta": [
+        "minced"
+      ],
+      "metaInformation": [
+        "minced"
+      ],
+      "measures": {
+        "us": {
+          "amount": 1,
+          "unitShort": "Tbsp",
+          "unitLong": "Tbsp"
+        },
+        "metric": {
+          "amount": 1,
+          "unitShort": "Tbsp",
+          "unitLong": "Tbsp"
+        }
+      }
+    },
+    {
+      "id": 1002030,
+      "aisle": "Spices and Seasonings",
+      "image": "pepper.jpg",
+      "consistency": "solid",
+      "name": "ground pepper",
+      "nameClean": "black pepper",
+      "original": "1 teaspoon ground black pepper",
+      "originalString": "1 teaspoon ground black pepper",
+      "originalName": "ground black pepper",
+      "amount": 1,
+      "unit": "teaspoon",
+      "meta": [
+        "black"
+      ],
+      "metaInformation": [
+        "black"
+      ],
+      "measures": {
+        "us": {
+          "amount": 1,
+          "unitShort": "tsp",
+          "unitLong": "teaspoon"
+        },
+        "metric": {
+          "amount": 1,
+          "unitShort": "tsp",
+          "unitLong": "teaspoon"
+        }
+      }
+    },
+    {
+      "id": 9152,
+      "aisle": "Produce",
+      "image": "lemon-juice.jpg",
+      "consistency": "liquid",
+      "name": "lemon juice",
+      "nameClean": "lemon juice",
+      "original": "3 tablespoons lemon juice",
+      "originalString": "3 tablespoons lemon juice",
+      "originalName": "lemon juice",
+      "amount": 3,
+      "unit": "tablespoons",
+      "meta": [],
+      "metaInformation": [],
+      "measures": {
+        "us": {
+          "amount": 3,
+          "unitShort": "Tbsps",
+          "unitLong": "Tbsps"
+        },
+        "metric": {
+          "amount": 3,
+          "unitShort": "Tbsps",
+          "unitLong": "Tbsps"
+        }
+      }
+    },
+    {
+      "id": 12135,
+      "aisle": "Nuts",
+      "image": "nuts-mixed.jpg",
+      "consistency": "solid",
+      "name": "nuts",
+      "nameClean": "nuts",
+      "original": "cup mixed nuts (I used redskin peanuts and cashew",
+      "originalString": "cup mixed nuts (I used redskin peanuts and cashew",
+      "originalName": "mixed nuts (I used redskin peanuts and cashew",
+      "amount": 1,
+      "unit": "cup",
+      "meta": [
+        "mixed"
+      ],
+      "metaInformation": [
+        "mixed"
+      ],
+      "measures": {
+        "us": {
+          "amount": 1,
+          "unitShort": "cup",
+          "unitLong": "cup"
+        },
+        "metric": {
+          "amount": 236.588,
+          "unitShort": "ml",
+          "unitLong": "milliliters"
+        }
+      }
+    },
+    {
+      "id": 11282,
+      "aisle": "Produce",
+      "image": "brown-onion.png",
+      "consistency": "solid",
+      "name": "onions",
+      "nameClean": "onion",
+      "original": "3/4 cup onions, chopped finely",
+      "originalString": "3/4 cup onions, chopped finely",
+      "originalName": "onions, chopped finely",
+      "amount": 0.75,
+      "unit": "cup",
+      "meta": [
+        "chopped",
+        "finely"
+      ],
+      "metaInformation": [
+        "chopped",
+        "finely"
+      ],
+      "measures": {
+        "us": {
+          "amount": 0.75,
+          "unitShort": "cups",
+          "unitLong": "cups"
+        },
+        "metric": {
+          "amount": 177.441,
+          "unitShort": "ml",
+          "unitLong": "milliliters"
+        }
+      }
+    },
+    {
+      "id": 11352,
+      "aisle": "Produce",
+      "image": "potatoes-yukon-gold.png",
+      "consistency": "solid",
+      "name": "potatoes",
+      "nameClean": "potato",
+      "original": "2 cups potatoes, peeled and cubed",
+      "originalString": "2 cups potatoes, peeled and cubed",
+      "originalName": "potatoes, peeled and cubed",
+      "amount": 2,
+      "unit": "cups",
+      "meta": [
+        "cubed",
+        "peeled"
+      ],
+      "metaInformation": [
+        "cubed",
+        "peeled"
+      ],
+      "measures": {
+        "us": {
+          "amount": 2,
+          "unitShort": "cups",
+          "unitLong": "cups"
+        },
+        "metric": {
+          "amount": 473.176,
+          "unitShort": "ml",
+          "unitLong": "milliliters"
+        }
+      }
+    },
+    {
+      "id": 2047,
+      "aisle": "Spices and Seasonings",
+      "image": "salt.jpg",
+      "consistency": "solid",
+      "name": "salt",
+      "nameClean": "salt",
+      "original": "Salt to taste",
+      "originalString": "Salt to taste",
+      "originalName": "Salt to taste",
+      "amount": 4,
+      "unit": "servings",
+      "meta": [
+        "to taste"
+      ],
+      "metaInformation": [
+        "to taste"
+      ],
+      "measures": {
+        "us": {
+          "amount": 4,
+          "unitShort": "servings",
+          "unitLong": "servings"
+        },
+        "metric": {
+          "amount": 4,
+          "unitShort": "servings",
+          "unitLong": "servings"
+        }
+      }
+    },
+    {
+      "id": 19335,
+      "aisle": "Baking",
+      "image": "sugar-in-bowl.png",
+      "consistency": "solid",
+      "name": "sugar",
+      "nameClean": "sugar",
+      "original": "2 teaspoons sugar (or to taste)",
+      "originalString": "2 teaspoons sugar (or to taste)",
+      "originalName": "sugar (or to taste)",
+      "amount": 2,
+      "unit": "teaspoons",
+      "meta": [
+        "to taste",
+        "(or )"
+      ],
+      "metaInformation": [
+        "to taste",
+        "(or )"
+      ],
+      "measures": {
+        "us": {
+          "amount": 2,
+          "unitShort": "tsps",
+          "unitLong": "teaspoons"
+        },
+        "metric": {
+          "amount": 2,
+          "unitShort": "tsps",
+          "unitLong": "teaspoons"
+        }
+      }
+    },
+    {
+      "id": 4584,
+      "aisle": "Oil, Vinegar, Salad Dressing",
+      "image": "vegetable-oil.jpg",
+      "consistency": "liquid",
+      "name": "sunflower oil",
+      "nameClean": "sunflower oil",
+      "original": "2 tablespoons sunflower oil",
+      "originalString": "2 tablespoons sunflower oil",
+      "originalName": "sunflower oil",
+      "amount": 2,
+      "unit": "tablespoons",
+      "meta": [],
+      "metaInformation": [],
+      "measures": {
+        "us": {
+          "amount": 2,
+          "unitShort": "Tbsps",
+          "unitLong": "Tbsps"
+        },
+        "metric": {
+          "amount": 2,
+          "unitShort": "Tbsps",
+          "unitLong": "Tbsps"
+        }
+      }
+    },
+    {
+      "id": 4584,
+      "aisle": "Oil, Vinegar, Salad Dressing",
+      "image": "vegetable-oil.jpg",
+      "consistency": "liquid",
+      "name": "sunflower oil",
+      "nameClean": "sunflower oil",
+      "original": "Enough sunflower oil to deep fry",
+      "originalString": "Enough sunflower oil to deep fry",
+      "originalName": "Enough sunflower oil to deep fry",
+      "amount": 4,
+      "unit": "servings",
+      "meta": [],
+      "metaInformation": [],
+      "measures": {
+        "us": {
+          "amount": 4,
+          "unitShort": "servings",
+          "unitLong": "servings"
+        },
+        "metric": {
+          "amount": 4,
+          "unitShort": "servings",
+          "unitLong": "servings"
+        }
+      }
+    },
+    {
+      "id": 2043,
+      "aisle": "Spices and Seasonings",
+      "image": "turmeric.jpg",
+      "consistency": "solid",
+      "name": "turmeric",
+      "nameClean": "turmeric",
+      "original": "1 teaspoon turmeric",
+      "originalString": "1 teaspoon turmeric",
+      "originalName": "turmeric",
+      "amount": 1,
+      "unit": "teaspoon",
+      "meta": [],
+      "metaInformation": [],
+      "measures": {
+        "us": {
+          "amount": 1,
+          "unitShort": "tsp",
+          "unitLong": "teaspoon"
+        },
+        "metric": {
+          "amount": 1,
+          "unitShort": "tsp",
+          "unitLong": "teaspoon"
+        }
+      }
+    },
+    {
+      "id": 14412,
+      "aisle": "Beverages",
+      "image": "water.png",
+      "consistency": "liquid",
+      "name": "water",
+      "nameClean": "water",
+      "original": "5 cups half-boiled water",
+      "originalString": "5 cups half-boiled water",
+      "originalName": "half-boiled water",
+      "amount": 5,
+      "unit": "cups",
+      "meta": [],
+      "metaInformation": [],
+      "measures": {
+        "us": {
+          "amount": 5,
+          "unitShort": "cups",
+          "unitLong": "cups"
+        },
+        "metric": {
+          "amount": 1.183,
+          "unitShort": "l",
+          "unitLong": "liters"
+        }
+      }
+    },
+    {
+      "id": null,
+      "aisle": "?",
+      "image": null,
+      "consistency": null,
+      "name": "poha",
+      "nameClean": null,
+      "original": "3 cups poha (flattened rice)",
+      "originalString": "3 cups poha (flattened rice)",
+      "originalName": "poha (flattened rice)",
+      "amount": 3,
+      "unit": "cups",
+      "meta": [
+        "(flattened rice)"
+      ],
+      "metaInformation": [
+        "(flattened rice)"
+      ],
+      "measures": {
+        "us": {
+          "amount": 3,
+          "unitShort": "cups",
+          "unitLong": "cups"
+        },
+        "metric": {
+          "amount": 709.764,
+          "unitShort": "ml",
+          "unitLong": "milliliters"
+        }
+      }
+    }
+  ],
+  "id": 634452,
+  "title": "Bateta Poha",
+  "readyInMinutes": 45,
+  "servings": 4,
+  "sourceUrl": "http://www.foodista.com/recipe/QGMSSGQM/bateta-poha",
+  "image": "https://spoonacular.com/recipeImages/634452-556x370.jpg",
+  "imageType": "jpg",
+  "summary": "Bateta Poha might be just the side dish you are searching for. This recipe makes 4 servings with <b>555 calories</b>, <b>14g of protein</b>, and <b>41g of fat</b> each. For <b>$2.72 per serving</b>, this recipe <b>covers 43%</b> of your daily requirements of vitamins and minerals. Only a few people made this recipe, and 1 would say it hit the spot. A mixture of salt, ginger, ground pepper, and a handful of other ingredients are all it takes to make this recipe so yummy. From preparation to the plate, this recipe takes approximately <b>45 minutes</b>. It is a good option if you're following a <b>gluten free and vegan</b> diet. All things considered, we decided this recipe <b>deserves a spoonacular score of 93%</b>. This score is excellent. Try <a href=\"https://spoonacular.com/recipes/batata-poha-how-to-make-aloo-poha-bataka-pauaa-600625\">Batata Poha | How to make Aloo Poha | Bataka Pauaa</a>, <a href=\"https://spoonacular.com/recipes/kanda-batata-poha-onion-potato-poha-603998\">Kanda Batata Poha | Onion potato poha</a>, and <a href=\"https://spoonacular.com/recipes/aloo-poha-or-batata-poha-how-to-make-aloo-poha-486750\">Aloo Pohan or Batata Poha , How to Make Aloo Poha</a> for similar recipes.",
+  "cuisines": [],
+  "dishTypes": [
+    "side dish"
+  ],
+  "diets": [
+    "gluten free",
+    "dairy free",
+    "lacto ovo vegetarian",
+    "vegan"
+  ],
+  "occasions": [],
+  "winePairing": {},
+  "instructions": "<ol><li>Place the poha in a small-holed colander and pour on the half-boiled water. Set aside.</li><li>Wash and dry the cubed potatoes, then deep fry in sunflower oil until golden. Drain on kitchen paper and set aside.</li><li>Heat 2 tbsp oil in a large pan and add the chopped onions, ginger, nuts and chilli. Cook until aromatic and the nuts are golden. Do not let it turn too brown.</li><li>Add the cumin seeds, turmeric, asafoetida and curry leaves. Saut for 30 seconds. Add the fennel powder and the potatoes and mix carefully and thoroughly.</li><li>Separate the now cooled poha grains gently with a fork and add to the pan. Season with salt, sugar, lemon and pepper. Gently toss in the pan and remove from the heat. Garnish with chopped coriander.</li><li>Serve to hungry friends and family only if youve managed to refrain from scoffing the whole lot after cooking.</li></ol>",
+  "analyzedInstructions": [
+    {
+      "name": "",
+      "steps": [
+        {
+          "number": 1,
+          "step": "Place the poha in a small-holed colander and pour on the half-boiled water. Set aside.Wash and dry the cubed potatoes, then deep fry in sunflower oil until golden.",
+          "ingredients": [
+            {
+              "id": 4584,
+              "name": "sunflower oil",
+              "localizedName": "sunflower oil",
+              "image": "vegetable-oil.jpg"
+            },
+            {
+              "id": 11352,
+              "name": "potato",
+              "localizedName": "potato",
+              "image": "potatoes-yukon-gold.png"
+            },
+            {
+              "id": 14412,
+              "name": "water",
+              "localizedName": "water",
+              "image": "water.png"
+            }
+          ],
+          "equipment": [
+            {
+              "id": 404639,
+              "name": "colander",
+              "localizedName": "colander",
+              "image": "colander.jpg"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "step": "Drain on kitchen paper and set aside.",
+          "ingredients": [],
+          "equipment": []
+        },
+        {
+          "number": 3,
+          "step": "Heat 2 tbsp oil in a large pan and add the chopped onions, ginger, nuts and chilli. Cook until aromatic and the nuts are golden. Do not let it turn too brown.",
+          "ingredients": [
+            {
+              "id": 11819,
+              "name": "chili pepper",
+              "localizedName": "chili pepper",
+              "image": "red-chili.jpg"
+            },
+            {
+              "id": 11216,
+              "name": "ginger",
+              "localizedName": "ginger",
+              "image": "ginger.png"
+            },
+            {
+              "id": 11282,
+              "name": "onion",
+              "localizedName": "onion",
+              "image": "brown-onion.png"
+            },
+            {
+              "id": 12135,
+              "name": "nuts",
+              "localizedName": "nuts",
+              "image": "nuts-mixed.jpg"
+            },
+            {
+              "id": 4582,
+              "name": "cooking oil",
+              "localizedName": "cooking oil",
+              "image": "vegetable-oil.jpg"
+            }
+          ],
+          "equipment": [
+            {
+              "id": 404645,
+              "name": "frying pan",
+              "localizedName": "frying pan",
+              "image": "pan.png"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "step": "Add the cumin seeds, turmeric, asafoetida and curry leaves. Saut for 30 seconds.",
+          "ingredients": [
+            {
+              "id": 93604,
+              "name": "curry leaves",
+              "localizedName": "curry leaves",
+              "image": "curry-leaves.jpg"
+            },
+            {
+              "id": 2014,
+              "name": "cumin seeds",
+              "localizedName": "cumin seeds",
+              "image": "ground-cumin.jpg"
+            },
+            {
+              "id": 1032035,
+              "name": "asafoetida",
+              "localizedName": "asafoetida",
+              "image": "curry-powder.jpg"
+            },
+            {
+              "id": 2043,
+              "name": "turmeric",
+              "localizedName": "turmeric",
+              "image": "turmeric.jpg"
+            }
+          ],
+          "equipment": []
+        },
+        {
+          "number": 5,
+          "step": "Add the fennel powder and the potatoes and mix carefully and thoroughly.Separate the now cooled poha grains gently with a fork and add to the pan. Season with salt, sugar, lemon and pepper. Gently toss in the pan and remove from the heat.",
+          "ingredients": [
+            {
+              "id": 98953,
+              "name": "ground fennel",
+              "localizedName": "ground fennel",
+              "image": "hemp-protein-powder.png"
+            },
+            {
+              "id": 11352,
+              "name": "potato",
+              "localizedName": "potato",
+              "image": "potatoes-yukon-gold.png"
+            },
+            {
+              "id": 0,
+              "name": "grains",
+              "localizedName": "grains",
+              "image": ""
+            },
+            {
+              "id": 1002030,
+              "name": "pepper",
+              "localizedName": "pepper",
+              "image": "pepper.jpg"
+            },
+            {
+              "id": 9150,
+              "name": "lemon",
+              "localizedName": "lemon",
+              "image": "lemon.png"
+            },
+            {
+              "id": 19335,
+              "name": "sugar",
+              "localizedName": "sugar",
+              "image": "sugar-in-bowl.png"
+            },
+            {
+              "id": 2047,
+              "name": "salt",
+              "localizedName": "salt",
+              "image": "salt.jpg"
+            }
+          ],
+          "equipment": [
+            {
+              "id": 404645,
+              "name": "frying pan",
+              "localizedName": "frying pan",
+              "image": "pan.png"
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "step": "Garnish with chopped coriander.",
+          "ingredients": [
+            {
+              "id": 1012013,
+              "name": "coriander",
+              "localizedName": "coriander",
+              "image": "ground-coriander.jpg"
+            }
+          ],
+          "equipment": []
+        },
+        {
+          "number": 7,
+          "step": "Serve to hungry friends and family only if youve managed to refrain from scoffing the whole lot after cooking.",
+          "ingredients": [],
+          "equipment": []
+        }
+      ]
+    }
+  ],
+  "originalId": null,
+  "spoonacularSourceUrl": "https://spoonacular.com/bateta-poha-634452"
+}

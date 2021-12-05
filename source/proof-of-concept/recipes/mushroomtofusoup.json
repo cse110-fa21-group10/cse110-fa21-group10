@@ -1,0 +1,370 @@
+{
+    "vegetarian": true,
+    "vegan": false,
+    "glutenFree": true,
+    "dairyFree": true,
+    "veryHealthy": true,
+    "cheap": false,
+    "veryPopular": false,
+    "sustainable": false,
+    "weightWatcherSmartPoints": 12,
+    "gaps": "no",
+    "lowFodmap": false,
+    "aggregateLikes": 1,
+    "spoonacularScore": 88,
+    "healthScore": 80,
+    "creditsText": "Foodista.com – The Cooking Encyclopedia Everyone Can Edit",
+    "license": "CC BY 3.0",
+    "sourceName": "Foodista",
+    "pricePerServing": 939.74,
+    "extendedIngredients": [
+      {
+        "id": 14003,
+        "aisle": "Alcoholic Beverages",
+        "image": "beer.jpg",
+        "consistency": "liquid",
+        "name": "beer",
+        "nameClean": "beer",
+        "original": "1 bot beer",
+        "originalString": "1 bot beer",
+        "originalName": "bot beer",
+        "amount": 1,
+        "unit": "",
+        "meta": [],
+        "metaInformation": [],
+        "measures": {
+          "us": {
+            "amount": 1,
+            "unitShort": "",
+            "unitLong": ""
+          },
+          "metric": {
+            "amount": 1,
+            "unitShort": "",
+            "unitLong": ""
+          }
+        }
+      },
+      {
+        "id": 1006615,
+        "aisle": "Canned and Jarred",
+        "image": "chicken-broth.png",
+        "consistency": "liquid",
+        "name": "broth",
+        "nameClean": "stock",
+        "original": "6 cups Strong mushroom broth, up to 8",
+        "originalString": "6 cups Strong mushroom broth, up to 8",
+        "originalName": "Strong mushroom broth, up to 8",
+        "amount": 6,
+        "unit": "cups",
+        "meta": [],
+        "metaInformation": [],
+        "measures": {
+          "us": {
+            "amount": 6,
+            "unitShort": "cups",
+            "unitLong": "cups"
+          },
+          "metric": {
+            "amount": 1.42,
+            "unitShort": "l",
+            "unitLong": "liters"
+          }
+        }
+      },
+      {
+        "id": 11124,
+        "aisle": "Produce",
+        "image": "sliced-carrot.png",
+        "consistency": "solid",
+        "name": "carrots",
+        "nameClean": "carrot",
+        "original": "2 cups Sliced carrots",
+        "originalString": "2 cups Sliced carrots",
+        "originalName": "Sliced carrots",
+        "amount": 2,
+        "unit": "cups",
+        "meta": [
+          "sliced"
+        ],
+        "metaInformation": [
+          "sliced"
+        ],
+        "measures": {
+          "us": {
+            "amount": 2,
+            "unitShort": "cups",
+            "unitLong": "cups"
+          },
+          "metric": {
+            "amount": 473.176,
+            "unitShort": "ml",
+            "unitLong": "milliliters"
+          }
+        }
+      },
+      {
+        "id": 16163,
+        "aisle": "Refrigerated;Produce;Ethnic Foods",
+        "image": "tofu.png",
+        "consistency": "solid",
+        "name": "extra firm tofu",
+        "nameClean": "extra firm tofu",
+        "original": "1 small pkt Firm/extra firm tofu, (not silken) cut into cubes ½\" square",
+        "originalString": "1 small pkt Firm/extra firm tofu, (not silken) cut into cubes ½\" square",
+        "originalName": "pkt Firm/extra firm tofu, (not silken) cut into cubes ½\" square",
+        "amount": 1,
+        "unit": "small",
+        "meta": [
+          "firm",
+          "cut into cubes ½\" square",
+          "(not silken)"
+        ],
+        "metaInformation": [
+          "firm",
+          "cut into cubes ½\" square",
+          "(not silken)"
+        ],
+        "measures": {
+          "us": {
+            "amount": 1,
+            "unitShort": "small",
+            "unitLong": "small"
+          },
+          "metric": {
+            "amount": 1,
+            "unitShort": "small",
+            "unitLong": "small"
+          }
+        }
+      },
+      {
+        "id": 11215,
+        "aisle": "Produce",
+        "image": "garlic.png",
+        "consistency": "solid",
+        "name": "garlic",
+        "nameClean": "garlic",
+        "original": "2 Cloves crushed garlic",
+        "originalString": "2 Cloves crushed garlic",
+        "originalName": "crushed garlic",
+        "amount": 2,
+        "unit": "Cloves",
+        "meta": [
+          "crushed"
+        ],
+        "metaInformation": [
+          "crushed"
+        ],
+        "measures": {
+          "us": {
+            "amount": 2,
+            "unitShort": "Cloves",
+            "unitLong": "Cloves"
+          },
+          "metric": {
+            "amount": 2,
+            "unitShort": "Cloves",
+            "unitLong": "Cloves"
+          }
+        }
+      },
+      {
+        "id": 11260,
+        "aisle": "Produce",
+        "image": "mushrooms-white.jpg",
+        "consistency": "solid",
+        "name": "mushrooms",
+        "nameClean": "fresh mushrooms",
+        "original": "1/2 pound Mushrooms sliced",
+        "originalString": "1/2 pound Mushrooms sliced",
+        "originalName": "Mushrooms sliced",
+        "amount": 0.5,
+        "unit": "pound",
+        "meta": [
+          "sliced"
+        ],
+        "metaInformation": [
+          "sliced"
+        ],
+        "measures": {
+          "us": {
+            "amount": 0.5,
+            "unitShort": "lb",
+            "unitLong": "pounds"
+          },
+          "metric": {
+            "amount": 226.796,
+            "unitShort": "g",
+            "unitLong": "grams"
+          }
+        }
+      },
+      {
+        "id": 11282,
+        "aisle": "Produce",
+        "image": "brown-onion.png",
+        "consistency": "solid",
+        "name": "onion",
+        "nameClean": "onion",
+        "original": "1 large Onion diced",
+        "originalString": "1 large Onion diced",
+        "originalName": "Onion diced",
+        "amount": 1,
+        "unit": "large",
+        "meta": [
+          "diced"
+        ],
+        "metaInformation": [
+          "diced"
+        ],
+        "measures": {
+          "us": {
+            "amount": 1,
+            "unitShort": "large",
+            "unitLong": "large"
+          },
+          "metric": {
+            "amount": 1,
+            "unitShort": "large",
+            "unitLong": "large"
+          }
+        }
+      }
+    ],
+    "id": 652706,
+    "title": "Mushroom Tofu Stew",
+    "readyInMinutes": 45,
+    "servings": 1,
+    "sourceUrl": "http://www.foodista.com/recipe/TKTPMBJF/mushroom-tofu-stew",
+    "image": "https://spoonacular.com/recipeImages/652706-556x370.jpg",
+    "imageType": "jpg",
+    "summary": "Mushroom Tofu Stew might be just the main course you are searching for. One serving contains <b>1053 calories</b>, <b>65g of protein</b>, and <b>15g of fat</b>. This recipe serves 1 and costs $10.89 per serving. It can be enjoyed any time, but it is especially good for <b>Autumn</b>. If you have onion, strong mushroom broth, garlic, and a few other ingredients on hand, you can make it. To use up the potatoes you could follow this main course with the <a href=\"https://spoonacular.com/recipes/sweet-potatoes-scones-761388\">Sweet Potatoes Scones</a> as a dessert. Only a few people made this recipe, and 1 would say it hit the spot. It is a good option if you're following a <b>gluten free, dairy free, and vegetarian</b> diet. All things considered, we decided this recipe <b>deserves a spoonacular score of 90%</b>. This score is amazing. Similar recipes include <a href=\"https://spoonacular.com/recipes/vegetable-stew-with-tofu-761259\">Vegetable Stew with Tofu</a>, <a href=\"https://spoonacular.com/recipes/spicy-tofu-stew-757852\">Spicy Tofu Stew</a>, and <a href=\"https://spoonacular.com/recipes/kimchi-stew-with-chicken-and-tofu-84611\">Kimchi Stew with Chicken and Tofu</a>.",
+    "cuisines": [],
+    "dishTypes": [
+      "lunch",
+      "main course",
+      "main dish",
+      "dinner"
+    ],
+    "diets": [
+      "gluten free",
+      "dairy free",
+      "lacto ovo vegetarian"
+    ],
+    "occasions": [
+      "fall",
+      "winter"
+    ],
+    "winePairing": {},
+    "instructions": "<ol><li>I just made this up the other day and it was pretty good. The real key is to use a very strong mushroom broth (either make your own or use twice the amount called for with the instant), and to brown all the ingredients first.</li><li>In a large stewpot on med-hi heat, saute onions in beer until very brown and beginning to stick to pot bottom Add just enough mushroom broth to loosen the onions on the bottom of the pan and continue browning. Keep up this process until onions are very dark brown.</li><li>At the same time, in a large skillet, pour 1/4 cup mushroom broth and add cubed tofu. Brown on all sides as much as possible on med-hi, adding broth when tofu starts to stick, loosening the tofu cubes and cooking until they start to stick again. When tofu cubes are browned well, add to onions and add rest of mushroom broth. If more liquid is needed, add water to cover stew if more liquid is needed.</li><li>In same skillet, using water, use same process on carrots and mushrooms, browning and loosening with water and then add to the stew mixture.</li><li>Finally, add crushed garlic, cover and simmer until full flavor has developed.</li><li>This process of browning really increases the flavor of all the contents including the tofu. Don't be afraid to make plenty, as this disappeared fast and there were not enough leftovers for my taste!</li></ol>",
+    "analyzedInstructions": [
+      {
+        "name": "",
+        "steps": [
+          {
+            "number": 1,
+            "step": "I just made this up the other day and it was pretty good. The real key is to use a very strong mushroom broth (either make your own or use twice the amount called for with the instant), and to brown all the ingredients first.In a large stewpot on med-hi heat, saute onions in beer until very brown and beginning to stick to pot bottom",
+            "ingredients": [
+              {
+                "id": 11260,
+                "name": "mushrooms",
+                "localizedName": "mushrooms",
+                "image": "mushrooms.png"
+              },
+              {
+                "id": 11282,
+                "name": "onion",
+                "localizedName": "onion",
+                "image": "brown-onion.png"
+              },
+              {
+                "id": 1006615,
+                "name": "broth",
+                "localizedName": "broth",
+                "image": "chicken-broth.png"
+              },
+              {
+                "id": 14003,
+                "name": "beer",
+                "localizedName": "beer",
+                "image": "beer.jpg"
+              }
+            ],
+            "equipment": [
+              {
+                "id": 404752,
+                "name": "pot",
+                "localizedName": "pot",
+                "image": "stock-pot.jpg"
+              }
+            ]
+          },
+          {
+            "number": 2,
+            "step": "Add just enough mushroom broth to loosen the onions on the bottom of the pan and continue browning. Keep up this process until onions are very dark brown.At the same time, in a large skillet, pour 1/4 cup mushroom broth and add cubed tofu. Brown on all sides as much as possible on med-hi, adding broth when tofu starts to stick, loosening the tofu cubes and cooking until they start to stick again. When tofu cubes are browned well, add to onions and add rest of mushroom broth. If more liquid is needed, add water to cover stew if more liquid is needed.In same skillet, using water, use same process on carrots and mushrooms, browning and loosening with water and then add to the stew mixture.Finally, add crushed garlic, cover and simmer until full flavor has developed.This process of browning really increases the flavor of all the contents including the tofu. Don't be afraid to make plenty, as this disappeared fast and there were not enough leftovers for my taste!",
+            "ingredients": [
+              {
+                "id": 11260,
+                "name": "mushrooms",
+                "localizedName": "mushrooms",
+                "image": "mushrooms.png"
+              },
+              {
+                "id": 11124,
+                "name": "carrot",
+                "localizedName": "carrot",
+                "image": "sliced-carrot.png"
+              },
+              {
+                "id": 11215,
+                "name": "garlic",
+                "localizedName": "garlic",
+                "image": "garlic.png"
+              },
+              {
+                "id": 11282,
+                "name": "onion",
+                "localizedName": "onion",
+                "image": "brown-onion.png"
+              },
+              {
+                "id": 1006615,
+                "name": "broth",
+                "localizedName": "broth",
+                "image": "chicken-broth.png"
+              },
+              {
+                "id": 14412,
+                "name": "water",
+                "localizedName": "water",
+                "image": "water.png"
+              },
+              {
+                "id": 0,
+                "name": "stew",
+                "localizedName": "stew",
+                "image": ""
+              },
+              {
+                "id": 16213,
+                "name": "tofu",
+                "localizedName": "tofu",
+                "image": "tofu.png"
+              }
+            ],
+            "equipment": [
+              {
+                "id": 404645,
+                "name": "frying pan",
+                "localizedName": "frying pan",
+                "image": "pan.png"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "originalId": null,
+    "spoonacularSourceUrl": "https://spoonacular.com/mushroom-tofu-stew-652706"
+  }
