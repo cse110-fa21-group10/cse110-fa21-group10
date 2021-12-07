@@ -96,7 +96,7 @@ function initializePrefsBox() {
 
     // make the buttons functional
     document.querySelector('.add-ingredient-button').addEventListener('click', addIngredient);
-    document.querySelector('.remove-ingredient-button').addEventListener('click', removeIngredient);
+    /* document.querySelector('.remove-ingredient-button').addEventListener('click', removeIngredient); */
     document.querySelector('.clear-prefs-button').addEventListener('click', clearPrefs);
     document.querySelector('#diet-dropdown').addEventListener('change', e => { 
         if (diets.indexOf(e.target.value) > -1) {
@@ -114,10 +114,7 @@ function initializePrefsBox() {
 
         // add existing prefs to page
         for (let i = 0; i < ingredientList.length; ++i) {
-            const ingredientLabel = document.createElement('li');
-            ingredientLabel.setAttribute('id', `_prefs-ingredient-${ingredientList[i]}`);
-            ingredientLabel.textContent = ingredientList[i];
-            prefsList.append(ingredientLabel);
+            addPrefItem(ingredientList[i]);
         }
         
         let idx = 0;
@@ -154,10 +151,7 @@ const addIngredient = () => {
         // if the ingredient is not in the list, add it
         if (ingredientList.indexOf(ingredient) < 0) {
             ingredientList.push(ingredient);
-            const ingredientLabel = document.createElement('li');
-            ingredientLabel.setAttribute('id', `_prefs-ingredient-${ingredient}`);
-            ingredientLabel.textContent = ingredient;
-            prefsList.append(ingredientLabel);
+            addPrefItem(ingredient);
         }
 
         const newPrefs = JSON.stringify(prefs);
@@ -169,14 +163,37 @@ const addIngredient = () => {
 }
 
 /*
- * Removes the ingredient specified to in the text box
- * with the id `remove-ingredient-box`, then clears the
- * text box. If the ingredient is not found, then the 
- * function only clears the box.
+ * Helper method to handle building HTML for a single 
+ * preference either when the page is initialized or
+ * when the user adds more preferences.
  */
-const removeIngredient = () => {
-    const removeBox = document.querySelector('#add-ingredient-box');
-    const ingredient = removeBox.value;
+const addPrefItem = ingredient => {
+    const ingredientItem = document.createElement('li');
+    ingredientItem.setAttribute('id', `_prefs-ingredient-${ingredient}`);
+
+    const ingredientBox = document.createElement('div');
+    ingredientBox.textContent = `${ingredient} `;
+    ingredientBox.classList.add('prefs-list-div');
+
+    const removalButton = document.createElement('button');
+    removalButton.textContent = 'Remove';
+    removalButton.addEventListener('click', () => {
+        removeIngredient(ingredient);
+        //const linkedIngredient = document.querySelector(`#_prefs-ingredient-${ingredient}`);
+        //console.log(linkedIngredient);
+    });
+
+    ingredientBox.append(removalButton);
+    ingredientItem.append(ingredientBox);
+    prefsList.append(ingredientItem);
+}
+
+/*
+ * Removes the ingredient specified by the argument `ingredient`.
+ * Deletes associated HTML from the page
+ * If the ingredient is not found, then the function does nothing.
+ */
+const removeIngredient = ingredient => {
     if (ingredient) {
 
         // grab the local storage and look for ingredient
@@ -188,8 +205,8 @@ const removeIngredient = () => {
         if (idx > -1) {
             // ingredient exists in our list, now remove it
             ingredientList.splice(idx, 1);
-            const ingredientLabel = document.querySelector(`#_prefs-ingredient-${ingredient}`);
-            ingredientLabel.remove();
+            const ingredientItem = document.querySelector(`#_prefs-ingredient-${ingredient}`);
+            ingredientItem.remove();
         }
 
         // update local prefs with new list
@@ -197,7 +214,6 @@ const removeIngredient = () => {
         local.setItem('prefs', newPrefs);
         local.setItem('new_flag', 1);
     }
-    removeBox.value = '';
 }
 
 /*

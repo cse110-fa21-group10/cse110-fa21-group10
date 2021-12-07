@@ -30,6 +30,19 @@
           <button class="add-api-key-button">Add Key</button>
           <button class="remove-api-key-button">Remove Key</button>
         </div> -->
+        <div class="profile-selector">
+          <h2>User Profile</h2>
+          <label for="user-profile">Choose an existing profile:</label>
+          <select name="user-profile" id="profile-selector">
+            <option value="User1">User1</option>
+            <option value="User2">User2</option>
+          </select>
+          <br>
+          <input type="text" id="add-profile-box" name="add-profile" placeholder="Username">
+          <button id="add-user-button">Add User</button>
+          <br>
+          <button id="remove-current-user-button">Remove Current User</button>
+        </div>
         <div class="preference-section">
           <h2>Preferences</h2>
           <p>
@@ -41,7 +54,7 @@
           </div>
           <div class="preference-buttons">
             <button class="add-ingredient-button">Add Preference</button>
-            <button class="remove-ingredient-button">Remove Preference</button>
+            <!-- <button class="remove-ingredient-button">Remove Preference</button> -->
             <button class="clear-prefs-button">Clear Preferences</button>
           </div>
           <div id="pref-display"></div>
