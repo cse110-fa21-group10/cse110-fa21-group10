@@ -182,10 +182,8 @@ const addPrefItem = ingredient => {
     removalButton.textContent = 'Remove';
     removalButton.addEventListener('click', () => {
         removeIngredient(ingredient);
-        //const linkedIngredient = document.querySelector(`#_prefs-ingredient-${ingredient}`);
-        //console.log(linkedIngredient);
     });
-
+    removalButton.setAttribute('id', `_prefs-ingredient-${ingredient}-remove`);
     ingredientBox.append(removalButton);
     ingredientItem.append(ingredientBox);
     prefsList.append(ingredientItem);
@@ -300,7 +298,6 @@ async function processSearch() {
     } else {
         window.localStorage.setItem('queryResult', JSON.stringify(queryJSON));
         window.location.href = './recipe-page.html?s=-1';
-        // TODO fill in link here to recipe page
     }
 }
 
