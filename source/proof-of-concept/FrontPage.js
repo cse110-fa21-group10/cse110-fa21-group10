@@ -146,6 +146,9 @@ const addIngredient = () => {
     if (ingredient) {
         const local = window.localStorage;
         const prefs = JSON.parse(local.getItem('prefs'));
+        if (!prefs){
+            return; // prefs not found
+        }
         const ingredientList = prefs['ingredients'];
 
         // if the ingredient is not in the list, add it
@@ -199,6 +202,9 @@ const removeIngredient = ingredient => {
         // grab the local storage and look for ingredient
         const local = window.localStorage;
         const prefs = JSON.parse(local.getItem('prefs'));
+        if (!prefs){
+            return; // prefs not found
+        }
         const ingredientList = prefs['ingredients'];
         const idx = ingredientList.indexOf(ingredient);
 
@@ -255,6 +261,9 @@ const clearPrefs = () => {
  */ 
 const updatePrefs = (option, value) => {
     const prefs = JSON.parse(window.localStorage.getItem('prefs'));
+    if (!prefs){
+        return; // prefs not found
+    }
     prefs[option] = value;
     window.localStorage.setItem('prefs', JSON.stringify(prefs));
 }
@@ -312,34 +321,33 @@ async function loadRecommendations() {
         // callback function to resolve this promise. If there's any error fetching any of the items, call
         // the reject(false) function.
         const existingRecs = JSON.parse(window.localStorage.getItem('recommendations'));
-        if(existingRecs != null){
-            console.log('creating recs from prefs')
-            for(let i = 0; i < existingRecs.length; i++) {
+        if (existingRecs != null) {
+            console.log('creating recs from prefs');
+            for (let i = 0; i < existingRecs.length; i++) {
                 recipeData[i] = existingRecs[i];
                 if (Object.keys(recipeData).length == existingRecs.length) {
                     console.log('fetch success');
                     resolve(true);
                 }
             }
-        }else{
-
-            for(let i = 0; i < recipes.length; i ++) {
-            fetch(recipes[i])
-            .then(response => response.json())
-            .then(data => {
-                recipeData[i] = data;
-                if (Object.keys(recipeData).length == recipes.length) {
-                console.log('fetch success');
-                resolve(true);
-                }
-            })
-            .catch(error => {
-                console.log(error);
-                reject(false);
-            })
+        } else {
+            for (let i = 0; i < recipes.length; i++) {
+                fetch(recipes[i])
+                    .then(response => response.json())
+                    .then(data => {
+                        recipeData[i] = data;
+                        if (Object.keys(recipeData).length == recipes.length) {
+                            console.log('fetch success');
+                            resolve(true);
+                        }
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        reject(false);
+                    });
             }
         }
-      });
+    });
 }
 
 /*
@@ -347,23 +355,27 @@ async function loadRecommendations() {
  */
 function createRecipeCards() {
     let box = document.querySelector('.Top-Picks-box');
-    if(Object.keys({}).length == 0){
-        for(let i = 0; i < recipes.length; i ++) {
+    if (Object.keys({}).length == 0){
+        for (let i = 0; i < recipes.length; i++ ) {
             let recipe_card = document.createElement('recipe-card');
-            recipe_card.data = {data: recipeData[i],num: i};
+            recipe_card.data = {data: recipeData[i], num: i};
             box.appendChild(recipe_card);
-          }
-    }else{
-        for(let i = 0; i < Object.keys({}).length; i ++) {
+        }
+    } else {
+        for (let i = 0; i < Object.keys({}).length; i++ ) {
             let recipe_card = document.createElement('recipe-card');
-            recipe_card.data = {data: recipeData[i],num: i};
+            recipe_card.data = {data: recipeData[i], num: i};
             box.appendChild(recipe_card);
-          }
+        }
     }
 
     
 }
 
+
+/*
+ * NOTE: Some utility functions repurposed from code provided for Lab Assignment
+ */
 class RecipeCard extends HTMLElement {
     constructor() {
       super();
