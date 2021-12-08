@@ -191,4 +191,4 @@ function processInitialResult(arr) {
     return result;
 }
 
-export { runQuery };
+export { runQuery, getIngredientQuery, processInitialResult};
