@@ -517,5 +517,5 @@ class RecipeCard extends HTMLElement {
   // This is critical, leave this here and don't touch it
   customElements.define('recipe-card', RecipeCard);
 
-export { exportPrefs, getLatestQuery};
+export { exportPrefs, getLatestQuery };
 
