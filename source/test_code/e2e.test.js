@@ -14,7 +14,7 @@ describe('Basic user flow for Website', () => {
     for (let i = 0; i < ingredient_add.length; ++i){
       await page.$eval('#add-ingredient-box', (el, ingredient) => {el.value = ingredient}, ingredient_add[i]);
       const button = await page.waitForSelector('button.add-ingredient-button');
-      button.scrollIntoView();
+      await button.eval(e => e.scrollIntoView());
       await button.click();
       await new Promise((r) => setTimeout(r, 200));
     }
@@ -70,7 +70,7 @@ describe('Basic user flow for Website', () => {
     //Add salt back into the preference
     await page.$eval('#add-ingredient-box', el => el.value = 'salt');
     const button = await page.waitForSelector('button.add-ingredient-button');
-    button.scrollIntoView();
+    await button.eval(e => e.scrollIntoView());
     await button.click();
     await new Promise((r) => setTimeout(r, 200));
 
