@@ -45,8 +45,7 @@ describe('Basic user flow for Website', () => {
     expect(local.indexOf('salt')).toBeGreaterThanOrEqual(0);
 
     //Remove salt
-    await page.$eval('#remove-ingredient-box', el => el.value = 'salt');
-    await page.click('button.remove-ingredient-button');
+    await page.click('_prefs-ingredient-salt-remove');
 
     //Update user preference
     local = await page.evaluate(() => {
@@ -82,10 +81,6 @@ describe('Basic user flow for Website', () => {
     for (let i = 0; i < ingredient_add.length; ++i){
       expect(local.indexOf(ingredient_add[i])).toBeGreaterThanOrEqual(0);
     }
-
-    // //Add API Key
-    await page.$eval('#add-api-key-box', el => el.value = '1ae797d1850647b7aeddd60d1aa509d8');
-    await page.click('button.add-api-key-button');
 
     //Search for a recipe
     await Promise.all([
@@ -175,8 +170,7 @@ describe('Basic user flow for Website', () => {
     }
     
     //Remove mushrooms
-    await page.$eval('#remove-ingredient-box', el => el.value = 'mushroom');
-    await page.click('button.remove-ingredient-button');
+    await page.click('_prefs-ingredient-mushroom-remove');
 
     //Get user preference from local storage
     let local = await page.evaluate(() => {
