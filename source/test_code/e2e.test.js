@@ -13,9 +13,7 @@ describe('Basic user flow for Website', () => {
     const ingredient_add = ['broccoli', 'mushroom', 'beef', 'salt'];
     for (let i = 0; i < ingredient_add.length; ++i){
       await page.$eval('#add-ingredient-box', (el, ingredient) => {el.value = ingredient}, ingredient_add[i]);
-      const button = await page.waitForSelector('button.add-ingredient-button');
-      await button.eval(e => e.scrollIntoView());
-      await button.click();
+      await page.click('button.add-ingredient-button');
       await new Promise((r) => setTimeout(r, 200));
     }
 
@@ -47,7 +45,7 @@ describe('Basic user flow for Website', () => {
     expect(local.indexOf('salt')).toBeGreaterThanOrEqual(0);
 
     //Remove salt
-    await page.click('#_prefs-ingredient-salt-remove');
+    await page.click('_prefs-ingredient-salt-remove');
 
     //Update user preference
     local = await page.evaluate(() => {
@@ -69,9 +67,7 @@ describe('Basic user flow for Website', () => {
 
     //Add salt back into the preference
     await page.$eval('#add-ingredient-box', el => el.value = 'salt');
-    const button = await page.waitForSelector('button.add-ingredient-button');
-    await button.eval(e => e.scrollIntoView());
-    await button.click();
+    await page.click('button.add-ingredient-button');
     await new Promise((r) => setTimeout(r, 200));
 
     //Get the preference list
@@ -174,7 +170,7 @@ describe('Basic user flow for Website', () => {
     }
     
     //Remove mushrooms
-    await page.click('#_prefs-ingredient-mushroom-remove');
+    await page.click('_prefs-ingredient-mushroom-remove');
 
     //Get user preference from local storage
     let local = await page.evaluate(() => {
