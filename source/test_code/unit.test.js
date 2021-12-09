@@ -5,29 +5,31 @@
  import { getIngredientQuery, processInitialResult } from '../proof-of-concept/SpoonacularAPIWrapper.js';
 
  // Testing getIngredientQuery
+ // Note: this function **always** expects a nonempty key to be 
+ // passed in; if it does not find such a key it will return `ERR`
 
  // Test with all empty inputs
  test('getIngredientQuery', () => {
   expect(getIngredientQuery([], {'ingredients': [""], 'diet': "", 'key': ""}))
-  .toBe("?apiKey=&includeIngredients=&diet=");
+  .toBe("ERR");
 });
 
 // Test with only arr
 test('getIngredientQuery', () => {
-  expect(getIngredientQuery(["apple"], {'ingredients': [""], 'diet': "", 'key': ""}))
-  .toBe("?apiKey=&includeIngredients=applepeach&diet=");
+  expect(getIngredientQuery(["apple"], {'ingredients': [""], 'diet': "", 'key': "0"}))
+  .toBe("?apiKey=0&includeIngredients=applepeach&diet=");
 });
 
 // Test with only ingredient
 test('getIngredientQuery', () => {
-  expect(getIngredientQuery([], {'ingredients': ["peach"], 'diet': "", 'key': ""}))
-  .toBe("?apiKey=&includeIngredients=peach&diet=");
+  expect(getIngredientQuery([], {'ingredients': ["peach"], 'diet': "", 'key': "0"}))
+  .toBe("?apiKey=0&includeIngredients=peach&diet=");
 });
 
 // Test with only diet
 test('getIngredientQuery', () => {
-  expect(getIngredientQuery([], {'ingredients': [""], 'diet': "vegan", 'key': ""}))
-  .toBe("?apiKey=&includeIngredients=&diet=vegan");
+  expect(getIngredientQuery([], {'ingredients': [""], 'diet': "vegan", 'key': "0"}))
+  .toBe("?apiKey=0&includeIngredients=&diet=vegan");
 });
 
 // Test with only key
@@ -75,7 +77,7 @@ test('getIngredientQuery', () => {
 // Test with empty string
  test('processInitialResult', () => {
   expect(processInitialResult([""]))
-  .toStrictEqual([""]);
+  .toStrictEqual([undefined]);
 });
  
 // Test with objects only containing 'id' key

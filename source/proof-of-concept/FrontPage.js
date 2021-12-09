@@ -96,15 +96,12 @@ function initializePrefsBox() {
 
     // make the buttons functional
     document.querySelector('.add-ingredient-button').addEventListener('click', addIngredient);
-    /* document.querySelector('.remove-ingredient-button').addEventListener('click', removeIngredient); */
     document.querySelector('.clear-prefs-button').addEventListener('click', clearPrefs);
     document.querySelector('#diet-dropdown').addEventListener('change', e => { 
         if (diets.indexOf(e.target.value) > -1) {
             updatePrefs('diet', e.target.value);
         }
     });
-    // document.querySelector('.add-api-key-button').addEventListener('click', addKey);
-    // document.querySelector('.remove-api-key-button').addEventListener('click', removeKey);
     document.querySelector('.search-button').addEventListener('click', processSearch);
 
     // check for existing local prefs
@@ -285,6 +282,12 @@ const removeKey = () => {
     updatePrefs('key', undefined);
 }
 
+
+/*
+ * Handles the search request by calling Spoonacular API wrapper
+ * functions, then storing the data locally and redirecting the user
+ * to the recipe page.
+ */
 async function processSearch() {
     const rawQuery = document.querySelector('#search-box').value;
     const splitQuery = rawQuery.split(',');
