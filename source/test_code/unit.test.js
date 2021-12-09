@@ -7,10 +7,11 @@
  // Testing getIngredientQuery
  // Note: this function **always** expects a nonempty key to be 
  // passed in; if it does not find such a key it will return `ERR`
+ // unless there are no ingredients in which case it returns undefined
 
  // Test with all empty inputs
  test('getIngredientQuery', () => {
-  expect(getIngredientQuery([], {'ingredients': [], 'diet': "", 'key': ""}))
+  expect(getIngredientQuery([], {'ingredients': [""], 'diet': "", 'key': ""}))
   .toBe("ERR");
 });
 
@@ -28,13 +29,13 @@ test('getIngredientQuery', () => {
 
 // Test with only diet
 test('getIngredientQuery', () => {
-  expect(getIngredientQuery([], {'ingredients': [], 'diet': "vegan", 'key': "0"}))
+  expect(getIngredientQuery([], {'ingredients': [""], 'diet': "vegan", 'key': "0"}))
   .toBe("?apiKey=0&includeIngredients=&diet=vegan");
 });
 
 // Test with only key
  test('getIngredientQuery', () => {
-     expect(getIngredientQuery([], {'ingredients': [], 'diet': "", 'key': "000"}))
+     expect(getIngredientQuery([], {'ingredients': [""], 'diet': "", 'key': "000"}))
      .toBe("?apiKey=000&includeIngredients=&diet=");
  });
  
