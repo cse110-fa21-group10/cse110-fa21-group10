@@ -10,14 +10,14 @@
 
  // Test with all empty inputs
  test('getIngredientQuery', () => {
-  expect(getIngredientQuery([], {'ingredients': [""], 'diet': "", 'key': ""}))
+  expect(getIngredientQuery([], {'ingredients': [], 'diet': "", 'key': ""}))
   .toBe("ERR");
 });
 
 // Test with only arr
 test('getIngredientQuery', () => {
-  expect(getIngredientQuery(["apple"], {'ingredients': [""], 'diet': "", 'key': "0"}))
-  .toBe("?apiKey=0&includeIngredients=applepeach&diet=");
+  expect(getIngredientQuery(["apple"], {'ingredients': [], 'diet': "", 'key': "0"}))
+  .toBe("?apiKey=0&includeIngredients=apple&diet=");
 });
 
 // Test with only ingredient
@@ -28,13 +28,13 @@ test('getIngredientQuery', () => {
 
 // Test with only diet
 test('getIngredientQuery', () => {
-  expect(getIngredientQuery([], {'ingredients': [""], 'diet': "vegan", 'key': "0"}))
+  expect(getIngredientQuery([], {'ingredients': [], 'diet': "vegan", 'key': "0"}))
   .toBe("?apiKey=0&includeIngredients=&diet=vegan");
 });
 
 // Test with only key
  test('getIngredientQuery', () => {
-     expect(getIngredientQuery([], {'ingredients': [""], 'diet': "", 'key': "000"}))
+     expect(getIngredientQuery([], {'ingredients': [], 'diet': "", 'key': "000"}))
      .toBe("?apiKey=000&includeIngredients=&diet=");
  });
  
