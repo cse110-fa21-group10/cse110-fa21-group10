@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
- import { getIngredientQuery, processInitialResult } from '../proof-of-concept/SpoonacularAPIWrapper.js';
+ import { getIngredientQuery, processInitialResult } from '../SpoonacularAPIWrapper.js';
 
  // Testing getIngredientQuery
  // Note: this function **always** expects a nonempty key to be 
