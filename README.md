@@ -7,3 +7,6 @@ We will be creating a CRUD website that will be hosting recipes.
 
 ## Link of deployment
 https://cse110-group10.web.app/
+
+##Link to jsdoc (MUST MAKE REPO PUBLIC TO SEE THIS)
+https://cse110-fa21-group10.github.io/cse110-fa21-group10/
