@@ -61,7 +61,7 @@ describe('Basic user flow for Website', () => {
 
   jest.setTimeout(35000);
   it('Query Testing', async () => {
-    console.log('Querying recipe');
+    console.log('Querying recipe!');
 
     //Add ingredients from the 'ingredient_add' array and then click the 'add ingredient button'
     const ingredient_add = ['broccoli', 'mushroom', 'beef', 'salt'];
