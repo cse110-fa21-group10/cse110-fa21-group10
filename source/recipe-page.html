@@ -15,8 +15,7 @@
 <body>
   <main>
 
-    <div class="recipe">
-      <img class= "logo" src="pixie.png" alt="pixie">
+    <div class="overall">
     </div>
     <script>
       
@@ -54,65 +53,90 @@
                 console.log(error);
                 reject(false);
             })
-        
-        
       }
       
       
 
 
       function addData(recipeData) {
-        let recipe = document.querySelector('.recipe');
+        let recipe = document.querySelector('.overall');
 
+        let left = document.createElement('left_panel');
+        
         let title = document.createElement('h1');
         title.classList.add('title');
         title.innerHTML = recipeData.title;
-        recipe.appendChild(title);
+        left.appendChild(title);
 
-        let overview = document.createElement('div');
-        overview.classList.add('recipe-overview');
 
         let description = document.createElement('p');
         description.classList.add('recipe-description');
-        description.innerHTML = recipeData.summary;
-        overview.appendChild(description);
-
-        let image = document.createElement('img');
-        image.classList.add('recipe-image');
-        image.setAttribute('src', recipeData.image);
-        image.setAttribute('alt', 'recipe-image');
-
-        overview.appendChild(image);
-      
-        recipe.appendChild(overview);
-
         let time = document.createElement('p');
         time.classList.add('cook-time');
-        time.innerHTML = '<b>Cook Time: </b>' + recipeData.readyInMinutes + ' Minutes';
-        recipe.appendChild(time);
+
+        description.innerHTML = recipeData.summary+ '<br>' + '<br>'+'<b>Cook Time: </b>' + recipeData.readyInMinutes + ' Minutes';
+
+
+
+      
+
+
+        left.appendChild(description);
+
 
         let ingred = document.createElement('h2');
         ingred.classList.add('ingr_title');
         ingred.innerHTML = "Ingredients";
-        recipe.appendChild(ingred);
+        left.appendChild(ingred);
 
+        let overview2 = document.createElement('div');
+        overview2.classList.add('recipe-description');
         let ingredients = document.createElement('ul');
         for(let i = 0; i < recipeData.extendedIngredients.length; i++) {
           let ingredient = document.createElement('li');
           ingredient.innerHTML = recipeData.extendedIngredients[i]['original'];
           ingredients.appendChild(ingredient);
         }
-        recipe.appendChild(ingredients);
+        overview2.appendChild(ingredients);
+        left.appendChild(overview2);
 
         let steps_title = document.createElement('h2');
         steps_title.classList.add('steps_title');
         steps_title.innerHTML = "Recipe Steps";
-        recipe.appendChild(steps_title);
+        left.appendChild(steps_title);
 
         let steps = document.createElement('div');
-        steps.classList.add('recipe-steps');
+        
+        steps.classList.add('recipe-description');
         steps.innerHTML = recipeData.instructions;
-        recipe.appendChild(steps);
+        left.appendChild(steps);
+
+
+        recipe.appendChild(left);
+
+
+        let right = document.createElement('right_panel');
+
+        let title2 = document.createElement('h1');
+        title2.classList.add('title');
+        title2.innerHTML = '<br>';
+        right.appendChild(title2);
+
+        let picture = document.createElement('recipe-image');
+
+        let image = document.createElement('img');
+        image.classList.add('recipe-image');
+        image.setAttribute('src', recipeData.image);
+        image.setAttribute('alt', 'recipe-image');
+
+        picture.appendChild(image);
+
+
+
+        right.appendChild(picture);
+
+        recipe.appendChild(right);
+
       }
     </script>
   </main>
