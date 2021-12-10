@@ -91,7 +91,7 @@ describe('Basic user flow for Website', () => {
 
     //Check to make sure url paged to recipe page
     await new Promise((r) => setTimeout(r, 3000));
-    expect(page.url()).toBe('https://cse110-group10.web.app/recipe-page.html');
+    expect(page.url()).toBe('https://cse110-group10.web.app/recipe-page.html?s=-1');
   });
 
   it('Test Query Validity', async () => {
@@ -199,7 +199,7 @@ describe('Basic user flow for Website', () => {
 
     //Check to make sure url paged to recipe page
     await new Promise((r) => setTimeout(r, 3000));
-    expect(page.url()).toBe('https://cse110-group10.web.app/recipe-page.html');
+    expect(page.url()).toBe('https://cse110-group10.web.app/recipe-page.html?s=-1');
 
     //Save recipe name of first recipe
     let first_title = await page.$('h1.title');
@@ -247,7 +247,7 @@ describe('Basic user flow for Website', () => {
 
     //Check to make sure url paged to recipe page
     await new Promise((r) => setTimeout(r, 3000));
-    expect(page.url()).toBe('https://cse110-group10.web.app/recipe-page.html');
+    expect(page.url()).toBe('https://cse110-group10.web.app/recipe-page.html?s=-1');
 
     //Save recipe name of first recipe
     let second_title = await page.$('h1.title');
