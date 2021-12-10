@@ -8,7 +8,7 @@ describe('Basic user flow for Website', () => {
   });
   
   it('Add ingredients to preferences', async () => {
-    console.log('Adding ingredients');
+    console.log('Adding ingredients!');
     await page.setViewport({ width, height});
     //Add ingredients from the 'ingredient_add' array and then click the 'add ingredient button'
     const ingredient_add = ['broccoli', 'mushroom', 'beef', 'salt'];
