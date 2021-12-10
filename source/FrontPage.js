@@ -128,7 +128,7 @@ function initializePrefsBox() {
         clearPrefs();
         
     }
-    updatePrefs('key', '71530fb69f67480882abe2fdc47f6da2');
+    updatePrefs('key', '629aa421d4e743aeb717256cae557b27');
 }
 
 /*
