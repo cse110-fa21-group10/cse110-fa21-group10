@@ -241,3 +241,19 @@ time {
   vertical-align: middle;
   background: rgba(0, 0, 0, 0.16);
 }
+
+button {
+  background-color: #4CAF50;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+select {
+  cursor: pointer;
+}
