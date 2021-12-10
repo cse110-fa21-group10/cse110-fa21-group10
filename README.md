@@ -12,4 +12,4 @@ https://cse110-group10.web.app/
 https://cse110-fa21-group10.github.io/cse110-fa21-group10/
 
 ## Team Video (public version)
-https://www.youtube.com/watch?v=DY6ZoSB5yys
+https://www.youtube.com/watch?v=RUo-PVaGUks
