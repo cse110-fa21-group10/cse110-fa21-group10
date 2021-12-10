@@ -416,10 +416,10 @@ class RecipeCard extends HTMLElement {
   
       // ============== Container for Recipe Card Text ============== 
       // Here is the text part div
-      var text_div = document.createElement('recipe-title');
+      var text_div = document.createElement('div');
       text_div.classList.add('recipe-card-text');
       // get title image from recipe-card json
-      var title= document.createElement('recipe-title');
+      var title= document.createElement('div');
       title.classList.add('recipe-title');
       // get link image from recipe-card json
       var title_link = document.createElement('a');
