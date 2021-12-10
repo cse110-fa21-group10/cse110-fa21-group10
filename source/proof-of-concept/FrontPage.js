@@ -128,6 +128,7 @@ function initializePrefsBox() {
         clearPrefs();
         
     }
+    updatePrefs('key', '2091e7c0530041daa573b77bdfb2f1b2');
 }
 
 /*
@@ -273,7 +274,6 @@ const addKey = () => {
     updatePrefs('key', key);
 }
 
-updatePrefs('key', '2091e7c0530041daa573b77bdfb2f1b2')
 
 /*
  * Removes API key from local prefs

@@ -2,13 +2,14 @@
 const puppeteer = require('puppeteer');
 describe('Basic user flow for Website', () => {
   // Access the recipe manager site
+  const width=1024, height=1600;
   beforeAll(async () => {
     await page.goto('https://cse110-group10.web.app/');
   });
   
   it('Add ingredients to preferences', async () => {
     console.log('Adding ingredients');
-
+    await page.setViewport({ width, height});
     //Add ingredients from the 'ingredient_add' array and then click the 'add ingredient button'
     const ingredient_add = ['broccoli', 'mushroom', 'beef', 'salt'];
     for (let i = 0; i < ingredient_add.length; ++i){
@@ -45,7 +46,7 @@ describe('Basic user flow for Website', () => {
     expect(local.indexOf('salt')).toBeGreaterThanOrEqual(0);
 
     //Remove salt
-    await page.click('_prefs-ingredient-salt-remove');
+    await page.click('#_prefs-ingredient-salt-remove');
 
     //Update user preference
     local = await page.evaluate(() => {
@@ -170,7 +171,7 @@ describe('Basic user flow for Website', () => {
     }
     
     //Remove mushrooms
-    await page.click('_prefs-ingredient-mushroom-remove');
+    await page.click('#_prefs-ingredient-mushroom-remove');
 
     //Get user preference from local storage
     let local = await page.evaluate(() => {
@@ -201,7 +202,7 @@ describe('Basic user flow for Website', () => {
     expect(page.url()).toBe('https://cse110-group10.web.app/recipe-page.html');
 
     //Save recipe name of first recipe
-    let first_title = await page.$('h2.title');
+    let first_title = await page.$('h1.title');
 
     //Check all the ingredients listed
     const ingredients = await page.evaluate(() => {
@@ -249,7 +250,7 @@ describe('Basic user flow for Website', () => {
     expect(page.url()).toBe('https://cse110-group10.web.app/recipe-page.html');
 
     //Save recipe name of first recipe
-    let second_title = await page.$('h2.title');
+    let second_title = await page.$('h1.title');
 
     //Check to make sure all the ingredients in user preference are in there
     for (let i = 0; i < ingredients.length; i++){
@@ -267,6 +268,8 @@ describe('Basic user flow for Website', () => {
     expect(ingredient_check[ingredient_check.length - 1]).toBe(false);
 
     //First recipe is different from the second one
+    console.log(first_title);
+    console.log(second_title);
     expect(first_title).not.toEqual(second_title);
   });
 });
