@@ -13,3 +13,6 @@ https://cse110-fa21-group10.github.io/cse110-fa21-group10/
 
 ## Team Video (public version)
 https://www.youtube.com/watch?v=RUo-PVaGUks
+
+## Team Video (private version
+https://www.youtube.com/watch?v=xr8cWofp00Q
