@@ -43,7 +43,7 @@ async function init() {
 
     // fetch the recipes and wait for them to load
     let fetchSuccessful = await loadRecommendations();
-    // if they didn't successfully load, quit the function
+    // if they dont successfully load, quit the function
     if (!fetchSuccessful) {
       console.log('Recipe fetch unsuccessful');
       return;
